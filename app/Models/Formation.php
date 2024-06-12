@@ -13,13 +13,15 @@ class Formation extends Model
     protected $fillable = ['titre', 'description', 'date_expiration', 'image', 'users_id'];
 
 
-    public function candidatures()
-        {
-            return $this->belongsToMany(Candidature::class,'candidature_formations');
-        }
 
     public function user()
         {
             return $this->belongsTo(User::class);
+        }
+
+        //pour candidat
+        public function users()
+        {
+            return $this->hasToMany(User::class, 'candidature_formations');
         }
 }

@@ -18,9 +18,4 @@ class Candidature extends Model
             return $this->belongsTo(User::class);
         }
 
-    public function formations()
-        {
-            return $this->belongsToMany(Formation::class,'candidature_formations');
-        }
-
 }
