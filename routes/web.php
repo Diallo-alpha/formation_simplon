@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PortailController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/',[PortailController::class,'portail'] );
