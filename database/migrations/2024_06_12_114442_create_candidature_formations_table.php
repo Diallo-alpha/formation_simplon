@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('candidature_formations', function (Blueprint $table) {
             $table->id();
+            $table->enum('statut', ['en_cours', 'accepter', 'refuser', 'en_attente'])->default('en_cours');
             // $table->unsignedBigInteger('formation_id')->nullable();
             $table->foreignId('formation_id')->references('id')->on('formations')->onDelete('cascade');
             // $table->unsignedBigInteger('candidature_id')->nullable();
