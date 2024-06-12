@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="{{asset('css/portail/offre.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/offre.css') }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body>
@@ -34,7 +34,7 @@
 
             <div class="box">
 
-                <img class="photo-cont-All-box" src="https://img.freepik.com/photos-gratuite/plantes-aux-feuilles-vertes-tres-belles_626616-156.jpg?t=st=1718197900~exp=1718201500~hmac=4b0c9dce6aff26fc25cf33f5df3c9eb28e586bd6ec45342d8d63e9d857e37738&w=360" alt="">
+                <img class="photo-cont-All-box" src="{{asset('img/Image_collée.png')}}" alt="">
 
                 <div class="box-element1">
                     <h3 class="title-dark text-center">SAAS</h3>
@@ -65,7 +65,7 @@
             </div>
             <div class="box">
 
-                <img class="photo-cont-All-box" src="https://img.freepik.com/photos-gratuite/plantes-aux-feuilles-vertes-tres-belles_626616-156.jpg?t=st=1718197900~exp=1718201500~hmac=4b0c9dce6aff26fc25cf33f5df3c9eb28e586bd6ec45342d8d63e9d857e37738&w=360" alt="">
+                <img class="photo-cont-All-box" src="{{asset('img/Image_collée.png')}}" alt="">
 
                 <div class="box-element1">
                     <h3 class="title-dark text-center">SAAS</h3>
@@ -83,7 +83,7 @@
 
             <div class="box">
 
-                <img class="photo-cont-All-box" src="https://img.freepik.com/photos-gratuite/plantes-aux-feuilles-vertes-tres-belles_626616-156.jpg?t=st=1718197900~exp=1718201500~hmac=4b0c9dce6aff26fc25cf33f5df3c9eb28e586bd6ec45342d8d63e9d857e37738&w=360" alt="">
+                <img class="photo-cont-All-box" src="{{asset('img/Image_collée.png')}}" alt="">
 
                 <div class="box-element1">
                     <h3 class="title-dark text-center">SAAS</h3>
@@ -99,7 +99,7 @@
 
             <div class="box">
 
-                <img class="photo-cont-All-box" src="https://img.freepik.com/photos-gratuite/plantes-aux-feuilles-vertes-tres-belles_626616-156.jpg?t=st=1718197900~exp=1718201500~hmac=4b0c9dce6aff26fc25cf33f5df3c9eb28e586bd6ec45342d8d63e9d857e37738&w=360" alt="">
+                <img class="photo-cont-All-box" src="{{asset('img/Image_collée.png')}}" alt="">
 
                 <div class="box-element1">
                     <h3 class="title-dark text-center">SAAS</h3>
@@ -124,4 +124,5 @@
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
 </body>
+
 </html>
