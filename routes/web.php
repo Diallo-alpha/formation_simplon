@@ -1,8 +1,8 @@
 <?php
 
-use App\Http\Controllers\CandidatDuController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FormationController;
+use App\Http\Controllers\CandidatDuController;
 
 //route pour formations
 Route::get('/liste/formation', [FormationController::class, 'listeFormation'])->name('formation.liste');
@@ -26,3 +26,7 @@ Route::get('/offre', function()
 Route::get('candidat_inscription',[CandidatDuController::class,'inscription']);
 Route::post('sauvegarde_candidat',[CandidatDuController::class,'sauvegarde']);
 Route::get('afficher_candidat',[CandidatDuController::class,'afficher']);
+
+
+// details de la formation
+Route::get('detail', [FormationController::class,'detailsformation']);

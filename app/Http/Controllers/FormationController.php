@@ -79,4 +79,9 @@ class FormationController extends Controller
         $formation->delete();
         return redirect()->route('formation.liste')->with('success', 'Formation supprimée avec succès.');
     }
+    // Controller details
+    
+    public function detailsformation(){
+         return view('formations.details');
+    }
 }
