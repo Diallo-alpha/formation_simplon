@@ -16,7 +16,6 @@ return new class extends Migration
             $table->text('biographie');
             $table->text('motivations');
             $table->string('cv');
-            $table->enum('statut', ['en_cours', 'accepter', 'refuser', 'en_attente']);
             // $table->unsignedBigInteger('user_id')->nullable();
             $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();

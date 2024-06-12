@@ -11,7 +11,7 @@ class Candidature extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['biographie', 'motivations', 'statut', 'cv','users_id'];
+    protected $fillable = ['biographie', 'motivations','cv','user_id'];
 
     public function user()
         {
