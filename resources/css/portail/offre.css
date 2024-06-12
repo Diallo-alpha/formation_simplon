@@ -1,0 +1,87 @@
+
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+    *{
+        margin: 00;
+        padding:00 ;
+
+    }
+    .baniere{
+        width: 100%;
+        height: 23rem;
+        background-color: #e9d3d3a7;
+        display: flex;
+        justify-content: space-around;
+    }
+    .box-baniere1{
+width: 40%;
+
+    }
+    .img-baniere{
+        height: 22rem;
+        width: auto;
+        margin-top:1.37rem;
+     margin-left: 10rem;
+
+    }
+    .box-baniere2{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 60%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0 auto;
+    padding: 4rem;
+    }
+    .text-baniere{
+        text-align: start;
+        font-family: 'Montserrat';
+        font-weight: 300;
+        font-size: 1.5rem;
+        width: 39rem;
+        margin: 2rem;
+    }
+    .cont-All{
+        margin: 8rem;
+
+    }
+    .cont-box{
+        padding: 1rem;
+    display: flex; /* Utiliser Flexbox */
+    justify-content: center; /* Centrer horizontalement */
+    align-items: center; /* Centrer verticalement */
+    margin: auto;
+    height: 100vh;
+   gap: 5rem;
+    }
+    .box{
+        display: flex;
+        justify-content: start;
+      width: 27rem;
+      height: 15.5rem;
+      box-shadow: 0.1rem 0.1rem 0.4rem 0.02rem
+       black;
+    border-radius: 0.2rem;
+
+    }
+    .photo-cont-All-box{
+        width: 10rem;
+        height: 15.5rem;
+        border-radius: 0.2rem;
+    }
+    .box-element1{
+        width: 100%;
+        padding: 1rem;
+        align-items: center;
+
+    }
+    .btn_postuler{
+        display: flex;
+        align-items: center;
+        margin: 00 auto ;
+    }
+
+
