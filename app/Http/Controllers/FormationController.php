@@ -79,4 +79,10 @@ class FormationController extends Controller
         $formation->delete();
         return redirect()->route('formation.liste')->with('success', 'Formation supprimée avec succès.');
     }
+
+    // liste formation disponible
+    public function afficher_formation(){
+       $formations= Formation::all();
+       return view('portails.offre',compact('formations'));
+    }
 }

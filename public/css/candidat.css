@@ -108,3 +108,38 @@
     background-color: #c82333;
     border-color: #bd2130;
 }
+/* gestion des carte */
+.container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+  .card {
+    display: flex;
+    flex-direction: row;
+    width: 45%; /* Adjust the width to fit two cards side by side */
+    margin: 10px;
+    border: 1px solid #ccc; /* Optional: Add border for better visualization */
+    border-radius: 8px; /* Optional: Add rounded corners */
+    overflow: hidden; /* Ensure content stays within the card */
+  }
+  .image {
+    flex: 1;
+    max-width: 50%; /* Ensure the image takes up half of the card */
+  }
+  .image img {
+    width: 100%;
+    height: auto;
+  }
+  .text {
+    flex: 1;
+    padding: 20px;
+  }
+  .text h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  .text p {
+    font-size: 18px;
+    line-height: 1.6;
+  }
