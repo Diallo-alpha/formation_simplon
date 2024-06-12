@@ -17,3 +17,4 @@ Route::get('/offre', function()
 Route::get('candidat_inscription',[CandidatDuController::class,'inscription']);
 Route::post('sauvegarde_candidat',[CandidatDuController::class,'sauvegarde']);
 Route::get('afficher_candidat',[CandidatDuController::class,'afficher']);
+Route::get('supprimer_candidat/{id}',[CandidatDuController::class,'supprimer_candidat']);

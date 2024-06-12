@@ -19,4 +19,10 @@ class CandidatDuController extends Controller
         $users=User::all();
         return view('Candidats.afficher',compact('users'));
     }
+
+    public function supprimer_candidat($id){
+        $user=User::find($id);
+        $user->delete();
+        return redirect()->back();
+    }
 }
