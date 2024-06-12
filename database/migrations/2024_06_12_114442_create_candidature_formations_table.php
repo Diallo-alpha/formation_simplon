@@ -17,7 +17,7 @@ return new class extends Migration
             // $table->unsignedBigInteger('formation_id')->nullable();
             $table->foreignId('formation_id')->references('id')->on('formations')->onDelete('cascade');
             // $table->unsignedBigInteger('candidature_id')->nullable();
-            $table->foreignId('candidature_id')->references('id')->on('candidatures')->onDelete('cascade');
+            $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
 

@@ -33,7 +33,7 @@ class User extends Authenticatable
     }
     public function formations()
         {
-            return $this->hasMany(Formation::class);
+            return $this->hasToMany(Formation::class, 'candidature_formations');
         }
     /**
      * The attributes that should be hidden for serialization.
