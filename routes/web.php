@@ -7,10 +7,14 @@ use App\Http\Controllers\CandidatureController;
 use App\Http\Controllers\CandidatureFormationController;
 use Illuminate\Http\Request;
 
+
 Route::get('/',[PortailController::class,'portail'] );
 
 use App\Http\Controllers\FormationController;
 use App\Http\Controllers\CandidatDuController;
+
+
+// Route::get('/',[PortailController::class,'portail'] );
 
 //route pour formations
 Route::get('/', [FormationController::class, 'listeFormation'])->name('formation.liste');
@@ -30,4 +34,20 @@ Route::get('afficher_candidat',[CandidatDuController::class,'afficher'])->name('
 
 // details de la formation
 Route::get('detail', [FormationController::class,'detailsformation']);
+
+
+
+Route::get('afficher_candidat',[CandidatDuController::class,'afficher']);
+// details de la formation
+Route::get('detail', [FormationController::class,'detailsformation'])->name('details.formation');//ça marche
+Route::delete('/supprimmer_candidat/{id}', [CandidatDuController::class, 'supprimer_candidat'])->name('supprimer.candiate');
+// gestion du dashbord
+Route::get('formationAdsbord',[FormationController::class,'formation_dashbord']);
+Route::get('detail/{id}', [FormationController::class,'detailsformation']);
+
+//route de teste
+Route::get('/', function()
+{
+    return view('candidatDashboard.listeCandidature');
+});
 
