@@ -92,7 +92,7 @@
                             <button type="submit" class="btn btn-danger btn-sm">Supprimer</button>
                         </form>
                     </td>
-                    
+                  <td> <a href="{{url('afficher_candidat')}}">candidates</a></td>
                 </tr>
             @endforeach
             </tbody>
