@@ -17,26 +17,18 @@ class AuthController extends Controller
     public function postRegister(Request $request)
     {
         // Validez et créez l'utilisateur
-        // $request->validate([
-        //     'name' => 'required|string|max:255',
-        //     'email' => 'required|string|email|unique:users|max:255',
-        //     'password' => 'required|string|min:4|max:255|confirmed',
-        // // ]);
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|unique:users|max:255',
+            'password' => 'required|string|min:4|max:255',
+        ]);
 
         // Créer l'utilisateur
 
         $user = new User();
         // User::create($request->all() );
-        $user->prenom = $request->prenom;
-        $user->nom = $request->nom;
+        $user->name = $request->name;
         $user->email = $request->email;
-        $user->telephone = $request->telephone;
-        $user->adresse = $request->adresse;
-        $user->email = $request->email;
-
-
-
-
         $user->password = Hash::make($request->password);
         $user->save();
 
@@ -78,7 +70,7 @@ class AuthController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
             // Redirigez vers la page de tableau de bord ou une autre page
-            return redirect()->intended('welcome');
+            return redirect()->intended('livres');
         }
 
         // Si l'authentification échoue, redirigez vers la page de connexion avec un message d'erreur
@@ -91,12 +83,5 @@ class AuthController extends Controller
     {
         Auth::logout(); // Déconnectez l'utilisateur
         return redirect()->route('auth.getLogin'); // Redirigez vers la page de connexion
-    }
-  
-    public function listecandature(){
-        
-        $users = User::with('formations')->get();
-        
-       return view('dashbord.candidature',compact('users'));
     }
 }

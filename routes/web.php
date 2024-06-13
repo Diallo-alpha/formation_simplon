@@ -47,3 +47,10 @@ Route::get('detail/{id}', [FormationController::class,'detailsformation']);
 // offre de formation
 // Route::get('offreform',[OffreFormationController::class,'offredetail']);
 Route::get('offreform', [OffreFormationController::class, 'offreform']);
+
+//Authentification
+Route::get('/login', [AuthController::class, 'getLogin'])->name('auth.getLogin');
+Route::post('/login', [AuthController::class, 'postLogin'])->name('auth.postLogin');
+Route::get('/register', [AuthController::class, 'getRegister'])->name('auth.getRegister');
+Route::post('/register', [AuthController::class, 'postRegister'])->name('auth.postRegister');
+Route::get('/logout', [AuthController::class, 'logout'])->name('auth.logout');
