@@ -1,6 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
@@ -9,27 +7,14 @@ use App\Http\Controllers\FormationController;
 use App\Http\Controllers\CandidatDuController;
 use App\Http\Controllers\CandidatureController;
 use App\Http\Controllers\OffreFormationController;
->>>>>>> feature/offre
-
-use Illuminate\Http\Request;
-
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AuthController;
-use App\Http\Controllers\PortailController;
-use App\Http\Controllers\FormationController;
 
 
 Route::get('/',[PortailController::class,'portail'] );
 
-use App\Http\Controllers\CandidatDuController;
-use App\Http\Controllers\CandidatureController;
-use App\Http\Controllers\CandidatureFormationController;
-
-
 // Route::get('/',[PortailController::class,'portail'] );
 
 //route pour formations
-Route::get('/', [FormationController::class, 'listeFormation'])->name('formation.liste');
+Route::get('/listeFormation', [FormationController::class, 'listeFormation'])->name('formation.liste');
 Route::get('/formations/ajouter', [FormationController::class, 'afficherFormAjouterFormation'])->name('formulaire.ajout.formation');
 Route::post('/formations', [FormationController::class, 'traitementAjouFormation'])->name('formations.traitement');
 //modifier une formation
@@ -51,7 +36,7 @@ Route::get('formulaire_postuler',[CandidatureController::class,'formulaireCand']
 Route::post('postuler',[CandidatureController::class,'postuler'])->name('postuler');
 Route::get('afficherDetailsCandidature/{id}',[CandidatureController::class,'index'])->name('fichiers.index');
 Route::get('ListeCandidates',[AuthController::class,'listecandature']);
-//rejetter la candidature 
+//rejetter la candidature
 Route::delete('candidatSup/{id}',[CandidatureController::class,'supprimercand'])->name('rejettercadidature');
 
 
@@ -63,10 +48,8 @@ Route::delete('/supprimmer_candidat/{id}', [CandidatDuController::class, 'suppri
 // gestion du dashbord
 Route::get('formationAdsbord',[FormationController::class,'formation_dashbord']);
 Route::get('detail/{id}', [FormationController::class,'detailsformation']);
-<<<<<<< HEAD
 Route::get('afficherFOR/{id}',[CandidatureController::class,'affichercandid']);
 Route::get('/formations/afficher/{id}', [FormationController::class, 'afficher'])->name('candidatureFormation');
-=======
 // offre de formation
 // Route::get('offreform',[OffreFormationController::class,'offredetail']);
 Route::get('offreform', [OffreFormationController::class, 'offreform']);
@@ -77,4 +60,3 @@ Route::post('/login', [AuthController::class, 'postLogin'])->name('auth.postLogi
 Route::get('/register', [AuthController::class, 'getRegister'])->name('auth.getRegister');
 Route::post('/register', [AuthController::class, 'postRegister'])->name('auth.postRegister');
 Route::get('/logout', [AuthController::class, 'logout'])->name('auth.logout');
->>>>>>> feature/offre
