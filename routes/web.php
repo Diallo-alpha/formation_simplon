@@ -1,16 +1,16 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-
-use App\Http\Controllers\PortailController;
-use App\Http\Controllers\CandidatureController;
-use App\Http\Controllers\CandidatureFormationController;
 use Illuminate\Http\Request;
+
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PortailController;
+use App\Http\Controllers\FormationController;
+use App\Http\Controllers\CandidatDuController;
 
 Route::get('/',[PortailController::class,'portail'] );
 
-use App\Http\Controllers\FormationController;
-use App\Http\Controllers\CandidatDuController;
+use App\Http\Controllers\CandidatureController;
+use App\Http\Controllers\CandidatureFormationController;
 
 //route pour formations
 Route::get('/', [FormationController::class, 'listeFormation'])->name('formation.liste');
@@ -29,3 +29,4 @@ Route::get('afficher_candidat',[CandidatDuController::class,'afficher']);
 Route::get('detail', [FormationController::class,'detailsformation'])->name('details.formation');//ça marche
 Route::delete('/supprimmer_candidat/{id}', [CandidatDuController::class, 'supprimer_candidat'])->name('supprimer.candiate');
 // gestion du dashbord
+Route::get('detail/{id}', [FormationController::class,'detailsformation']);
