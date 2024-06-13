@@ -19,10 +19,17 @@ class CandidatDuController extends Controller
         $users=User::all();
         return view('Candidats.afficher',compact('users'));
     }
-
+// suppression des candidats
     public function supprimer_candidat($id){
         $user=User::find($id);
         $user->delete();
         return redirect()->back();
     }
+
+    // affichage des candidats dans le dashbord
+    public function candidat_dashbord(){
+        $users=User::where('role','candidat')->get();
+        return view('dashbord.candidat',compact('users'));
+
+    } 
 }

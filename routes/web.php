@@ -7,11 +7,15 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PortailController;
 use App\Http\Controllers\FormationController;
 
+
 Route::get('/',[PortailController::class,'portail'] );
 
 use App\Http\Controllers\CandidatDuController;
 use App\Http\Controllers\CandidatureController;
 use App\Http\Controllers\CandidatureFormationController;
+
+
+// Route::get('/',[PortailController::class,'portail'] );
 
 //route pour formations
 Route::get('/', [FormationController::class, 'listeFormation'])->name('formation.liste');
@@ -38,6 +42,8 @@ Route::get('afficherDetailsCandidature/{id}',[CandidatureController::class,'inde
 Route::get('ListeCandidates',[AuthController::class,'listecandature']);
 //rejetter la candidature 
 Route::delete('candidatSup/{id}',[CandidatureController::class,'supprimercand'])->name('rejettercadidature');
+
+
 
 // Route::get('afficher_candidat',[CandidatureController::class,'afficher']);
 // details de la formation

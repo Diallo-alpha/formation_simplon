@@ -90,11 +90,12 @@ class FormationController extends Controller
     public function detailsformation(){
          return view('formations.details');
     }
-
+// affichage des formation dans le dashbord
     public function formation_dashbord(){
         $formations=Formation::all();
         return view('dashbord.formation',compact('formations'));
     }
+<<<<<<< HEAD
     public function afficher($id)
     {
         $formation = Formation::find($id);
@@ -104,4 +105,7 @@ class FormationController extends Controller
         $users = $formation->users;
         return view('dashbord.candidature', compact('formation', 'users'));
     }
+=======
+    
+>>>>>>> 623c542d249a4bb97aa5a1d38f3faa404b8b2da2
 }

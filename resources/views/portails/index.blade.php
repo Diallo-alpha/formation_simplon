@@ -10,11 +10,15 @@
 <body>
     <menu>
         <div class="banner">
-        <h1 class="cla">L'informatique pour tous, 
+        <h1 class="cla">L'informatique pour tous,
         gratuitement.</h1>
         <p>Notre entreprise s'engage à offrir des formations informatiques gratuites pour rendre l'éducation numérique accessible à tous.</p>
 
         </div>
+ <button>
+    <a href="/deconnexion_candidat">deconnexion</a>
+ </button>
+
     </menu>
     <style>
         .banner{
