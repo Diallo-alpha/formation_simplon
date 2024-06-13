@@ -1,11 +1,12 @@
 <?php
-use App\Http\Controllers\AuthController;
-use App\Http\Controllers\CandidatDuController;
-use App\Http\Controllers\CandidatureController;
-use App\Http\Controllers\FormationController;
-use App\Http\Controllers\PortailController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\PortailController;
+use App\Http\Controllers\FormationController;
+use App\Http\Controllers\CandidatDuController;
+use App\Http\Controllers\CandidatureController;
+use App\Http\Controllers\OffreFormationController;
 
 
 
@@ -43,3 +44,6 @@ Route::delete('/supprimmer_candidat/{id}', [CandidatDuController::class, 'suppri
 // gestion du dashbord
 Route::get('formationAdsbord',[FormationController::class,'formation_dashbord']);
 Route::get('detail/{id}', [FormationController::class,'detailsformation']);
+// offre de formation
+// Route::get('offreform',[OffreFormationController::class,'offredetail']);
+Route::get('offreform', [OffreFormationController::class, 'offreform']);
