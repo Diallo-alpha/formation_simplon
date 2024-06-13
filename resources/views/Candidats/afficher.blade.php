@@ -35,6 +35,7 @@
             <td>{{ $user->adresse}}</td>
             <td>{{ $user->niveau}}</td>
             <td><a href="supprimer_candidat/{{ $user->id }}" class="btn btn-danger"> supprimer</a></td>
+            <i class='fas fa-eye' style='font-size:48px;color:red'></i>
             @endforeach
           </tr>
         </tbody>
