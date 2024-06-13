@@ -53,3 +53,5 @@ Route::post('/login', [AuthController::class, 'postLogin'])->name('auth.postLogi
 Route::get('/register', [AuthController::class, 'getRegister'])->name('auth.getRegister');
 Route::post('/register', [AuthController::class, 'postRegister'])->name('auth.postRegister');
 Route::get('/logout', [AuthController::class, 'logout'])->name('auth.logout');
+
+Route::get('/fichiers/afficher/{path}', [CandidatureController::class, 'afficher'])->name('fichier.afficher');
