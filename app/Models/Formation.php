@@ -22,6 +22,7 @@ class Formation extends Model
         //pour candidat
         public function users()
         {
-            return $this->hasToMany(User::class, 'candidature_formations');
+            return $this->belongsToMany(User::class, 'candidature_formations', 'formation_id', 'user_id');
+  
         }
 }

@@ -33,10 +33,18 @@ public function postuler(Request $request) {
 
     }
     public function afficher(){
-        $users=User::all();
-        return view('Candidats.afficher',compact('users'));
+        $candidatures=Candidature::all();
+        return view('Candidats.afficher',compact('candidatures'));
     }
-    
-    
+    public function supprimercand($id){
+        $user = request('user_id');
+        $candidature=Candidature::findOrFail($id);
+        if ($candidature->user_id !== $user->id) {
+            $candidature->delete();
+        }
+      
+        return redirect()->back();
+    }
+  
     
 }
