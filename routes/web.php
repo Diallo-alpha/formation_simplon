@@ -1,16 +1,16 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-
-use App\Http\Controllers\PortailController;
-use App\Http\Controllers\CandidatureController;
-use App\Http\Controllers\CandidatureFormationController;
 use Illuminate\Http\Request;
+
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PortailController;
+use App\Http\Controllers\FormationController;
+use App\Http\Controllers\CandidatDuController;
 
 Route::get('/',[PortailController::class,'portail'] );
 
-use App\Http\Controllers\FormationController;
-use App\Http\Controllers\CandidatDuController;
+use App\Http\Controllers\CandidatureController;
+use App\Http\Controllers\CandidatureFormationController;
 
 //route pour formations
 Route::get('/liste/formation', [FormationController::class, 'listeFormation'])->name('formation.liste');
@@ -37,4 +37,4 @@ Route::get('afficher_candidat',[CandidatDuController::class,'afficher']);
 
 
 // details de la formation
-Route::get('detail', [FormationController::class,'detailsformation']);
+Route::get('detail/{id}', [FormationController::class,'detailsformation']);

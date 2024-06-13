@@ -80,8 +80,8 @@ class FormationController extends Controller
         return redirect()->route('formation.liste')->with('success', 'Formation supprimée avec succès.');
     }
     // Controller details
-    
-    public function detailsformation(){
+
+    public function detailsformation($id){
          return view('formations.details');
     }
 
