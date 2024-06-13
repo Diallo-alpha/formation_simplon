@@ -93,4 +93,10 @@ class AuthController extends Controller
         return redirect()->route('auth.getLogin'); // Redirigez vers la page de connexion
     }
   
+    public function listecandature(){
+        
+        $users = User::with('formations')->get();
+        
+       return view('dashbord.candidature',compact('users'));
+    }
 }

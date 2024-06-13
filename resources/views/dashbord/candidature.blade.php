@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="{{ asset('css/candidat.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/candidature.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body>
@@ -47,11 +47,58 @@
 <!-- le conteneur des elements -->
 <div class="conteneur_element">
 <h1>
+<<<<<<< HEAD
     tous element de la candidature doit etre ici  
 </h1>
+=======
+
+    tous element de la candidature doit etre ici
+</h1>
+<div>
+   
+<table class="dataTable">
+    <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Prenom</th>
+            <th>niveau</th>
+            <th>adresse</th>
+            <th>date</th>
+            <th>Action</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        @foreach ($users as $user)
+        
+        
+        <tr>
+            <td><a href="#">{{$user->nom}}</td>
+            <td>{{$user->prenom}}</td>
+            <td>{{$user->niveau}}</td>
+            <td>{{$user->adresse}}</td>
+            <td>{{$user->created_at}}</td>
+            
+            <td>
+                <a href="">
+                <button class="button action">accepter</button>
+                </a>
+                <form action="{{Route('rejettercadidature',$user->id)}}" method="post">
+                    @csrf
+                    @method('DELETE')
+                <button type="submit" class="button action">rejeter</button>
+                </form>
+            </td>
+            @endforeach
+    </tbody>
+</table>
+>>>>>>> 7d2db9968f9a7547b727952b3fb23fc6735aa941
 
 </div>
 
+
+
+</div>
 
 
 
