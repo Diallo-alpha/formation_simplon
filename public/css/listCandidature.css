@@ -18,7 +18,9 @@ header {
     background-color: #f8f9fa;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-
+.icon{
+    color: #ce0333;
+}
 .cont_all {
     display: flex;
 }
@@ -73,3 +75,10 @@ header {
 .navbar ul .colonne_CHEF a {
     color: black;
 }
+.container-candidat
+    {
+        display: grid;
+        grid-template-columns:column;
+        gap: -10px;
+        background-color: #ce0333;
+    }

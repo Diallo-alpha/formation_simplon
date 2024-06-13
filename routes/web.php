@@ -44,8 +44,7 @@ Route::delete('/supprimmer_candidat/{id}', [CandidatDuController::class, 'suppri
 Route::get('formationAdsbord',[FormationController::class,'formation_dashbord']);
 Route::get('detail/{id}', [FormationController::class,'detailsformation']);
 
-//route de teste
-Route::get('/', function()
+Route::get('/candidature/dasboard', function()
 {
     return view('candidatDashboard.listeCandidature');
 });
