@@ -9,10 +9,15 @@
 <body>
     <div class="container mt-5">
         <h1 class="mb-4">Liste des Formations</h1>
+        <a href="{{ route('formulaire.ajout.formation') }}" class="btn btn-success mb-3">Ajouter une Formation</a>
+        @if(session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
         <table class="table table-striped">
             <thead class="thead-dark">
                 <tr>
-                    <th>ID</th>
                     <th>Titre</th>
                     <th>Description</th>
                     <th>Date d'Expiration</th>
@@ -22,30 +27,22 @@
                 </tr>
             </thead>
             <tbody>
+                @foreach($formations as $formation)
                 <tr>
-                    <td>1</td>
-                    <td>Formation A</td>
-                    <td>Description de la formation A</td>
-                    <td>2023-12-31</td>
-                    <td><img src="image_a.jpg" alt="Formation A" width="100"></td>
-                    <td>Utilisateur 1</td>
+                    <td>{{ $formation->titre }}</td>
+                    <td>{{ $formation->description }}</td>
+                    <td>{{ $formation->date_expiration }}</td>
+                    <td><img src="{{asset('/images/' . $formation->image)}}" alt="{{ $formation->titre }}" width="100"></td>
                     <td>
-                        <a href="#" class="btn btn-primary btn-sm">Modifier</a>
-                        <a href="#" class="btn btn-danger btn-sm">Supprimer</a>
+                        <a href="{{ route('form.modification.formation', $formation->id) }}" class="btn btn-warning btn-sm">Modifier</a>
+                        <form action="{{ route('formation.supprimer', $formation->id) }}" method="POST" style="display:inline-block;">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger btn-sm">Supprimer</button>
+                        </form>
                     </td>
                 </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Formation B</td>
-                    <td>Description de la formation B</td>
-                    <td>2024-06-30</td>
-                    <td><img src="image_b.jpg" alt="Formation B" width="100"></td>
-                    <td>Utilisateur 2</td>
-                    <td>
-                        <a href="#" class="btn btn-primary btn-sm">Modifier</a>
-                        <a href="#" class="btn btn-danger btn-sm">Supprimer</a>
-                    </td>
-                </tr>
+            @endforeach
             </tbody>
         </table>
     </div>
