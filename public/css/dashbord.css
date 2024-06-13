@@ -1,0 +1,85 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+body{
+    margin: 1rem;
+    background-color: brown;
+    height: 99vh;
+}
+.cont_all{
+    display: flex;
+}
+.dashbord{
+    width: 17%;
+    background-color: brown;
+    height: 100vh;
+    position: fixed;
+}
+.conteneur_element{
+    width: 80%;
+    margin-left: 17%;
+    background-color: #fff;
+    height: 95vh;
+    border-radius: 1rem;
+    position: fixed;
+}
+.navbar{
+    margin-top:2rem ;
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+
+   width: 100%;
+}
+.colonne{
+ text-align: start;
+   color: white;
+width: 100%;
+font-size: 1.2rem;
+font-weight: 400;
+padding: 0.80rem;
+padding-left: 4rem;
+}
+.colonne_cote{
+    border-radius: 3rem 0rem 0rem 3rem;
+}
+.colonne_CHEF{
+    background-color: #fff;
+    color: black;
+    border-radius: 3rem 0rem 0rem 3rem;
+}
+
+.cont_all .dashbord .navbar ul .colonne a {
+    text-decoration: none;
+    color: white;
+}
+.cont_all .dashbord .navbar ul .colonne_CHEF a{
+    color: black;
+}
+/* info perso*/
+.info_perso{
+    margin: 1.5rem 0 ;
+    display: flex;
+   gap: 0.8rem ;
+   color: #fff;
+}
+.info_img{
+    width: 4.2rem;
+    border:  #fff solid 0.09rem;
+    border-radius: 4rem;
+}
+.photo_dashbord{
+    width: 4rem;
+    border:  #fff solid 0.09rem;
+    border-radius: 4rem;
+display: block; justify-content: center;
+ align-items: center;
+ margin-left: 0.05rem;
+}
+.conteneur_element{
+    padding: 1rem;
+}
