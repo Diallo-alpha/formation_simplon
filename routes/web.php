@@ -5,7 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PortailController;
 use App\Http\Controllers\FormationController;
 
-Route::get('/',[PortailController::class,'portail'] );
+// Route::get('/',[PortailController::class,'portail'] );
 //route pour formations
 Route::get('/', [FormationController::class, 'listeFormation'])->name('formation.liste');
 Route::get('/formations/ajouter', [FormationController::class, 'afficherFormAjouterFormation'])->name('formulaire.ajout.formation');
@@ -39,3 +39,9 @@ Route::delete('/supprimmer_candidat/{id}', [CandidatDuController::class, 'suppri
 // gestion du dashbord
 Route::get('formationAdsbord',[FormationController::class,'formation_dashbord']);
 Route::get('detail/{id}', [FormationController::class,'detailsformation']);
+
+//route de teste
+Route::get('/', function()
+{
+    return view('candidatDashboard.listeCandidature');
+});
