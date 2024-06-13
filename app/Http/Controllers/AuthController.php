@@ -18,19 +18,19 @@ class AuthController extends Controller
     {
         // Validez et créez l'utilisateur
         $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|unique:users|max:255',
-            'password' => 'required|string|min:4|max:255',
+            // 'nam' => 'required|string|max:255',
+            // 'email' => 'required|string|email|unique:users|max:255',
+            // 'password' => 'required|string|min:4|max:255',
         ]);
 
         // Créer l'utilisateur
 
-        $user = new User();
-        // User::create($request->all() );
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->password = Hash::make($request->password);
-        $user->save();
+        // $user = new User();
+        User::create($request->all() );
+        // $user->name = $request->name;
+        // $user->email = $request->email;
+        // $user->password = Hash::make($request->password);
+        // $user->save();
 
 
         return redirect()->route('auth.getLogin');
@@ -70,7 +70,7 @@ class AuthController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
             // Redirigez vers la page de tableau de bord ou une autre page
-            return redirect()->intended('livres');
+            return redirect()->intended('offre');
         }
 
         // Si l'authentification échoue, redirigez vers la page de connexion avec un message d'erreur

@@ -46,15 +46,41 @@
             @csrf
 
 
-            <!--Prenom & Nom-->
+            <!-- Nom-->
             <div class="col-md-12">
-                <label for="name" class="form-label">name</label>
-                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
-                @error('name')
+                <label for="nom" class="form-label">nom</label>
+                <input id="nom" type="text" class="form-control" name="nom" value="{{ old('nom') }}" required autofocus>
+                @error('nom')
                     <span class="text-danger">{{ $message }}</span>
                 @enderror
             </div>
 
+              <!--Prenom -->
+              <div class="col-md-12">
+                <label for="prenom" class="form-label">prenom</label>
+                <input id="prenom" type="text" class="form-control" name="prenom" value="{{ old('prenom') }}" required autofocus>
+                @error('prenom')
+                    <span class="text-danger">{{ $message }}</span>
+                @enderror
+            </div>
+
+              <!--Telephone-->
+              <div class="col-md-12">
+                <label for="telephone" class="form-label">telephone</label>
+                <input id="telephone" type="text" class="form-control" name="telephone" value="{{ old('telephone') }}" required autofocus>
+                @error('telephone')
+                    <span class="text-danger">{{ $message }}</span>
+                @enderror
+            </div>
+
+              <!--Adresse-->
+              <div class="col-md-12">
+                <label for="adresse" class="form-label">adresse</label>
+                <input id="adresse" type="text" class="form-control" name="adresse" value="{{ old('adresse') }}" required autofocus>
+                @error('adresse')
+                    <span class="text-danger">{{ $message }}</span>
+                @enderror
+            </div>
 
 
             <!-- Email Address -->
