@@ -30,3 +30,5 @@ Route::get('afficher_candidat',[CandidatDuController::class,'afficher']);
 
 // details de la formation
 Route::get('detail', [FormationController::class,'detailsformation']);
+// reglage du dashbord
+Route::get('formation_dashbord',[FormationController::class,'formation_dashbord']);
