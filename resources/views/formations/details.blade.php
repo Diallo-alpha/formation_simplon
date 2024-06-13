@@ -56,7 +56,7 @@
   font-size: 16px; /* Taille du texte */
 }
 
-    
+
     </style>
   </head>
   <body>
@@ -76,61 +76,86 @@
     </div>
     <h2 class="text-center mt-5">SIMPLON vous offre une opportunité unique de vous <br>
       former dans ce secteur en pleine croissance !</h2>
-     
-    {{-- <div class="container ">
-      <div class="card-container" style="display: flex; width: 1000px;">        <div class="card">
-          <h2>Programme</h2>
-          <hr>
-          <p>.Programme : Une formation complète en <br>
-            IIOT couvrant les technologies,<br>
-             les protocoles, la cybersécurité, et <br> 
-             les applications industrielles</p>
-        </div>
-        <div class="card">
-          <h2>Programme</h2>
-          <hr>
-          <p>.Programme : Une formation complète en <br>
-            IIOT couvrant les technologies,<br>
-             les protocoles, la cybersécurité, et <br> 
-             les applications industrielles</p>
-        </div>
-      </div> --}}
+
+
 <div class="container " style="display: flex; align-items: center;">
-      <div class="card border-primary mb-3 m-5" style="max-width: 30rem;">
+      <div class="card border mb-3 m-5" style="max-width: 50rem;">
         <div class="card-header"><h1>Programme</h1></div>
+        <div style="width: 40%; height: 2px; background-color: red; margin: 20px 0;"></div>
         <div class="card-body m-4 " style="height: 150px;">
           <h5 class="card-title">Primary card title</h5>
           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <div style="position: absolute; bottom: 10px; right: 10px;color: red">durée 6 mois</div>
         </div>
       </div>
 
-      <div class="card border-primary mb-3 m-5" style="max-width: 30rem;">
+      <div class="card border mb-3 m-5" style="max-width: 50rem;">
         <div class="card-header"><h1>Competences</h1></div>
+        <div style="width: 40%; height: 2px; background-color: red; margin: 20px 0;"></div>
         <div class="card-body m-4 " style="height: 150px;">
           <h5 class="card-title">Primary card title</h5>
           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <div style="position: absolute; bottom: 10px; right: 10px;color: red">durée 6 mois</div>
         </div>
       </div>
     </div>
-      
+
     <div class="container " style="display: flex; align-items: center;">
-      <div class="card border-primary mb-3 m-5" style="max-width: 30rem;">
-        <div class="card-header"><h1>solftskil</h1></div>
+      <div class="card border mb-3 m-5" style="max-width: 50rem;">
+        <div class="card-header"><h1>Programme</h1></div>
+        <div style="width: 40%; height: 2px; background-color: red; margin: 20px 0;"></div>
         <div class="card-body m-4 " style="height: 150px;">
           <h5 class="card-title">Primary card title</h5>
           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <div style="position: absolute; bottom: 10px; right: 10px;color: red">durée 6 mois</div>
         </div>
       </div>
 
-      <div class="card border-primary mb-3 m-5" style="max-width: 30rem;">
-        <div class="card-header"><h1>deboouche</h1></div>
+      <div class="card border mb-3 m-5" style="max-width: 50rem;">
+        <div class="card-header"><h1>Competences</h1></div>
+        <div style="width: 40%; height: 2px; background-color: red; margin: 20px 0;"></div>
         <div class="card-body m-4 " style="height: 150px;">
           <h5 class="card-title">Primary card title</h5>
           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <div style="position: absolute; bottom: 10px; right: 10px; color: red">durée 6 mois</div>
+
         </div>
       </div>
     </div>
-      
+
+    <div class="container " style="display: flex; align-items: center;">
+        <div class="card border mb-3 m-5" style="max-width: 50rem;">
+          <div class="card-header"><h1>solftskil</h1></div>
+          <div style="width: 40%; height: 2px; background-color: red; margin: 20px 0;"></div>
+          <div class="card-body m-4 " style="height: 150px;">
+            <h5 class="card-title">Primary card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <div style="position: absolute; bottom: 10px; right: 10px;color: red">durée 6 mois</div>
+          </div>
+        </div>
+
+        <div class="card border mb-3 m-5" style="max-width: 50rem;">
+          <div class="card-header"><h1>debouche</h1></div>
+          <div style="width: 40%; height: 2px; background-color: red; margin: 20px 0;"></div>
+          <div class="card-body m-4 " style="height: 150px;">
+            <h5 class="card-title">Primary card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <div style="position: absolute; bottom: 10px; right: 10px; color: red">durée 6 mois</div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="container col-12">
+
+      <div class="text-center pr-30px"style="position:center;">
+
+        <button class="btn btn-danger text-white btn-adjusted">Postuler</button>
+      </div>
+      </div>
+
+
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   </body>
 </html>

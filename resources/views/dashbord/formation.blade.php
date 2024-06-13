@@ -92,6 +92,7 @@
                             <button type="submit" class="btn btn-danger btn-sm">Supprimer</button>
                         </form>
                     </td>
+                    
                 </tr>
             @endforeach
             </tbody>
