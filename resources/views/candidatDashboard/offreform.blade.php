@@ -68,15 +68,17 @@
 .card {
     display: flex;
     background: #fff;
-    border-radius: 10px;
+    border-radius: 100px 0 130px 0 ;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     overflow: hidden;
-    width: 800px;
-    height: 600px;
+    width: 1000px;
+    height: 500px;
+    margin:100px;
+    padding-top:10px;
 }
 .card-content {
     padding: 20px;
-    flex: 100%;
+    flex: 900px;
 }
 .card-content h2 {
     margin: 0;
@@ -101,7 +103,7 @@
     margin: 10px 0;
 }
 .qualities li img {
-    margin-right: 10px;
+    margin-right: 30px;
 }
 .card-image {
     background: #f5f5f5;
@@ -110,12 +112,13 @@
     flex-direction: column;
     /* justify-content: space-between; */
     align-items: center;
-    width: 1000px
+    width: 1000px;
+    margin-right: 5px;
 }
 .card-image img {
-    border-radius: 50%;
-    width: 100px;
-    height: 100px;
+    /* border-radius: 50px 0 50px 0; */
+    width: 500px;
+    height: 200px;
 }
 .contact {
     text-align: center;
@@ -125,7 +128,7 @@
     color: #e74c3c;
     text-decoration: none;
     display: block;
-    margin: 5px 0;
+    padding: 20px 10px;
 }
 .apply-button {
     background: #e74c3c;
@@ -153,7 +156,7 @@
     </ul>
 </div>
 <div class="card-image">
-    <img src="https://via.placeholder.com/100 " alt="Profile Picture">
+    <img src="{{asset('img/image 5.png')}}" alt="Profile Picture">
     <div class="contact">
         <a href="tel:+3338900997">📞 33 890 09 97</a>
         <a href="mailto:simplon@gmail.com">📧 simplon@gmail.com</a>
