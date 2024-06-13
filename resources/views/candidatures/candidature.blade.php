@@ -13,9 +13,9 @@
        
         
         <label  for="">Biographie</label><br>
-        <input class="desc" type="text" name="biographie" id=""><br>
+        <textarea class="desc" type="text" name="biographie" id=""> </textarea><br>
         <label  for="">motivation</label><br>
-        <input class="desc" type="text" name="motivations"><br>
+        <textarea class="desc" type="text" name="motivations"></textarea><br>
         <label for="">cv</label><br>
         <input type="file" name="cv" class="form-control"><br>
         
@@ -31,14 +31,20 @@
             align-items: center;
             right: 10%;
             width: 506px;
-            height: 61px;
+            height: 100px;
             margin: 10px;
+            border-radius: 2px;
         }
         form{
             margin-top: 10px;
         }
         .form-control{
             width: 506px;
+            border: 1px solid #CE0033;
+            margin: 10px;
+        }
+        label{
+            
         }
     </style>
 </body>
