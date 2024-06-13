@@ -14,10 +14,9 @@ class Candidature extends Model
     protected $fillable = ['biographie', 'motivations','cv','user_id'];
 
     public function user()
-        {
-            return $this->belongsTo(User::class);
-        }
-
+    {
+        return $this->belongsTo(User::class);
+    }
     public function formations()
         {
             return $this->belongsToMany(Formation::class,'candidature_formations');
