@@ -21,16 +21,9 @@ Route::get('/formation/{id}', [FormationController::class, 'modifierFormation'])
 Route::put('/formations/{id}', [FormationController::class, 'traitementModiifier'])->name('miseAjourTraitement');
 Route::delete('/formation/{id}', [FormationController::class, 'supprimmerFormation'])->name('formation.supprimer');
 
-
-// Route::get('/', function () {
-//     return view('formations.ListeFormation');
-// });
-
-Route::get('/candidature',[CandidatureController ::class,'formulaireCand']);
-Route::post('/candidature',[CandidatureController ::class,'postuler'])->name('postuler');
-Route::get('/info',[CandidatureController ::class,'affichercv']);
-Route::get('/fichiers', [CandidatureController::class, 'index'])->name('fichiers.index');
-
+Route::get('/', function () {
+    return view('formations.ListeFormation');
+});
 Route::get('/offre', function()
     {
         return view('portails.offre');
@@ -45,4 +38,3 @@ Route::get('afficher_candidat',[CandidatDuController::class,'afficher']);
 
 // details de la formation
 Route::get('detail', [FormationController::class,'detailsformation']);
-
