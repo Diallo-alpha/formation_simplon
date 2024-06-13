@@ -22,13 +22,18 @@ Route::get('/offre', function()
     }
 );
 
+
+
 // route pour le formulaire pour l'inscription des candidat
 Route::get('candidat_inscription',[CandidatDuController::class,'inscription']);
 Route::post('sauvegarde_candidat',[CandidatDuController::class,'sauvegarde']);
 Route::get('afficher_candidat',[CandidatDuController::class,'afficher']);
+Route::get('supprimer_candidat/{id}',[CandidatDuController::class,'supprimer_candidat']);
+
 
 
 // details de la formation
 Route::get('detail', [FormationController::class,'detailsformation']);
 // reglage du dashbord
 Route::get('formation_dashbord',[FormationController::class,'formation_dashbord']);
+Route::get('candidat_dashbord',[CandidatDuController::class,'candidat_dashbord']);

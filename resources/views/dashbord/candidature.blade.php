@@ -29,7 +29,7 @@
     <i class="fa-solid fa-bars-progress" style="color: #ffffff;"></i>   <a href="/dashbord.html">Tableau de bord</a>
 </li>
 <li class="colonne   colonne_cote">
-    <i class="fa-solid fa-school" style="color: #ffffff;"></i>   <a href="/dashbord_formation.html">formations</a>
+    <i class="fa-solid fa-school" style="color: #ffffff;"></i>   <a href="candidat_dashbord">formations</a>
 </li>
 <li class="colonne colonne_CHEF">
     <i class="fa-solid fa-people-group" style="color: #000;"></i> <a href="/dashbord_candidat.html ">Candidats</a>
@@ -47,8 +47,9 @@
 <!-- le conteneur des elements -->
 <div class="conteneur_element">
 <h1>
-    tous element de la candidature doit etre ici
+    tous element de la candidature doit etre ici  
 </h1>
+
 </div>
 
 

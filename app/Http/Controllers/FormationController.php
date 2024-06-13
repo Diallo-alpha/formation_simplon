@@ -84,9 +84,10 @@ class FormationController extends Controller
     public function detailsformation(){
          return view('formations.details');
     }
-
+// affichage des formation dans le dashbord
     public function formation_dashbord(){
         $formations=Formation::all();
         return view('dashbord.formation',compact('formations'));
     }
+    
 }
