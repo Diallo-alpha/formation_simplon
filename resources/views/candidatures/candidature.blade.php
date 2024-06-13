@@ -10,15 +10,36 @@
 <body>
     <form action="{{Route('postuler')}}" method="post" enctype="multipart/form-data">
         @csrf
-
-        <label for="">Biographie</label>
-        <input type="text" name="biographie" id=""><br>
-        <label for="">motivation</label>
-        <input type="text" name="motivations"><br>
-        <label for="">cv</label>
+       
+        
+        <label  for="">Biographie</label><br>
+        <input class="desc" type="text" name="biographie" id=""><br>
+        <label  for="">motivation</label><br>
+        <input class="desc" type="text" name="motivations"><br>
+        <label for="">cv</label><br>
         <input type="file" name="cv" class="form-control"><br>
-        <input type="number" name="user_id" id="">
+        
         <button class="btn btn-primary" type="submit">envoyer</button>
     </form>
+    <style>
+        form{
+           margin-left: 30%;
+          padding-top: 10%;
+        }
+        .desc{
+            border: 1px solid #CE0033;
+            align-items: center;
+            right: 10%;
+            width: 506px;
+            height: 61px;
+            margin: 10px;
+        }
+        form{
+            margin-top: 10px;
+        }
+        .form-control{
+            width: 506px;
+        }
+    </style>
 </body>
 </html>

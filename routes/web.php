@@ -26,7 +26,7 @@ Route::get('/offre',[FormationController::class, 'listeOffre'])->name('liste.off
 Route::get('candidat_inscription',[CandidatDuController::class,'inscription']);
 Route::post('sauvegarde_candidat',[CandidatDuController::class,'sauvegarde']);
 
-Route::get('afficher_candidat',[CandidatDuController::class,'afficher'])->name('candidate');
+
 
 
 // details de la formation
@@ -34,15 +34,17 @@ Route::get('detail', [FormationController::class,'detailsformation']);
 //routes qui permet de faire la candiadture
 Route::get('formulaire_postuler',[CandidatureController::class,'formulaireCand']);
 Route::post('postuler',[CandidatureController::class,'postuler'])->name('postuler');
-Route::get('afficherDetailsCandidature',[CandidatureController::class,'index'])->name('fichiers.index');
+Route::get('afficherDetailsCandidature/{id}',[CandidatureController::class,'index'])->name('fichiers.index');
 Route::get('ListeCandidates',[AuthController::class,'listecandature']);
 //rejetter la candidature 
 Route::delete('candidatSup/{id}',[CandidatureController::class,'supprimercand'])->name('rejettercadidature');
 
-Route::get('afficher_candidat',[CandidatDuController::class,'afficher']);
+// Route::get('afficher_candidat',[CandidatureController::class,'afficher']);
 // details de la formation
 Route::get('detail', [FormationController::class,'detailsformation'])->name('details.formation');//ça marche
 Route::delete('/supprimmer_candidat/{id}', [CandidatDuController::class, 'supprimer_candidat'])->name('supprimer.candiate');
 // gestion du dashbord
 Route::get('formationAdsbord',[FormationController::class,'formation_dashbord']);
 Route::get('detail/{id}', [FormationController::class,'detailsformation']);
+Route::get('afficherFOR/{id}',[CandidatureController::class,'affichercandid']);
+Route::get('/formations/afficher/{id}', [FormationController::class, 'afficher'])->name('candidatureFormation');

@@ -84,7 +84,12 @@
                     <td>{{ $formation->description }}</td>
                     <td>{{ $formation->date_expiration }}</td>
                     <td><img src="{{asset('/images/' . $formation->image)}}" alt="{{ $formation->titre }}" width="100"></td>
-                    <td>
+                    <td><a href="{{ route('form.modification.formation', $formation->id) }}" class="btn btn-warning btn-sm">Modifier</a>
+                        <form action="{{ route('formation.supprimer', $formation->id) }}" method="POST" style="display:inline-block;">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger btn-sm">Supprimer</button>
+                        </form>
                         <a href="{{ route('form.modification.formation', $formation->id) }}" class="btn btn-warning btn-sm">Modifier</a>
                         <form action="{{ route('formation.supprimer', $formation->id) }}" method="POST" style="display:inline-block;">
                             @csrf
@@ -92,16 +97,15 @@
                             <button type="submit" class="btn btn-danger btn-sm">Supprimer</button>
                         </form>
                     </td>
-                  <td> <a href="{{url('afficher_candidat')}}">candidates</a></td>
+                  
+                   
+                  <td>
+                   <a href="{{Route('candidatureFormation',$formation->id)}}">candidat</a>
+                   </td>
                 </tr>
             @endforeach
             </tbody>
-        </table>
-    </div>
-    
-    
-
-</div>
+        </table> 
 
 
 

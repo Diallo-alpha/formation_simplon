@@ -60,6 +60,7 @@
             <th>niveau</th>
             <th>adresse</th>
             <th>date</th>
+            <th>Details</th>
             <th>Action</th>
             
         </tr>
@@ -74,7 +75,9 @@
             <td>{{$user->niveau}}</td>
             <td>{{$user->adresse}}</td>
             <td>{{$user->created_at}}</td>
-            
+            <td><a href="{{Route('fichiers.index',$user->id)}}">
+                <button class="button action">details</button>
+                </a></td>
             <td>
                 <a href="">
                 <button class="button action">accepter</button>
