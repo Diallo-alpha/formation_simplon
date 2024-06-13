@@ -7,6 +7,100 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="{{ asset('css/personnel.css') }}">
+    <style>.conteneur_element {
+        flex-grow: 1;
+        padding: 20px;
+    }
+    
+    .container {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    h1 {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+    
+    .table {
+        width: 100%;
+        margin-bottom: 20px;
+        border-collapse: collapse;
+    }
+    
+    .table th,
+    .table td {
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+    
+    .table th {
+        background-color: #343a40;
+        color: #fff;
+    }
+    
+    .table tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+    
+    .table tr:hover {
+        background-color: #ddd;
+    }
+    
+    .table img {
+        width: 100px;
+        height: auto;
+    }
+    
+    .btn {
+        text-decoration: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+    }
+    
+    .btn-success {
+        background-color: #28a745;
+        color: #fff;
+    }
+    
+    .btn-success:hover {
+        background-color: #218838;
+    }
+    
+    .btn-warning {
+        background-color: #ffc107;
+        color: #000;
+    }
+    
+    .btn-warning:hover {
+        background-color: #e0a800;
+    }
+    
+    .btn-danger {
+        background-color: #dc3545;
+        color: #fff;
+    }
+    
+    .btn-danger:hover {
+        background-color: #c82333;
+    }
+    
+    .alert {
+        padding: 15px;
+        background-color: #d4edda;
+        color: #155724;
+        border: 1px solid #c3e6cb;
+        border-radius: 5px;
+        margin-bottom: 20px;
+    }
+    
+    
+    </style>
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body>
@@ -49,31 +143,23 @@
 </ul>
 </nav>
 </div>
-
-
-
 <!-- le conteneur des elements -->
 <div class="conteneur_element">
- <p>hello</p>
- <h1> tous les elements du dashbord doit se figurer ici</h1>
-
- 
     <div class="container mt-5">
         <h1 class="mb-4">Liste des Formations</h1>
-        <a href="{{ route('formulaire.ajout.formation') }}" class="btn btn-success mb-3">Ajouter une Formation</a>
         @if(session('success'))
         <div class="alert alert-success">
             {{ session('success') }}
         </div>
     @endif
-        <table class="table table-striped">
+        <table class="table table-striped"><a href="#"></a>
             <thead class="thead-dark">
                 <tr>
                     <th>Titre</th>
                     <th>Description</th>
                     <th>Date d'Expiration</th>
-                    <th>Image</th>
-                    <th>Utilisateur</th>
+                    {{-- <th>Image</th> --}}
+                    {{-- <th>Utilisateur</th> --}}
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -81,9 +167,9 @@
                 @foreach($formations as $formation)
                 <tr>
                     <td>{{ $formation->titre }}</td>
-                    <td>{{ $formation->description }}</td>
+                    <td>{{Str::limit( $formation->description ,100)}}</td>
                     <td>{{ $formation->date_expiration }}</td>
-                    <td><img src="{{asset('/images/' . $formation->image)}}" alt="{{ $formation->titre }}" width="100"></td>
+                    {{-- <td><img src="{{asset('/images/' . $formation->image)}}" alt="{{ $formation->titre }}" width="100"></td> --}}
                     <td>
                         <a href="{{ route('form.modification.formation', $formation->id) }}" class="btn btn-warning btn-sm">Modifier</a>
                         <form action="{{ route('formation.supprimer', $formation->id) }}" method="POST" style="display:inline-block;">
@@ -97,7 +183,10 @@
             @endforeach
             </tbody>
         </table>
+
     </div>
+    <a href="{{ route('formulaire.ajout.formation') }}" class="btn btn-success mb-3">Ajouter une Formation</a>
+
     
     
 

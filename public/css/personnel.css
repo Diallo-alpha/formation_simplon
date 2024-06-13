@@ -83,3 +83,39 @@ display: block; justify-content: center;
 .conteneur_element{
     padding: 1rem;
 }
+
+
+/* tableau */
+
+
+.custom-table {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  border-collapse: collapse;
+}
+.custom-table thead {
+  background-color: #343a40;
+  color: #fff;
+}
+.custom-table th, .custom-table td {
+  padding: 15px;
+  text-align: left;
+  border: 1px solid #dee2e6;
+}
+.custom-table tbody tr:nth-child(even) {
+  background-color: #f8f9fa;
+}
+.custom-table tbody tr:hover {
+  background-color: #e9ecef;
+}
+.custom-table img {
+  width: 100px;
+  height: auto;
+}
+.custom-table .btn {
+  margin-right: 5px;
+}
+.custom-alert {
+  margin-top: 20px;
+}

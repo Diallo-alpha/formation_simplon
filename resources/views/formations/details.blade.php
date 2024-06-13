@@ -102,7 +102,7 @@
 
     <div class="container " style="display: flex; align-items: center;">
       <div class="card border mb-3 m-5" style="max-width: 50rem;">
-        <div class="card-header"><h1>Programme</h1></div>
+        <div class="card-header"><h1> Formateurs</h1></div>
         <div style="width: 40%; height: 2px; background-color: red; margin: 20px 0;"></div>
         <div class="card-body m-4 " style="height: 150px;">
           <h5 class="card-title">Primary card title</h5>
@@ -112,7 +112,7 @@
       </div>
 
       <div class="card border mb-3 m-5" style="max-width: 50rem;">
-        <div class="card-header"><h1>Competences</h1></div>
+        <div class="card-header"><h1>Objectifs</h1></div>
         <div style="width: 40%; height: 2px; background-color: red; margin: 20px 0;"></div>
         <div class="card-body m-4 " style="height: 150px;">
           <h5 class="card-title">Primary card title</h5>
@@ -125,7 +125,7 @@
 
     <div class="container " style="display: flex; align-items: center;">
         <div class="card border mb-3 m-5" style="max-width: 50rem;">
-          <div class="card-header"><h1>solftskil</h1></div>
+          <div class="card-header"><h1>Méthodologie </h1></div>
           <div style="width: 40%; height: 2px; background-color: red; margin: 20px 0;"></div>
           <div class="card-body m-4 " style="height: 150px;">
             <h5 class="card-title">Primary card title</h5>
