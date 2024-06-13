@@ -1,4 +1,15 @@
 <?php
+<<<<<<< HEAD
+=======
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\PortailController;
+use App\Http\Controllers\FormationController;
+use App\Http\Controllers\CandidatDuController;
+use App\Http\Controllers\CandidatureController;
+use App\Http\Controllers\OffreFormationController;
+>>>>>>> feature/offre
 
 use Illuminate\Http\Request;
 
@@ -52,5 +63,18 @@ Route::delete('/supprimmer_candidat/{id}', [CandidatDuController::class, 'suppri
 // gestion du dashbord
 Route::get('formationAdsbord',[FormationController::class,'formation_dashbord']);
 Route::get('detail/{id}', [FormationController::class,'detailsformation']);
+<<<<<<< HEAD
 Route::get('afficherFOR/{id}',[CandidatureController::class,'affichercandid']);
 Route::get('/formations/afficher/{id}', [FormationController::class, 'afficher'])->name('candidatureFormation');
+=======
+// offre de formation
+// Route::get('offreform',[OffreFormationController::class,'offredetail']);
+Route::get('offreform', [OffreFormationController::class, 'offreform']);
+
+//Authentification
+Route::get('/login', [AuthController::class, 'getLogin'])->name('auth.getLogin');
+Route::post('/login', [AuthController::class, 'postLogin'])->name('auth.postLogin');
+Route::get('/register', [AuthController::class, 'getRegister'])->name('auth.getRegister');
+Route::post('/register', [AuthController::class, 'postRegister'])->name('auth.postRegister');
+Route::get('/logout', [AuthController::class, 'logout'])->name('auth.logout');
+>>>>>>> feature/offre
