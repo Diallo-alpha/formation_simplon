@@ -1,75 +1,122 @@
-* {
+body {
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    text-decoration: none;
-    list-style: none;
+    background-color: #f4f4f4;
+    display: flex;
 }
 
-body {
+.container {
+    display: flex;
+    width: 100%;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #C50026;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+}
+
+.profile {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.profile img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 20px 0;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.dashboard {
+    flex: 1;
+    padding: 20px;
     background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 header {
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    padding: 10px 20px;
-    background-color: #f8f9fa;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
 }
 
-.cont_all {
+header h1 {
+    margin: 0;
+}
+
+.user-info p {
+    margin: 0;
+}
+
+.stats {
     display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
 }
 
-.dashbord {
-    width: 15%;
-    background-color: #ce0333;
-    height: 100vh;
-    position: fixed;
+.stat-item {
+    background-color: #e7e7e7;
+    padding: 20px;
+    text-align: center;
+    border-radius: 5px;
+    flex: 1;
+    margin: 0 10px;
 }
 
-.conteneur_element {
-    width: 80%;
-    margin-left: 17%;
-    padding: 1rem;
-    background-color: #fff;
-    border-radius: 1rem;
+.stat-item p {
+    margin: 5px 0;
 }
 
-.navbar {
-    display: flex;
-    flex-direction: column;
-    color: #fff;
+.table-section {
+    margin-top: 20px;
+}
+
+.table-section h2 {
+    margin-bottom: 10px;
+}
+
+table {
     width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
 }
 
-.colonne {
-    text-align: start;
-    color: white;
-    width: 100%;
-    font-size: 1.2rem;
-    font-weight: 400;
-    padding: 0.80rem;
-    padding-left: 4rem;
+table, th, td {
+    border: 1px solid #ddd;
 }
 
-.colonne_cote {
-    border-radius: 3rem 0 0 3rem;
+th, td {
+    padding: 10px;
+    text-align: left;
 }
 
-.colonne_CHEF {
-    background-color: #fff;
-    color: black;
-    border-radius: 3rem 0 0 3rem;
+thead {
+    background-color: #f2f2f2;
 }
 
-.navbar ul .colonne a {
-    text-decoration: none;
-    color: white;
-}
-
-.navbar ul .colonne_CHEF a {
-    color: black;
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
 }
