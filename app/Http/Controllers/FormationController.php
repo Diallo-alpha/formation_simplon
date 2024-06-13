@@ -81,7 +81,7 @@ class FormationController extends Controller
     }
     // Controller details
 
-    public function detailsformation($id){
+    public function detailsformation(){
          return view('formations.details');
     }
 
