@@ -28,3 +28,4 @@ Route::get('afficher_candidat',[CandidatDuController::class,'afficher']);
 // details de la formation
 Route::get('detail', [FormationController::class,'detailsformation'])->name('details.formation');//ça marche
 Route::delete('/supprimmer_candidat/{id}', [CandidatDuController::class, 'supprimer_candidat'])->name('supprimer.candiate');
+// gestion du dashbord
