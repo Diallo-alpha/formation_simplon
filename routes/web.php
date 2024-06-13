@@ -25,10 +25,6 @@ Route::get('/offre',[FormationController::class, 'listeOffre'])->name('liste.off
 // route pour le formulaire pour l'inscription des candidat
 Route::get('candidat_inscription',[CandidatDuController::class,'inscription']);
 Route::post('sauvegarde_candidat',[CandidatDuController::class,'sauvegarde']);
-
-
-
-
 // details de la formation
 Route::get('detail', [FormationController::class,'detailsformation']);
 //routes qui permet de faire la candiadture
@@ -38,9 +34,6 @@ Route::get('afficherDetailsCandidature/{id}',[CandidatureController::class,'inde
 Route::get('ListeCandidates',[AuthController::class,'listecandature']);
 //rejetter la candidature
 Route::delete('candidatSup/{id}',[CandidatureController::class,'supprimercand'])->name('rejettercadidature');
-
-
-
 // Route::get('afficher_candidat',[CandidatureController::class,'afficher']);
 // details de la formation
 Route::get('detail', [FormationController::class,'detailsformation'])->name('details.formation');//ça marche
