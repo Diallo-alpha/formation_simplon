@@ -1,6 +1,14 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+
+use App\Http\Controllers\PortailController;
+use App\Http\Controllers\CandidatureController;
+use App\Http\Controllers\CandidatureFormationController;
+use Illuminate\Http\Request;
+
+Route::get('/',[PortailController::class,'portail'] );
+
 use App\Http\Controllers\FormationController;
 use App\Http\Controllers\CandidatDuController;
 
@@ -30,5 +38,3 @@ Route::get('afficher_candidat',[CandidatDuController::class,'afficher']);
 
 // details de la formation
 Route::get('detail', [FormationController::class,'detailsformation']);
-// reglage du dashbord
-Route::get('formation_dashbord',[FormationController::class,'formation_dashbord']);

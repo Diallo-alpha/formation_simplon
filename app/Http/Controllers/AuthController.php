@@ -92,4 +92,5 @@ class AuthController extends Controller
         Auth::logout(); // Déconnectez l'utilisateur
         return redirect()->route('auth.getLogin'); // Redirigez vers la page de connexion
     }
+  
 }
