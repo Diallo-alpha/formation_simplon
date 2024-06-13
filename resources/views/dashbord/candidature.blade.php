@@ -47,13 +47,10 @@
 <!-- le conteneur des elements -->
 <div class="conteneur_element">
 <h1>
-<<<<<<< HEAD
+
     tous element de la candidature doit etre ici  
 </h1>
-=======
 
-    tous element de la candidature doit etre ici
-</h1>
 <div>
    
 <table class="dataTable">
@@ -95,7 +92,7 @@
             @endforeach
     </tbody>
 </table>
->>>>>>> 7d2db9968f9a7547b727952b3fb23fc6735aa941
+
 
 </div>
 

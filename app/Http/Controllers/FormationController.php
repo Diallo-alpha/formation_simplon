@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Formation;
+use App\Models\Candidature;
 use Illuminate\Http\Request;
 
 class FormationController extends Controller
@@ -104,6 +105,15 @@ class FormationController extends Controller
         }
         $users = $formation->users;
         return view('dashbord.candidature', compact('formation', 'users'));
+    }
+    public function supprimercand($id){
+        $user = request('user_id');
+        $candidature=Candidature::findOrFail($id);
+        if ($candidature->user_id !== $user->id) {
+            return redirect()->back()->withErrors(['message' => 'Non autorisé à supprimer cette candidature.']);
+        }
+      
+        return redirect()->back();
     }
 
 }
