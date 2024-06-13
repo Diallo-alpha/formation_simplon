@@ -45,3 +45,4 @@ Route::get('detail', [FormationController::class,'detailsformation'])->name('det
 Route::delete('/supprimmer_candidat/{id}', [CandidatDuController::class, 'supprimer_candidat'])->name('supprimer.candiate');
 // gestion du dashbord
 Route::get('formationAdsbord',[FormationController::class,'formation_dashbord']);
+Route::get('detail/{id}', [FormationController::class,'detailsformation']);
