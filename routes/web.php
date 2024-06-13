@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FormationController;
+use App\Http\Controllers\CandidatDuController;
 
 //route pour formations
 Route::get('/liste/formation', [FormationController::class, 'listeFormation'])->name('formation.liste');
@@ -15,14 +16,17 @@ Route::delete('/formation/{id}', [FormationController::class, 'supprimmerFormati
 Route::get('/', function () {
     return view('formations.ListeFormation');
 });
-// Route::get('/offre', function()
-//     {   
-//         return view('portails.offre');
-//     }
-// );
-
+Route::get('/offre', function()
+    {
+        return view('portails.offre');
+    }
+);
 
 // route pour le formulaire pour l'inscription des candidat
 Route::get('candidat_inscription',[CandidatDuController::class,'inscription']);
 Route::post('sauvegarde_candidat',[CandidatDuController::class,'sauvegarde']);
 Route::get('afficher_candidat',[CandidatDuController::class,'afficher']);
+
+
+// details de la formation
+Route::get('detail', [FormationController::class,'detailsformation']);
