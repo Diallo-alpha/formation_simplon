@@ -1,16 +1,17 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-
-use App\Http\Controllers\PortailController;
-use App\Http\Controllers\CandidatureController;
-use App\Http\Controllers\CandidatureFormationController;
 use Illuminate\Http\Request;
+
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\PortailController;
+use App\Http\Controllers\FormationController;
 
 Route::get('/',[PortailController::class,'portail'] );
 
-use App\Http\Controllers\FormationController;
 use App\Http\Controllers\CandidatDuController;
+use App\Http\Controllers\CandidatureController;
+use App\Http\Controllers\CandidatureFormationController;
 
 //route pour formations
 Route::get('/liste/formation', [FormationController::class, 'listeFormation'])->name('formation.liste');
@@ -45,4 +46,15 @@ Route::get('afficher_candidat',[CandidatDuController::class,'afficher']);
 
 // details de la formation
 Route::get('detail', [FormationController::class,'detailsformation']);
+
+//AUTHENTIFICATION DU CANDIDAT
+//la route pour la page d'inscription
+ Route::get('/inscription_candidat',[AuthController::class,'inscription_candidat']);
+ //la route pour sauvegarder un enregistrement
+ Route::post('/enregistre_candidat',[AuthController::class,'enregistre_candidat']);
+// la route pour la connexion
+ Route::get('/connexion_candidat',[Authcontroller::class,'connexion_candidat']);
+ // la route pour l'authentification
+ Route::post('/auth_candidat',[AuthController::class,'auth_candidat']);
+ // la route pour la deconnexion
 

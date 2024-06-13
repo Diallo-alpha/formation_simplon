@@ -26,7 +26,6 @@
         @foreach ($users as $user )
         <tbody>
           <tr>
-            
             <th scope="row">{{ $user->id }}</th>
             <td>{{ $user->prenom }}</td>
             <td>{{ $user->nom }}</td>
