@@ -17,28 +17,20 @@ class AuthController extends Controller
     public function postRegister(Request $request)
     {
         // Validez et créez l'utilisateur
-        // $request->validate([
-        //     'name' => 'required|string|max:255',
-        //     'email' => 'required|string|email|unique:users|max:255',
-        //     'password' => 'required|string|min:4|max:255|confirmed',
-        // // ]);
+        $request->validate([
+            // 'nam' => 'required|string|max:255',
+            // 'email' => 'required|string|email|unique:users|max:255',
+            // 'password' => 'required|string|min:4|max:255',
+        ]);
 
         // Créer l'utilisateur
 
-        $user = new User();
-        // User::create($request->all() );
-        $user->prenom = $request->prenom;
-        $user->nom = $request->nom;
-        $user->email = $request->email;
-        $user->telephone = $request->telephone;
-        $user->adresse = $request->adresse;
-        $user->email = $request->email;
-
-
-
-
-        $user->password = Hash::make($request->password);
-        $user->save();
+        // $user = new User();
+        User::create($request->all() );
+        // $user->name = $request->name;
+        // $user->email = $request->email;
+        // $user->password = Hash::make($request->password);
+        // $user->save();
 
 
         return redirect()->route('auth.getLogin');
@@ -78,7 +70,7 @@ class AuthController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
             // Redirigez vers la page de tableau de bord ou une autre page
-            return redirect()->intended('welcome');
+            return redirect()->intended('offre');
         }
 
         // Si l'authentification échoue, redirigez vers la page de connexion avec un message d'erreur
@@ -92,57 +84,4 @@ class AuthController extends Controller
         Auth::logout(); // Déconnectez l'utilisateur
         return redirect()->route('auth.getLogin'); // Redirigez vers la page de connexion
     }
-
-
-    public function listecandature(){
-
-        $users = User::with('formations')->get();
-
-       return view('dashbord.candidature',compact('users'));
-    }
-
-
-
-
-
-    //AUTHENTIFICATION DU CANDIDAT
-    //le model pour afficher le formulaire
-    public function inscription_candidat (){
-        return view ('/auth_candidats.inscription_candidat');
-    }
-    //le model pour sauvegarder l'inscription
-    public function enregistre_candidat(Request $request){
-        $user = new User();
-        $user->prenom = $request->prenom;
-        $user->nom = $request->nom;
-        $user->email = $request->email;
-        $user->telephone = $request->telephone;
-        $user->adresse = $request->adresse ;
-        $user->password = Hash::make($request->password);
-        $user->role =$request->role = 'candidat';
-        $user->save();
-
-        return redirect('/connexion_candidat');
-    }
-
-    //le model pour afficher la connexion
-    public function connexion_candidat(){
-        return view ('/auth_candidats.connexion_candidat');
-    }
-    //le model pour s'authentifer
-    public function auth_candidat( Request $request){  // Validez les informations d'identification
-
-
-    $credetails = [
-        'email' => $request->email,
-        'password'=> $request->password,
-    ];
-
-    if (Auth::attempt($credetails)){
-        return redirect('/')->with('succes','bienvenue');
-    }
-    return back()->with('error','Email or Password');
-}
-
-
 }
