@@ -8,7 +8,7 @@
 
     <link rel="stylesheet" href="{{ asset('css/offre.css') }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    
+
 </head>
 <body>
 
@@ -49,7 +49,7 @@
             <div class="d-flex">
                 <!-- Image à gauche -->
                 <img src="{{asset('/images/' . $formation->image)}}" class="card-img-top" alt="..." style="flex: 0 0 50%; max-width: 50%;">
-        
+
                 <!-- Contenu de la carte à droite -->
                 <div class="card-body" style="flex: 1;">
                     <h5 class="card-title">{{ $formation->titre }}</h5>
@@ -73,15 +73,15 @@
             <img src="{{asset('/images/' . $formation->image)}}" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title">{{ $formation->titre }}</h5>
-              <p class="card-text">{{ Str::limit($formation->description, 100) }}</p> 
+              <p class="card-text">{{ Str::limit($formation->description, 100) }}</p>
               <h5 class="card-title">Date limite:  {{ $formation->date_expiration }}</h5>
 
-             <a href="#" class="btn btn-danger">Voir plus</a>
+             <a href="{{route('details.formation')}}" class="btn btn-danger">Voir plus</a>
 
             </div>
           </div>
-         
-        
+
+
           @endforeach
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
