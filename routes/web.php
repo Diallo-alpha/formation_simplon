@@ -13,7 +13,7 @@ use App\Http\Controllers\FormationController;
 use App\Http\Controllers\CandidatDuController;
 
 //route pour formations
-Route::get('/', [FormationController::class, 'listeFormation'])->name('formation.liste');
+// Route::get('/', [FormationController::class, 'listeFormation'])->name('formation.liste');
 Route::get('/formations/ajouter', [FormationController::class, 'afficherFormAjouterFormation'])->name('formulaire.ajout.formation');
 Route::post('/formations', [FormationController::class, 'traitementAjouFormation'])->name('formations.traitement');
 //modifier une formation
@@ -28,3 +28,8 @@ Route::get('afficher_candidat',[CandidatDuController::class,'afficher']);
 // details de la formation
 Route::get('detail', [FormationController::class,'detailsformation'])->name('details.formation');//ça marche
 Route::delete('/supprimmer_candidat/{id}', [CandidatDuController::class, 'supprimer_candidat'])->name('supprimer.candiate');
+Route::get('/', function()
+    {
+        return view('candidatDashboard.listeCandidature');
+    }
+);
