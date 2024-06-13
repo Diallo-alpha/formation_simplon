@@ -31,10 +31,10 @@
     <a href="/dashbord.html">Tableau de bord</a>
 </li>
 <li class="colonne   colonne_cote">
-    <i class="fa-solid fa-school" style="color: #fafcff;"></i> <a href="/dashbord_formation.html">formations</a>
+    <i class="fa-solid fa-school" style="color: #fafcff;"></i> <a href="formation_dashbord">formations</a>
 </li>
 <li class="colonne">
-    <i class="fa-solid fa-people-group" style="color: #ffffff;"></i> <a href="/dashbord_candidat.html">Candidats</a>
+    <i class="fa-solid fa-people-group" style="color: #ffffff;"></i> <a href="candidat_dashbord">Candidats</a>
 </li>
 <li class="colonne">
     <i class="fa-solid fa-graduation-cap" style="color: #ffffff;"></i> <a href="/dashbord_candidature.html">Candidatures</a>

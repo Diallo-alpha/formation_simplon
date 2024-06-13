@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="{{ asset('css/candidat.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/personnel.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body>
@@ -29,10 +29,10 @@
     <i class="fa-solid fa-bars-progress" style="color: #ffffff;"></i>   <a href="/dashbord.html">Tableau de bord</a>
 </li>
 <li class="colonne   colonne_cote">
-    <i class="fa-solid fa-school" style="color: #ffffff;"></i>   <a href="/dashbord_formation.html">formations</a>
+    <i class="fa-solid fa-school" style="color: #ffffff;"></i>   <a href="formation_dashbord">formations</a>
 </li>
 <li class="colonne colonne_CHEF">
-    <i class="fa-solid fa-people-group" style="color: #000;"></i> <a href="/dashbord_candidat.html ">Candidats</a>
+    <i class="fa-solid fa-people-group" style="color: #000;"></i> <a href="candidat_dashbord ">Candidats</a>
 </li>
 <li class="colonne">
     <i class="fa-solid fa-graduation-cap" style="color: #ffff;"></i>  <a href="/dashbord_candidature.html">Candidatures</a>
@@ -47,6 +47,35 @@
 <!-- le conteneur des elements -->
 <div class="conteneur_element">
 <h1> tous les contenus element doit etre ici</h1>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">id</th>
+        <th scope="col">Prenom</th>
+        <th scope="col">Nom</th>
+        <th scope="col">email</th>
+        <th scope="col">telephone</th>
+        <th scope="col">Adresse</th>
+        <th scope="col">niveau</th>
+        <th scope="col">Supprimer</th>
+      </tr>
+    </thead>
+    @foreach ($users as $user )
+    <tbody>
+      <tr>
+        
+        <th scope="row">{{ $user->id }}</th>
+        <td>{{ $user->prenom }}</td>
+        <td>{{ $user->nom }}</td>
+        <td>{{ $user->email}}</td>
+        <td>{{ $user->telephone}}</td>
+        <td>{{ $user->adresse}}</td>
+        <td>{{ $user->niveau}}</td>
+        <td><a href="supprimer_candidat/{{ $user->id }}" class="btn btn-danger"> supprimer</a></td>
+        @endforeach
+      </tr>
+    </tbody>
+  </table>
 </div>
 
 

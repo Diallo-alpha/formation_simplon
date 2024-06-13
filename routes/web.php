@@ -1,9 +1,13 @@
 <?php
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CandidatDuController;
+use App\Http\Controllers\CandidatureController;
+use App\Http\Controllers\FormationController;
+use App\Http\Controllers\PortailController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AuthController;
-use App\Http\Controllers\PortailController;
-use App\Http\Controllers\FormationController;
+
+
 
 // Route::get('/',[PortailController::class,'portail'] );
 //route pour formations
