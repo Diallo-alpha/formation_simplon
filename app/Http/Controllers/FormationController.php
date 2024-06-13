@@ -12,6 +12,12 @@ class FormationController extends Controller
         return view('formations.ListeFormation', compact('formations'));
     }
 
+    public function listeOffre()
+    {
+        $formations = Formation::all();
+        return view('portails.offre', compact('formations'));
+    }
+
     public function afficherFormAjouterFormation()
     {
         return view('formations.ajouterFormation');
@@ -68,7 +74,7 @@ class FormationController extends Controller
             $formation->image = $imageName;
         }
 
-        $formation->save();
+        $formation->update();
 
         return redirect()->route('formation.liste')->with('success', 'Formation mise à jour avec succès.');
     }
@@ -80,7 +86,7 @@ class FormationController extends Controller
         return redirect()->route('formation.liste')->with('success', 'Formation supprimée avec succès.');
     }
     // Controller details
-    
+
     public function detailsformation(){
          return view('formations.details');
     }
