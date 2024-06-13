@@ -32,7 +32,10 @@ public function postuler(Request $request) {
         return view('candidatures.infocandid', compact('candidatures','users'));
 
     }
- 
+    public function afficher(){
+        $users=User::all();
+        return view('Candidats.afficher',compact('users'));
+    }
     
     
     
