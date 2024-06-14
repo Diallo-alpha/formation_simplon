@@ -26,11 +26,7 @@ Route::get('/offre',[FormationController::class, 'listeOffre'])->name('liste.off
 Route::get('candidat_inscription',[CandidatDuController::class,'inscription']);
 Route::post('sauvegarde_candidat',[CandidatDuController::class,'sauvegarde']);
 // details de la formation
-Route::get('detail', [FormationController::class,'detailsformation']);
-
-
 Route::get('detail', [FormationController::class,'detailsformation'])->name('details.formation');//ça marche
-
 //routes qui permet de faire la candiadture
 Route::get('formulaire_postuler',[CandidatureController::class,'formulaireCand']);
 Route::post('postuler',[CandidatureController::class,'postuler'])->name('postuler');
