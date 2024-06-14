@@ -77,3 +77,8 @@ Route::get('cadidate/{id}',[FormationController::class,'candidats'])->name('cand
 
 //candidature d'un seul elements
 Route::get('/mes-candidatures', [CandidatureFormationController::class, 'candidatureListe']);
+
+// gestion de la notification
+Route::get('notification_action',[FormationController::class,'notif'])->name('notificationFormation');
+
+
