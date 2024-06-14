@@ -10,7 +10,9 @@ body {
     display: flex;
     width: 100%;
 }
-
+.icon{
+    color: #ce0333;
+}
 .sidebar {
     width: 250px;
     background-color: #C50026;
@@ -19,6 +21,7 @@ body {
     flex-direction: column;
     align-items: center;
     padding-top: 20px;
+    height: 97vh;
 }
 
 .profile {
@@ -34,6 +37,7 @@ body {
 }
 
 nav ul {
+    margin-top: 30px;
     list-style-type: none;
     padding: 0;
 }
@@ -64,7 +68,7 @@ header {
 }
 
 header h1 {
-    margin: 0;
+    margin-top: 20px;
 }
 
 .user-info p {
@@ -95,6 +99,7 @@ header h1 {
 }
 
 .table-section h2 {
+    margin-top: 7.5rem;
     margin-bottom: 10px;
 }
 

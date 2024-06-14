@@ -7,7 +7,7 @@ use App\Http\Controllers\FormationController;
 use App\Http\Controllers\CandidatDuController;
 use App\Http\Controllers\CandidatureController;
 use App\Http\Controllers\OffreFormationController;
-
+use App\Http\Controllers\CandidatureFormationController;
 
 Route::get('/',[PortailController::class,'portail'] );
 
@@ -47,9 +47,16 @@ Route::get('/formations/afficher/{id}', [FormationController::class, 'afficher']
 // Route::get('offreform',[OffreFormationController::class,'offredetail']);
 Route::get('offreform', [OffreFormationController::class, 'offreform']);
 
+// Route::get('/candidature/dasboard', function()
+// {
+//     return view('candidatDashboard.listeCandidature');
+// });
 //Authentification
 Route::get('/login', [AuthController::class, 'getLogin'])->name('auth.getLogin');
 Route::post('/login', [AuthController::class, 'postLogin'])->name('auth.postLogin');
 Route::get('/register', [AuthController::class, 'getRegister'])->name('auth.getRegister');
 Route::post('/register', [AuthController::class, 'postRegister'])->name('auth.postRegister');
 Route::get('/logout', [AuthController::class, 'logout'])->name('auth.logout');
+
+//candidature d'un seul elements
+Route::get('/mes-candidatures', [CandidatureFormationController::class, 'candidatureListe']);
