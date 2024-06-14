@@ -33,7 +33,7 @@ class CandidatDuController extends Controller
 
     }
     //afficher le profil d'une candidat
-    public function profil_candidat($id){
+     public function profil_candidat($id){
 
         if(Auth::check() ) {
             $user = User::find($id);
@@ -42,6 +42,42 @@ class CandidatDuController extends Controller
         return view('/dashbord.candidat');
         }else {
             return  redirect()->back()->with('status','impossible');
-              }
-    }
+              }}
+
+//la methode pour voir afficher profil
+    public function candidat_profil($id)
+{
+
+   $id= '1';
+
+  $request['id'] = $id;
+
+    $user = User::find($id);
+
+    // Passer l'utilisateur à la vue
+    return view('candidatDashboard.profilcandidat', compact('user'));
+}
+//la methode pour afficher modifier profil
+public function modif_profil(){
+
+    //   $id= '17';
+
+    // $request['id'] = $id;
+
+  $user = User::find($id);
+
+    return view ('/candidatDashboard.modif_profilcandidat',compact('user'));
+
+}
+//la methode pour enregistrer modification
+public function save_modif_profil( Request $request ,$id){
+    $user = User::find($id);
+    $user->update($request->all());
+    return redirect()->back()->with('success','Modification reussi');
+}
+    //     return view('/dashbord.candidat');
+    //     }else {
+    //         return  redirect()->back()->with('status','impossible');
+    //           }
+    //
 }

@@ -11,7 +11,7 @@ class CandidatureFormationController extends Controller
     public function candidatureListe()
     {
         $user = Auth::user();
-        $candidatures = CandidatureFormation::where('candidature_id', $user->id)
+        $candidatures = CandidatureFormation::where('formation_id', $user->id)
                                              ->with('formation')
                                              ->get();
 

@@ -26,13 +26,13 @@
 <ul>
 
 <li class="colonne ">
-    <i class="fa-solid fa-bars-progress" style="color: #ffffff;"></i>   <a href="/dashbord.html">Tableau de bord</a>
+    <i class="fa-solid fa-bars-progress" style="color: #ffffff;"></i>   <a href="formationAdsbord">Tableau de bord</a>
 </li>
 <li class="colonne   colonne_cote">
-    <i class="fa-solid fa-school" style="color: #ffffff;"></i>   <a href="candidat_dashbord">formations</a>
+    <i class="fa-solid fa-school" style="color: #ffffff;"></i>   <a href="formationAdsbord">formations</a>
 </li>
 <li class="colonne colonne_CHEF">
-    <i class="fa-solid fa-people-group" style="color: #000;"></i> <a href="/dashbord_candidat.html ">Candidats</a>
+    <i class="fa-solid fa-people-group" style="color: #000;"></i> <a href=" ">Candidats</a>
 </li>
 <li class="colonne">
     <i class="fa-solid fa-graduation-cap" style="color: #ffff;"></i>  <a href="/dashbord_candidature.html">Candidatures</a>
@@ -48,7 +48,7 @@
 <div class="conteneur_element">
 <h1>
 
-    tous element de la candidature doit etre ici  
+    tous element de la candidature doit etre ici
 </h1>
 
 
@@ -71,12 +71,9 @@
     <tbody>
 
         @foreach ($candidatures as $candidature)
-        
-        @foreach ($users as $user)
-
 
         <tr>
-            <td><a href="#">{{$candidature->nom}}</td>
+            <td><a href="#">{{$candidature->user->nom}}</td>
             <td>{{$candidature->user->prenom}}</td>
             <td>{{$candidature->user->niveau}}</td>
             <td>{{$candidature->user->adresse}}</td>

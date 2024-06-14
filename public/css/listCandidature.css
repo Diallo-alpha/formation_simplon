@@ -62,9 +62,10 @@ nav ul li a {
 header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid #ccc;
-    padding-bottom: 10px;
+    padding: 10px 20px;
+    background-color: #f8f9fa;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: fixed;
 }
 
 header h1 {
@@ -109,8 +110,14 @@ table {
     margin-bottom: 20px;
 }
 
-table, th, td {
-    border: 1px solid #ddd;
+.colonne {
+    text-align: start;
+    color: white;
+    width: 100%;
+    font-size: 1.2rem;
+    font-weight: 400;
+    padding: 0.80rem;
+    padding-left: 2rem;
 }
 
 th, td {
@@ -124,4 +131,74 @@ thead {
 
 tbody tr:nth-child(even) {
     background-color: #f9f9f9;
+}
+/*page profil canndidat*/
+.profile-card img {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+.profile-card .profile-details {
+    flex-grow: 1;
+}
+
+.profile-card .profile-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.profile-card button {
+    margin: 5px 0;
+    padding: 10px 20px;
+    background-color: #C50026;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.profile-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-info h3 {
+    margin-bottom: 10px;
+}
+
+.profile-info .form-group {
+    display: flex;
+    justify-content: space-between;
+}
+
+.profile-info label {
+    margin-top: 10px;
+    flex-basis: 48%;
+}
+
+.profile-info input, .profile-info textarea {
+    margin-top: 5px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    flex-basis: 48%;
+}
+
+.profile-info textarea {
+    flex-basis: 100%;
+}
+
+.profile-info input[type="submit"] {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #C50026;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
