@@ -18,9 +18,12 @@ use Illuminate\Support\Facades\Storage;
 class CandidatureController extends Controller
 {
     //
-    public function formulaireCand(){
-        return view('candidatures.candidature');
+    public function formulaireCand($id) {
+        $formation = Formation::find($id); 
+        return view('candidatures.candidature', compact('formation'));
+        
     }
+    
 
         public function postuler(Request $request)
         {
@@ -36,7 +39,7 @@ class CandidatureController extends Controller
             if ($request->hasFile('cv')) {
                 $file = $request->file('cv');
                 $path = $file->store('public/documents');
-
+                
                 Candidature::create([
                     'user_id' => $request->input('user_id'),
                     'formation_id' => $request->input('formation_id'),
@@ -51,16 +54,17 @@ class CandidatureController extends Controller
            
             return redirect()->back()->withErrors(['cv' => 'Le fichier n\'a pas été téléchargé correctement.']);
         }
-        public function afficher($path)
-{
-    $filePath = 'public/' . $path;
+       
+        //public function afficher($path)
+// {
+//     $filePath = 'public/' . $path;
 
-    if (Storage::exists($filePath)) {
-        return Storage::download($filePath);
-    }
+//     if (Storage::exists($filePath)) {
+//         return Storage::download($filePath);
+//     }
 
-    return abort(404, 'Fichier non trouvé');
-}
+//     return abort(404, 'Fichier non trouvé');
+// }
 
         public function accepter($id)
         {

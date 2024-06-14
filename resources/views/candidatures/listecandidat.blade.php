@@ -39,11 +39,13 @@
                         <td>{{ $candidature->id }}</td>
                         <td>{{ $candidature->user->nom }}</td>
                         <td>
-                            @if ($candidature->cv_path)
-                                <a href="{{ route('fichier.afficher', ['path' => $candidature->cv_path]) }}" target="_blank">Télécharger</a>
-                            @else
-                                Aucun fichier
-                            @endif
+                      @if ($candidature->cv_path)
+    <a href="{{ asset('storage/' . $candidature->cv) }}" target="_blank">Télécharger</a>
+@else
+    Aucun fichier
+@endif
+
+
                         </td>
                         <td>{{ ucfirst($candidature->status) }}</td>
                         <td>

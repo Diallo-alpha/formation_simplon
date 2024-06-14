@@ -29,7 +29,7 @@ Route::post('sauvegarde_candidat',[CandidatDuController::class,'sauvegarde']);
 Route::get('detaille/{id}', [FormationController::class,'detailsformation'])->name('details.formation');//ça marche
 
 
-Route::get('detail', [FormationController::class,'detailsformation'])->name('details.formation');//ça marche
+
 
 //routes qui permet de faire la candiadture
 
@@ -53,10 +53,13 @@ Route::get('/register', [AuthController::class, 'getRegister'])->name('auth.getR
 Route::post('/register', [AuthController::class, 'postRegister'])->name('auth.postRegister');
 Route::get('/logout', [AuthController::class, 'logout'])->name('auth.logout');
 
-Route::get('formulaire_postuler',[CandidatureController::class,'formulaireCand']);
+Route::get('formulaire_postuler/{id}',[CandidatureController::class,'formulaireCand']);
 Route::post('candidature/postuler', [CandidatureController::class, 'postuler'])->name('candidature.postuler');
-Route::get('candidature/{path}', [CandidatureController::class, 'afficher'])->name('fichier.afficher');
+
+
 Route::get('candidatures', [CandidatureController::class, 'index'])->name('candidatures.index');
+
+Route::get('candidature/{path}', [CandidatureController::class, 'afficher'])->name('fichier.afficher');
 Route::delete('candidature/{id}', [CandidatureController::class, 'destroy'])->name('candidatures.destroy');
 Route::get('candidature/accepter/{id}', [CandidatureController::class, 'accepter'])->name('candidature.accepter');
 Route::get('candidature/rejeter/{id}', [CandidatureController::class, 'rejeter'])->name('candidature.rejeter');

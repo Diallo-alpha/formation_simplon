@@ -23,12 +23,7 @@
             <div class="form-group">
             <p>{{Auth::User()->prenom}}</p>
                 <input type="hidden" name="user_id" class="form-control" value="{{Auth::User()->id}}">
-                <input type="hidden" name="user_id" class="form-control" value="{{Auth::User()->id}}">
-            
-            <div class="form-group">
-               
-                <input type="hidden" name="formation_id" class="form-control">
-            </div>
+                <input type="hidden" name="formation_id" class="form-control" value="{{$formation->id}}">
             <div class="form-group">
                 <label for="cv">CV</label>
                 <input type="file" name="cv" class="form-control-file" required>
