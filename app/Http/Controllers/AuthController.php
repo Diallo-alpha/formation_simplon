@@ -17,20 +17,16 @@ class AuthController extends Controller
     public function postRegister(Request $request)
     {
         // Validez et créez l'utilisateur
-        $request->validate([
-            // 'nam' => 'required|string|max:255',
-            // 'email' => 'required|string|email|unique:users|max:255',
-            // 'password' => 'required|string|min:4|max:255',
-        ]);
+        // $request->validate([
+        //     'nam' => 'required|string|max:255',
+        //     'email' => 'required|string|email|unique:users|max:255',
+        //     'password' => 'required|string|min:4|max:255',
+        // ]);
 
         // Créer l'utilisateur
 
-        // $user = new User();
         User::create($request->all() );
-        // $user->name = $request->name;
-        // $user->email = $request->email;
-        // $user->password = Hash::make($request->password);
-        // $user->save();
+
 
 
         return redirect()->route('auth.getLogin');
@@ -41,18 +37,6 @@ class AuthController extends Controller
         }
 
 
-
-
-
-        // User::create($request->all() );
-
-        // Connectez l'utilisateur après son inscription
-        // Auth::login($user);
-
-    //     // Redirigez vers la page de tableau de bord ou une autre page
-    //     return redirect()->route('login');
-    // }
-
     public function getLogin()
     {
         return view('Auth.login'); // Retournez la vue de connexion
@@ -61,17 +45,24 @@ class AuthController extends Controller
     public function postLogin(Request $request)
     {
         // Validez les informations d'identification
-        $credentials = $request->validate([
-            'email' => 'required|string|email',
-            'password' => 'required|string',
-        ]);
+        // $credentials = $request->validate([
+        //     'email' => 'required|string|email',
+        //     'password' => 'required|string',
+        // ]);
+
+        // $credentials = $request->validate([
+        //     'nom' => 'required|string|max:255',
+        //     'email' => 'required|string|email|unique:users|max:255',
+        //     'password' => 'required|string|min:4|max:255|regex:/[A-Z]+.*[a-z]+.*[0-9]+.*[\W_]+/',
+        // ]);
+
 
         // Connectez l'utilisateur
-        if (Auth::attempt($credentials)) {
-            $request->session()->regenerate();
-            // Redirigez vers la page de tableau de bord ou une autre page
-            return redirect()->intended('offre');
-        }
+        // if (Auth::attempt($credentials)) {
+        //     $request->session()->regenerate();
+        //     // Redirigez vers la page de tableau de bord ou une autre page
+        //     return redirect()->intended('offre');
+        // }
 
         // Si l'authentification échoue, redirigez vers la page de connexion avec un message d'erreur
         return back()->withErrors([
