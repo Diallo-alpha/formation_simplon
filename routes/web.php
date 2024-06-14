@@ -25,11 +25,10 @@ Route::get('/offre',[FormationController::class, 'listeOffre'])->name('liste.off
 // route pour le formulaire pour l'inscription des candidat
 Route::get('candidat_inscription',[CandidatDuController::class,'inscription']);
 Route::post('sauvegarde_candidat',[CandidatDuController::class,'sauvegarde']);
+
+
 // details de la formation
-Route::get('detail', [FormationController::class,'detailsformation']);
-
-
-Route::get('detail', [FormationController::class,'detailsformation'])->name('details.formation');//ça marche
+Route::get('detaille/{id}', [FormationController::class,'detailsformation'])->name('details.formation');//ça marche
 
 //routes qui permet de faire la candiadture
 Route::get('formulaire_postuler',[CandidatureController::class,'formulaireCand']);
@@ -40,7 +39,7 @@ Route::get('ListeCandidates',[AuthController::class,'listecandature']);//marche 
 Route::delete('candidatSup/{id}',[CandidatureController::class,'supprimercand'])->name('rejettercadidature');
 // Route::get('afficher_candidat',[CandidatureController::class,'afficher']);
 // details de la formation
-// Route::get('detail', [FormationController::class,'detailsformation'])->name('details.formation');ça marche
+// Route::get('details/{id}', [FormationController::class,'detailsformation'])->name('details.formation');
 
 Route::delete('/supprimmer_candidat/{id}', [CandidatDuController::class, 'supprimer_candidat'])->name('supprimer.candiate');
 // gestion du dashbord

@@ -105,8 +105,9 @@ class FormationController extends Controller
     }
     // Controller details
 
-    public function detailsformation(){
-         return view('formations.details');
+    public function detailsformation($id){
+        $formation=Formation::findOrFail($id);
+         return view('formations.details',compact('formation'));
     }
 // affichage des formation dans le dashbord
     public function formation_dashbord(){

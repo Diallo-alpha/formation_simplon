@@ -59,7 +59,7 @@
               <p>
                 {{ Str::limit($formation->description, 100) }}
               </p>
-              <a href="detail" style="text-decoration: none"> <button class="btn btn-danger btn_postuler col-12" style="display: flex; justify-content: center; align-items: center; border-radius:100px">Voir plus</button> 
+              <a href="detaille/{{ $formation->id }}" style="text-decoration: none"> <button class="btn btn-danger btn_postuler col-12" style="display: flex; justify-content: center; align-items: center; border-radius:100px">Voir plus</button> 
               </a>
             </div>
 
