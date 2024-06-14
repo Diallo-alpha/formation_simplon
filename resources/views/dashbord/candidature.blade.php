@@ -47,15 +47,15 @@
 <!-- le conteneur des elements -->
 <div class="conteneur_element">
 <h1>
-<<<<<<< HEAD
-    tous element de la candidature doit etre ici  
+
+    tous element de la candidature doit etre ici
 </h1>
-=======
+
 
     tous element de la candidature doit etre ici
 </h1>
 <div>
-   
+
 <table class="dataTable">
     <thead>
         <tr>
@@ -65,20 +65,20 @@
             <th>adresse</th>
             <th>date</th>
             <th>Action</th>
-            
+
         </tr>
     </thead>
     <tbody>
         @foreach ($users as $user)
-        
-        
+
+
         <tr>
             <td><a href="#">{{$user->nom}}</td>
             <td>{{$user->prenom}}</td>
             <td>{{$user->niveau}}</td>
             <td>{{$user->adresse}}</td>
             <td>{{$user->created_at}}</td>
-            
+
             <td>
                 <a href="">
                 <button class="button action">accepter</button>
@@ -92,7 +92,7 @@
             @endforeach
     </tbody>
 </table>
->>>>>>> 7d2db9968f9a7547b727952b3fb23fc6735aa941
+
 
 </div>
 

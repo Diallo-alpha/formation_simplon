@@ -15,10 +15,11 @@
         <p>Notre entreprise s'engage à offrir des formations informatiques gratuites pour rendre l'éducation numérique accessible à tous.</p>
 
         </div>
- <button>
-    <a href="/deconnexion_candidat">deconnexion</a>
- </button>
-
+        @if(session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
     </menu>
     <style>
         .banner{

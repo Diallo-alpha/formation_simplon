@@ -31,6 +31,7 @@ class AuthController extends Controller
         $user->nom = $request->nom;
         $user->email = $request->email;
         $user->telephone = $request->telephone;
+        $user->role = $request->role ;
         $user->adresse = $request->adresse;
         $user->email = $request->email;
 
@@ -129,16 +130,18 @@ class AuthController extends Controller
     public function connexion_candidat(){
         return view ('/auth_candidats.connexion_candidat');
     }
+
     //le model pour s'authentifer
-    public function auth_candidat( Request $request){  // Validez les informations d'identification
+    public function auth_candidat( Request $request ){  // Validez les informations d'identification
 
 
     $credetails = [
+        'role'=>$request->role,
         'email' => $request->email,
         'password'=> $request->password,
     ];
 
-    if (Auth::attempt($credetails)){
+    if (Auth::attempt($credetails) ){
         return redirect('/')->with('succes','bienvenue');
     }
     return back()->with('error','Email or Password');

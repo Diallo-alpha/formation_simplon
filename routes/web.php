@@ -51,3 +51,12 @@ Route::get('/', function()
     return view('candidatDashboard.listeCandidature');
 });
 
+//la route pour afficher la page de connexion
+//Route::get('/inscription_candidat',[AuthController::class,'inscription_candidat']);
+//la route pour l'affichage de la page connexion
+//Route::get('/connexion_candidat',[AuthController::class,'connexion_candidat']);
+
+//la route pour afficher les informations du candidat individuels
+//Route::get('/profil_candidat',[AuthController::class,'profil_candidat']);
+//la route pour la connexion
+//Route::post('/auth_candidat', [AuthController::class,'auth_candidat']);
