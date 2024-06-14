@@ -19,6 +19,7 @@
                 <ul>
                     <li> <i class="fa-solid fa-bars-progress"></i> <a href="#">TABLEAU DE BORD</a></li>
                     <li><i class="fa-solid fa-school"></i> <a href="#">Formation</a></li>
+                    <li><a href="/candidat_profil/{{$user->id}}"><i class="fas fa-user"></i> Profil</a></li>
                     <li><i class="fa-solid fa-people-group"></i> <a href="#">Candidature</a></li>
                     <li>
                         <i class="fa-solid fa-sign-out-alt"></i>
