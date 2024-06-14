@@ -72,7 +72,7 @@
 
         @foreach ($candidatures as $candidature)
         
-        @foreach ($users as $user)
+       
 
 
         <tr>

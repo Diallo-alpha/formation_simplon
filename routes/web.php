@@ -32,12 +32,7 @@ Route::get('detail', [FormationController::class,'detailsformation']);
 Route::get('detail', [FormationController::class,'detailsformation'])->name('details.formation');//ça marche
 
 //routes qui permet de faire la candiadture
-Route::get('formulaire_postuler',[CandidatureController::class,'formulaireCand']);
-Route::post('postuler',[CandidatureController::class,'postuler'])->name('postuler');
-Route::get('afficherDetailsCandidature/{id}',[CandidatureController::class,'index'])->name('fichiers.index');
-Route::get('ListeCandidates',[AuthController::class,'listecandature']);//marche pas
-//rejetter la candidature
-Route::delete('candidatSup/{id}',[CandidatureController::class,'supprimercand'])->name('rejettercadidature');
+
 // Route::get('afficher_candidat',[CandidatureController::class,'afficher']);
 // details de la formation
 // Route::get('detail', [FormationController::class,'detailsformation'])->name('details.formation');ça marche
