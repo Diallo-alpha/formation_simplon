@@ -66,3 +66,6 @@ Route::get('/candidat_profil/{id}',[CandidatDuController::class,'candidat_profil
 Route::get('/modif_profil',[CandidatDuController::class,'modif_profil']);
 //la  route pour enregistrer une modification
  Route::post('/save_modif_profil/{id}',[CandidatDuController::class,'save_modif_profil']);
+
+//profil candidate
+
