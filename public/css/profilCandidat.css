@@ -1,0 +1,76 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+  }
+
+  body {
+      background-color: #fff;
+  }
+
+  header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 20px;
+      background-color: #f8f9fa;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      position: fixed;
+  }
+
+  .cont_all {
+      display: flex;
+  }
+
+  .dashbord {
+      width: 15%;
+      background-color: #ce0333;
+      height: 100vh;
+      position: fixed;
+  }
+
+  .conteneur_element {
+      width: 80%;
+      margin-left: 17%;
+      padding: 1rem;
+      background-color: #fff;
+      border-radius: 1rem;
+  }
+
+  .navbar {
+      display: flex;
+      flex-direction: column;
+      color: #fff;
+      width: 100%;
+  }
+
+  .colonne {
+      text-align: start;
+      color: white;
+      width: 100%;
+      font-size: 1.2rem;
+      font-weight: 400;
+      padding: 0.80rem;
+      padding-left: 2rem;
+  }
+
+  .colonne_cote {
+      border-radius: 3rem 0 0 3rem;
+  }
+
+  .colonne_CHEF {
+      background-color: #fff;
+      color: black;
+      border-radius: 3rem 0 0 3rem;
+  }
+
+  .navbar ul .colonne a {
+      text-decoration: none;
+      color: white;
+  }
+
+  .navbar ul .colonne_CHEF a {
+      color: black;
+  }

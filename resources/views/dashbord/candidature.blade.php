@@ -48,7 +48,7 @@
 <div class="conteneur_element">
 <h1>
 
-    tous element de la candidature doit etre ici  
+    tous element de la candidature doit etre ici
 </h1>
 
 
@@ -71,12 +71,9 @@
     <tbody>
 
         @foreach ($candidatures as $candidature)
-        
-
-
 
         <tr>
-            <td><a href="#">{{$candidature->nom}}</td>
+            <td><a href="#">{{$candidature->user->nom}}</td>
             <td>{{$candidature->user->prenom}}</td>
             <td>{{$candidature->user->niveau}}</td>
             <td>{{$candidature->user->adresse}}</td>
