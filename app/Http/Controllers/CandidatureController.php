@@ -1,17 +1,19 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Mail\Notification;
 
-use App\Models\User;
-use App\Models\Formation;
-
+use App\Http\Controllers\Controller;
 use App\Models\Candidature;
-use Illuminate\Http\Request;
-use App\Models\CandidatureFormation;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Storage;
-use App\Notifications\candidatureNotification;
 
+use App\Models\CandidatureFormation;
+use App\Models\Formation;
+use App\Models\User;
+use App\Notifications\candidatureNotification;
+use Illuminate\Http\Request;
+// use Illuminate\Notifications\Notification;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Storage;
 class CandidatureController extends Controller
 {
     //
@@ -63,8 +65,10 @@ class CandidatureController extends Controller
             $candidature = Candidature::findOrFail($id);
             $candidature->update(['status' => 'accepter']);
             // recherche du user a qui appartient la candidature
-            $user = $candidature->user;
-            $user->notify(new candidatureNotification());
+            // $user = $candidature->user;
+            // $user->notify(new candidatureNotification());
+            // $user = $candidature->user;
+        // Mail::to($user->email)->send(new Notification($candidature));
 
             return redirect()->back()->with('message', 'Candidature acceptée avec succès.');
         }
@@ -97,13 +101,8 @@ class CandidatureController extends Controller
         return view('dashbord.candidature',compact('candidatures'));
     }
 
-    public function candidatureListe()
-    {
-        $user = Auth::user(); // Utilisez l'utilisateur actuellement connecté
-        $candidatures = Candidature::where('user_id', $user->id)->with('formation')->get();
 
-        return view('candidatDashboard.listeCandidature', compact('candidatures', 'user'));
-    }
+
 
 }
 

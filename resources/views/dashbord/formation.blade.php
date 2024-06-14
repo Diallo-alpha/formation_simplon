@@ -178,12 +178,7 @@
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger btn-sm">Supprimer</button>
                         </form>
-                        {{-- <a href="{{ route('form.modification.formation', $formation->id) }}" class="btn btn-warning btn-sm">Modifier</a> --}}
-                        {{-- <form action="{{ route('formation.supprimer', $formation->id) }}" method="POST" style="display:inline-block;"> --}}
-                            {{-- @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-danger btn-sm">Supprimer</button> --}}
-                        {{-- </form> --}}
+                        
                     </td>
                   <td>
                    <a href="{{Route('candidatureFormation',$formation->id)}}">candidat</a>

@@ -42,7 +42,6 @@
     <h1>Login</h1>
     <form method="POST" action="{{ route('auth.postLogin') }}" class="row g-3">
         @csrf
-
         <!-- Email Address -->
         <div class="col-md-12">
             <label for="email" class="form-label">Email</label>

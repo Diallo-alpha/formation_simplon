@@ -22,8 +22,15 @@ Route::get('/offre',[FormationController::class, 'listeOffre'])->name('liste.off
 // route pour le formulaire pour l'inscription des candidat
 Route::get('candidat_inscription',[CandidatDuController::class,'inscription']);
 Route::post('sauvegarde_candidat',[CandidatDuController::class,'sauvegarde']);
+
+
 // details de la formation
+
+Route::get('detaille/{id}', [FormationController::class,'detailsformation'])->name('details.formation');//ça marche
+
+
 Route::get('detail', [FormationController::class,'detailsformation'])->name('details.formation');//ça marche
+
 //routes qui permet de faire la candiadture
 Route::get('formulaire_postuler',[CandidatureController::class,'formulaireCand']);
 Route::post('postuler',[CandidatureController::class,'postuler'])->name('postuler');
@@ -33,7 +40,7 @@ Route::get('ListeCandidates',[AuthController::class,'listecandature']);//marche 
 Route::delete('candidatSup/{id}',[CandidatureController::class,'supprimercand'])->name('rejettercadidature');
 // Route::get('afficher_candidat',[CandidatureController::class,'afficher']);
 // details de la formation
-// Route::get('detail', [FormationController::class,'detailsformation'])->name('details.formation');ça marche
+// Route::get('details/{id}', [FormationController::class,'detailsformation'])->name('details.formation');
 
 Route::delete('/supprimmer_candidat/{id}', [CandidatDuController::class, 'supprimer_candidat'])->name('supprimer.candiate');
 // gestion du dashbord
@@ -59,7 +66,7 @@ Route::get('candidature/accepter/{id}', [CandidatureController::class, 'accepter
 Route::get('candidature/rejeter/{id}', [CandidatureController::class, 'rejeter'])->name('candidature.rejeter');
 Route::get('cadidate/{id}',[FormationController::class,'candidats'])->name('candidatureFormation');
 //candidature d'un seul elements
-Route::get('/mes-candidatures', [CandidatureController::class, 'candidatureListe']);
+Route::get('/mes-candidatures/{id}', [CandidatureController::class, 'affichercandid']);
 //la route pour afficher le profil
 Route::get('/candidat_profil/{id}',[CandidatDuController::class,'candidat_profil'])->name('candidat_profil');
  //la route pour la modification du profil
