@@ -127,10 +127,10 @@
     <a href="/dashbord.html">Tableau de bord</a>
 </li>
 <li class="colonne   colonne_cote  colonne_CHEF">
-    <i class="fa-solid fa-school" style="color: #000;"></i> <a href="formation_dashbord">formations</a>
+    <i class="fa-solid fa-school" style="color: #000;"></i> <a href="formationAdsbord">formations</a>
 </li>
 <li class="colonne">
-    <i class="fa-solid fa-people-group" style="color: #ffffff;"></i> <a href="candidat_dashbord">Candidats</a>
+    <i class="fa-solid fa-people-group" style="color: #ffffff;"></i> <a href="">Candidats</a>
 </li>
 <li class="colonne">
     <i class="fa-solid fa-graduation-cap" style="color: #ffffff;"></i> <a href="/dashbord_candidature.html">Candidatures</a>
@@ -161,6 +161,8 @@
                     {{-- <th>Image</th> --}}
                     {{-- <th>Utilisateur</th> --}}
                     <th>Actions</th>
+                    <th>Candidat</th>
+
                 </tr>
             </thead>
             <tbody>
@@ -169,22 +171,20 @@
                     <td>{{ $formation->titre }}</td>
                     <td>{{Str::limit( $formation->description ,100)}}</td>
                     <td>{{ $formation->date_expiration }}</td>
-                    <td><img src="{{asset('/images/' . $formation->image)}}" alt="{{ $formation->titre }}" width="100"></td>
+                    {{-- <td><img src="{{asset('/images/' . $formation->image)}}" alt="{{ $formation->titre }}" width="100"></td> --}}
                     <td><a href="{{ route('form.modification.formation', $formation->id) }}" class="btn btn-warning btn-sm">Modifier</a>
                         <form action="{{ route('formation.supprimer', $formation->id) }}" method="POST" style="display:inline-block;">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger btn-sm">Supprimer</button>
                         </form>
-                        <a href="{{ route('form.modification.formation', $formation->id) }}" class="btn btn-warning btn-sm">Modifier</a>
-                        <form action="{{ route('formation.supprimer', $formation->id) }}" method="POST" style="display:inline-block;">
-                            @csrf
+                        {{-- <a href="{{ route('form.modification.formation', $formation->id) }}" class="btn btn-warning btn-sm">Modifier</a> --}}
+                        {{-- <form action="{{ route('formation.supprimer', $formation->id) }}" method="POST" style="display:inline-block;"> --}}
+                            {{-- @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-danger btn-sm">Supprimer</button>
-                        </form>
+                            <button type="submit" class="btn btn-danger btn-sm">Supprimer</button> --}}
+                        {{-- </form> --}}
                     </td>
-                  
-                   
                   <td>
                    <a href="{{Route('candidatureFormation',$formation->id)}}">candidat</a>
                    </td>
