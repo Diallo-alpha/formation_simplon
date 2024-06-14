@@ -59,7 +59,7 @@ Route::get('candidature/accepter/{id}', [CandidatureController::class, 'accepter
 Route::get('candidature/rejeter/{id}', [CandidatureController::class, 'rejeter'])->name('candidature.rejeter');
 Route::get('cadidate/{id}',[FormationController::class,'candidats'])->name('candidatureFormation');
 //candidature d'un seul elements
-Route::get('/mes-candidatures', [CandidatureFormationController::class, 'candidatureListe']);
+Route::get('/mes-candidatures', [CandidatureController::class, 'candidatureListe']);
 //la route pour afficher le profil
 Route::get('/candidat_profil/{id}',[CandidatDuController::class,'candidat_profil'])->name('candidat_profil');
  //la route pour la modification du profil

@@ -70,8 +70,8 @@
                     <tbody>
                         <?php foreach ($candidatures as $candidature): ?>
                         <tr>
-                            <td><?php echo $candidature->id; ?></td>
-                            <td><?php echo $candidature->formation->date_debut; ?></td>
+                            <td><?php echo $candidature->$user->id; ?></td>
+                            <td><?php echo $candidature->$user->date_debut; ?></td>
                             <td><?php echo $candidature->formation->date_fin; ?></td>
                             <td><?php echo $candidature->statut; ?></td>
                         </tr>

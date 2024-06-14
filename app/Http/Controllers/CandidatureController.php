@@ -8,8 +8,9 @@ use App\Models\Formation;
 use App\Models\Candidature;
 use Illuminate\Http\Request;
 use App\Models\CandidatureFormation;
-use App\Notifications\candidatureNotification;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use App\Notifications\candidatureNotification;
 
 class CandidatureController extends Controller
 {
@@ -64,7 +65,7 @@ class CandidatureController extends Controller
             // recherche du user a qui appartient la candidature
             $user = $candidature->user;
             $user->notify(new candidatureNotification());
-        
+
             return redirect()->back()->with('message', 'Candidature acceptée avec succès.');
         }
 
@@ -96,6 +97,14 @@ class CandidatureController extends Controller
         return view('dashbord.candidature',compact('candidatures'));
     }
 
+    public function candidatureListe()
+    {
+        $user = Auth::user();
+        $candidatures = Candidature::where('formation_id', $user->id)
+                                             ->with('formation')
+                                             ->get();
 
+        return view('candidatDashboard.listeCandidature', compact('candidatures', 'user'));
+    }
 }
 

@@ -49,24 +49,7 @@
                 <p>Le développement web consiste à créer et maintenir des sites internet et des applications web. Il englobe plusieurs aspects, y compris la conception web, la programmation, la gestion de bases de données et la mise en réseau.</p>
             </div>
         </div>
-<<<<<<< HEAD
-        @if(session('success'))
-        <div class="alert alert-success">
-            {{ session('success') }}
-        </div>
-    @endif
-    </menu>
-    <style>
-        .banner{
-            background-image:url('{{ asset('images/banner.png') }}');
-            background-repeat:no-repeat;
-            background-size: cover;
-            height: 70vh;
-        }
-    </style>
-=======
     </section>
-
     <section class="a-propos">
         <h2>A propos de nous</h2>
         <div class="about-content">
@@ -132,6 +115,5 @@
             </div>
         </div>
     </footer>
->>>>>>> feature/frontEnd
 </body>
 </html>
