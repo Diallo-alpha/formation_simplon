@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Http\Controllers\Controller;
+use App\Models\Formation;
 use Illuminate\Http\Request;
 {
 
@@ -8,9 +10,9 @@ class OffreFormationController extends Controller
 
 {
     public function offreform()
-    {
+    {$formations=Formation::all();
         // Logic for the detail view
-        return view('candidatDashboard.offreform'); // Assurez-vous que la vue existe
+        return view('candidatDashboard.offreform',compact('formations')); // Assurez-vous que la vue existe
     }
 }
 

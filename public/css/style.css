@@ -1,8 +1,209 @@
-*{
-    box-sizing: border-box;
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
 }
-.banner{
-   
+body{
+    overflow-x: hidden;
+}
+header {
+    background-color: #fff;
+    padding: 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+}
+
+.auth-buttons button {
+    margin-left: 10px;
+    padding: 10px 20px;
+    border: none;
+    background-color: #ce0333;
+    color: #fff;
+    cursor: pointer;
+}
+
+.hero {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    color: #fff;
+    text-align: center;
+    padding: 100px 20px;
+    height: 87vh;
+}
+.hero h1{
+    margin-left: 20px;
+    text-align: start;
+    font-weight: bold;
+    font-size: 50px;
+}
+.hero p {
+    margin-top: 10px;
+    font-size: 35px;
+    text-align: start;
+    margin-left: 20px;
+    font-weight: 400;
+}
+.offers {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.offers .offer-cards {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.offers .card {
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 30%;
+}
+
+.a-propos{
+    background-color: #fff;
+
+}
+
+.a-propos h2 {
+    color: #ce0333;
+    text-align: center;
+    font-weight: 800;
+    font-size: 45px;
+}
+
+.about-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 3px 10px;
+    border: 2px solid #3333;
+    border-radius: 20px;
+    margin: auto;
+    width: 94%;
+    height: 47vh;
+    /* gap: 20px; */
+}
+
+.a-propos img {
+    width: 45%;
+    border-radius: 40px 0 0 40px; /* Bords arrondis pour l'image */
+    height: 352px;
+}
+
+.about-text {
+    width: 50%;
+    text-align: justify;
+}
+.chifrre{
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    width: 95%;
+    margin: auto;
+    height: 550px;
+}
+.chiffre-img{
+    width: 300px;
+    height: auto;
+    text-align: start;
+    margin-left: -600px;
+    margin-top: 70px;
+}
+.chifrre, .partners {
+    margin-top: 30px;
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.partner-logos {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.partner-logo {
+    width: 100%;
+    height: 100%;
+}
+
+footer {
+    background-color: #fff;
+    color: #333;
+    padding: 20px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-logo img {
+    width: 150px;
+}
+
+.footer-links {
+    display: flex;
+}
+
+.footer-column {
+    margin: 0 20px;
+}
+
+.footer-column h3 {
+    margin-bottom: 10px;
+}
+
+.footer-column ul {
+    list-style: none;
+}
+
+.footer-column ul li {
+    margin: 5px 0;
+}
+
+.footer-column ul li a {
+    color: #333;
+    text-decoration: none;
+}
+
+.footer-newsletter {
+    display: flex;
+}
+
+.footer-newsletter input {
+    padding: 10px;
+    border: none;
+    outline: none;
+}
+
+.footer-newsletter button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #ce0333;
+    color: #fff;
+    cursor: pointer;
 }

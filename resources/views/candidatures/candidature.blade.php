@@ -21,8 +21,9 @@
         <form action="{{ route('candidature.postuler') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
-            <p>{{Auth::User()}}</p>
-                <input type="hidden" name="user_id" class="form-control" value="{{$user->id}}">
+            <p>{{Auth::User()->prenom}}</p>
+                <input type="hidden" name="user_id" class="form-control" value="{{Auth::User()->id}}">
+                <input type="hidden" name="user_id" class="form-control" value="{{Auth::User()->id}}">
             
             <div class="form-group">
                

@@ -8,7 +8,11 @@ use App\Models\Formation;
 use App\Models\Candidature;
 use Illuminate\Http\Request;
 use App\Models\CandidatureFormation;
+
 use Illuminate\Support\Facades\Auth;
+
+use App\Notifications\candidatureNotification;
+
 use Illuminate\Support\Facades\Storage;
 
 class CandidatureController extends Controller
@@ -20,6 +24,7 @@ class CandidatureController extends Controller
 
         public function postuler(Request $request)
         {
+            $user = Auth::user();
             $request->validate([
                 'user_id' => 'required|exists:users,id',
                 'formation_id' => 'required|exists:formations,id',
@@ -40,10 +45,10 @@ class CandidatureController extends Controller
                     'motivations' => $request->input('motivations'),
                     'status' => 'En attente',
                 ]);
-
-                return redirect()->route('candidatures.index')->with('message', 'Candidature soumise avec succès.');
+                
+                return redirect()->route('candidatures.index',compact('user'))->with('message', 'Candidature soumise avec succès.');
             }
-
+           
             return redirect()->back()->withErrors(['cv' => 'Le fichier n\'a pas été téléchargé correctement.']);
         }
         public function afficher($path)
@@ -61,6 +66,10 @@ class CandidatureController extends Controller
         {
             $candidature = Candidature::findOrFail($id);
             $candidature->update(['status' => 'accepter']);
+            // recherche du user a qui appartient la candidature
+            $user = $candidature->user;
+            $user->notify(new candidatureNotification());
+        
             return redirect()->back()->with('message', 'Candidature acceptée avec succès.');
         }
 

@@ -10,9 +10,6 @@ use App\Http\Controllers\OffreFormationController;
 use App\Http\Controllers\CandidatureFormationController;
 
 Route::get('/',[PortailController::class,'portail'] );
-
-// Route::get('/',[PortailController::class,'portail'] );
-
 //route pour formations
 Route::get('/listeFormation', [FormationController::class, 'listeFormation'])->name('formation.liste');
 Route::get('/formations/ajouter', [FormationController::class, 'afficherFormAjouterFormation'])->name('formulaire.ajout.formation');
@@ -42,11 +39,6 @@ Route::get('/formations/afficher/{id}', [FormationController::class, 'afficher']
 // offre de formation
 // Route::get('offreform',[OffreFormationController::class,'offredetail']);
 Route::get('offreform', [OffreFormationController::class, 'offreform']);
-
-// Route::get('/candidature/dasboard', function()
-// {
-//     return view('candidatDashboard.listeCandidature');
-// });
 //Authentification
 Route::get('/login', [AuthController::class, 'getLogin'])->name('auth.getLogin');
 Route::post('/login', [AuthController::class, 'postLogin'])->name('auth.postLogin');
@@ -54,11 +46,7 @@ Route::get('/register', [AuthController::class, 'getRegister'])->name('auth.getR
 Route::post('/register', [AuthController::class, 'postRegister'])->name('auth.postRegister');
 Route::get('/logout', [AuthController::class, 'logout'])->name('auth.logout');
 
-
-Route::get('/fichiers/afficher/{path}', [CandidatureController::class, 'afficher'])->name('fichier.afficher');
-
 Route::get('formulaire_postuler',[CandidatureController::class,'formulaireCand']);
-
 Route::post('candidature/postuler', [CandidatureController::class, 'postuler'])->name('candidature.postuler');
 Route::get('candidature/{path}', [CandidatureController::class, 'afficher'])->name('fichier.afficher');
 Route::get('candidatures', [CandidatureController::class, 'index'])->name('candidatures.index');
@@ -66,6 +54,14 @@ Route::delete('candidature/{id}', [CandidatureController::class, 'destroy'])->na
 Route::get('candidature/accepter/{id}', [CandidatureController::class, 'accepter'])->name('candidature.accepter');
 Route::get('candidature/rejeter/{id}', [CandidatureController::class, 'rejeter'])->name('candidature.rejeter');
 Route::get('cadidate/{id}',[FormationController::class,'candidats'])->name('candidatureFormation');
-
 //candidature d'un seul elements
 Route::get('/mes-candidatures', [CandidatureFormationController::class, 'candidatureListe']);
+//la route pour afficher le profil
+Route::get('/candidat_profil/{id}',[CandidatDuController::class,'candidat_profil'])->name('candidat_profil');
+ //la route pour la modification du profil
+Route::get('/modif_profil',[CandidatDuController::class,'modif_profil']);
+//la  route pour enregistrer une modification
+ Route::post('/save_modif_profil/{id}',[CandidatDuController::class,'save_modif_profil']);
+
+//profil candidate
+

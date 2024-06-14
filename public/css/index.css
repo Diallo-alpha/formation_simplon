@@ -60,7 +60,7 @@ header {
     color:  #ffff;
 }
 
-footer {
+/* footer {
     margin-top: 50px;
 }
 footer ul {
@@ -70,6 +70,7 @@ footer ul {
 }
 .footer-logo{
     height: 65px;
+    margin-right: 400px;
 }
 .newsletter{
     display: flex;
@@ -87,4 +88,5 @@ input[type=email] {
     height: 56px;
     border-radius: 0px;
     margin-left: -0.5px;
-}
+} 
+ */
