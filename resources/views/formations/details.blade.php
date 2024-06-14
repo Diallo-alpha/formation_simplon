@@ -60,22 +60,18 @@
     </style>
   </head>
   <body>
+
     <div class="card mb-3 custom-card container">
       <div class="custom-card-container">
-        <img src="{{asset('img/Image_collée.png')}}" class="img-fluid custom-img" alt="...">
+        <img src="{{asset('/images/' . $formation->image)}}" class="card-img-top" alt="...">
         <div class="custom-card-body">
-          <h1 class="card-title">Internet Industriel des Objets (IIoT)</h1>
-          <p class="card-text ">
-            Découvrez l'Internet des Objets Industriels (IIOT) avec notre formation chez SIMPLON. Apprenez à collecter, analyser et utiliser des données en temps réel pour optimiser les processus industriels. Nos formateurs experts vous guideront à travers des projets pratiques. Aucune expérience préalable n'est requise, juste une passion pour la technologie. Rejoignez-nous et devenez un acteur de l'industrie.
-          </p>
+          <h1 class="card-title">{{ $formation->titre }}</h1>
           <p class="card-text">
-            <small class="text-body-secondary">Contactez-nous pour plus d'informations et inscriptions.</small>
+            <small class="text-body-secondary">{{ $formation->description }}</small>
           </p>
         </div>
       </div>
     </div>
-    <h2 class="text-center mt-5">SIMPLON vous offre une opportunité unique de vous <br>
-      former dans ce secteur en pleine croissance !</h2>
 
 
 <div class="container " style="display: flex; align-items: center;">
@@ -147,14 +143,8 @@
       </div>
 
       <div class="container col-12">
-
       <div class="text-center pr-30px"style="position:center;">
-
-        <a href="login">
-          <button class="btn btn-danger text-white btn-adjusted">Postuler</button>
-        </a>
-
-
+        <a href="{{ route('auth.getLogin',$formation->id)  }}"><button class="btn btn-danger text-white btn-adjusted">Postuler</button></a> 
       </div>
       </div>
 
