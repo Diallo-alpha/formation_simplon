@@ -64,17 +64,17 @@
                 <h4 class="section-title">Motivations</h4>
                 <p>{{$candidatures->motivations}}</p>
             </div>
-            <a href="{{ assert($candidatures->cv) }}" target="_blank">
-            {{$candidatures->cv}}
-                    </a>
-            
+            @if ($candidatures->cv)
+                                <a href="{{ route('fichier.afficher',['path' => $candidatures->cv]) }}" target="_blank">Télécharger</a>
+                            @else
+                            
+                                Aucun fichier
+                            @endif
         </div>
 
    
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
 </body>
 </html>

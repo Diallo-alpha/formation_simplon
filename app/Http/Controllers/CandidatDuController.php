@@ -33,15 +33,15 @@ class CandidatDuController extends Controller
 
     }
     //afficher le profil d'une candidat
-    public function profil_candidat($id){
+    // public function profil_candidat($id){
 
-        if(Auth::check() ) {
-            $user = User::find($id);
-           $user->id = auth()->user()->id;
+    //     if(Auth::check() ) {
+    //         $user = User::find($id);
+    //        $user->id = auth()->user()->id;
 
-        return view('/dashbord.candidat');
-        }else {
-            return  redirect()->back()->with('status','impossible');
-              }
-    }
+    //     return view('/dashbord.candidat');
+    //     }else {
+    //         return  redirect()->back()->with('status','impossible');
+    //           }
+    // }
 }

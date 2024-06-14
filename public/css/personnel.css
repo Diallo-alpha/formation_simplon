@@ -26,6 +26,7 @@ body{
     height: 95vh;
     border-radius: 1rem;
     position: fixed;
+     overflow-y: auto;
 }
 .navbar{
     margin-top:2rem ;

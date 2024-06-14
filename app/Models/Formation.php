@@ -20,9 +20,8 @@ class Formation extends Model
         }
 
         //pour candidat
-        public function users()
+        public function candidatures()
         {
-            return $this->belongsToMany(User::class, 'candidature_formations', 'formation_id', 'user_id');
-  
+            return $this->hasMany(Candidature::class);
         }
 }
