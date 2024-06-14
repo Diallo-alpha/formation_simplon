@@ -115,6 +115,5 @@
             </div>
         </div>
     </footer>
->>>>>>> feature/frontEnd
 </body>
 </html>
