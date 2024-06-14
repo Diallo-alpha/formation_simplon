@@ -113,4 +113,14 @@ class FormationController extends Controller
         return view('dashbord.formation',compact('formations'));
     }
 
+    public function afficher($id)
+    {
+        $formation = Formation::find($id);
+        if (!$formation) {
+            return redirect()->back()->with('error', 'Formation not found.');
+        }
+        $users = $formation->users;
+        return view('dashbord.candidature', compact('formation', 'users'));
+    }
+
 }

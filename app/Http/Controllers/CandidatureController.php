@@ -22,25 +22,26 @@ public function postuler(Request $request) {
     $filename = time() . '_' . $file->getClientOriginalName();
     $file->move(public_path(), $filename);
     Candidature::create($request->all());
-    return redirect()->route('fichiers.index');
+    return redirect('/');
 }
 
-    public function index() {
-        $candidatures = Candidature::all();
-        $users = User::all();
+    public function index($id) {
+        $candidatures = Candidature::find($id);
+        $users = User::find($id);
 
         return view('candidatures.infocandid', compact('candidatures','users'));
 
     }
-    public function afficher(){
-        $candidatures=Candidature::all();
-        return view('Candidats.afficher',compact('candidatures'));
+    public function affichercandid($id){
+        
+        $candidatures=User::find($id);
+        return view('dashbord.candidature',compact('candidatures'));
     }
     public function supprimercand($id){
         $user = request('user_id');
         $candidature=Candidature::findOrFail($id);
         if ($candidature->user_id !== $user->id) {
-            $candidature->delete();
+            return redirect()->back()->withErrors(['message' => 'Non autorisé à supprimer cette candidature.']);
         }
       
         return redirect()->back();
