@@ -60,3 +60,6 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('auth.logout');
 
 //candidature d'un seul elements
 Route::get('/mes-candidatures', [CandidatureFormationController::class, 'candidatureListe']);
+
+//profil candidate
+
