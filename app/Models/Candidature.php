@@ -11,18 +11,21 @@ class Candidature extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['biographie', 'motivations','cv','user_id'];
+    protected $fillable = [
+        'user_id',
+        'formation_id',
+        'biographie',
+        'motivations',
+        'cv_path',
+        'status'];
 
-    public function user()
-
-    {
-        return $this->belongsTo(User::class);
-    }
-    public function formations()
+        public function user()
         {
-            return $this->belongsToMany(Formation::class,'candidature_formations');
-
-      
-
-}
+            return $this->belongsTo(User::class);
+        }
+    
+        public function formation()
+        {
+            return $this->belongsTo(Formation::class);
+        }
 }
