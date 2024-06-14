@@ -21,12 +21,12 @@
         <form action="{{ route('candidature.postuler') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
-                <label for="user_id">Utilisateur</label>
-                <input type="number" name="user_id" class="form-control" required>
-            </div>
+            <p>{{Auth::User()}}</p>
+                <input type="hidden" name="user_id" class="form-control" value="{{$user->id}}">
+            
             <div class="form-group">
-                <label for="formation_id">Formation</label>
-                <input type="number" name="formation_id" class="form-control" required>
+               
+                <input type="hidden" name="formation_id" class="form-control">
             </div>
             <div class="form-group">
                 <label for="cv">CV</label>

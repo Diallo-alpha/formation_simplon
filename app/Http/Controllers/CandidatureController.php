@@ -8,6 +8,7 @@ use App\Models\Formation;
 use App\Models\Candidature;
 use Illuminate\Http\Request;
 use App\Models\CandidatureFormation;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 class CandidatureController extends Controller
@@ -72,6 +73,9 @@ class CandidatureController extends Controller
     
         public function index()
         {
+            $user_id=Auth::id();
+            $candidatures=Candidature::where('user_id',$user_id)->get();
+
             $candidatures = Candidature::with('user', 'formation')->get();
             return view('candidatures.listecandidat', compact('candidatures'));
         }
