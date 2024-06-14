@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CandidatDuController extends Controller
 {
@@ -58,7 +60,7 @@ class CandidatDuController extends Controller
     return view('candidatDashboard.profilcandidat', compact('user'));
 }
 //la methode pour afficher modifier profil
-public function modif_profil(){
+public function modif_profil($id){
 
     //   $id= '17';
 
