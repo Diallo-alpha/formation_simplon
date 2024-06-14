@@ -31,5 +31,37 @@ class CandidatDuController extends Controller
         $users=User::where('role','candidat')->get();
         return view('dashbord.candidat',compact('users'));
 
-    } 
+    }
+
+//la methode pour voir afficher profil
+    public function candidat_profil($id)
+{
+
+  //  $id= '17';
+
+  //  $request['id'] = $id;
+
+    $user = User::find($id);
+
+    // Passer l'utilisateur à la vue
+    return view('candidatDashboard.profilcandidat', compact('user'));
+}
+//la methode pour afficher modifier profil
+public function modif_profil(){
+
+      $id= '17';
+
+    $request['id'] = $id;
+
+  $user = User::find($id);
+
+    return view ('/candidatDashboard.modif_profilcandidat',compact('user'));
+
+}
+//la methode pour enregistrer modification
+public function save_modif_profil( Request $request ,$id){
+    $user = User::find($id);
+    $user->update($request->all());
+    return redirect()->back()->with('success','Modification reussi');
+}
 }

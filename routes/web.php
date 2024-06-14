@@ -51,3 +51,11 @@ Route::get('/', function()
     return view('candidatDashboard.listeCandidature');
 });
 
+
+//la route pour afficher le profil
+Route::get('/candidat_profil/{id}',[CandidatDuController::class,'candidat_profil'])->name('candidat_profil');
+ //la route pour la modification du profil
+Route::get('/modif_profil',[CandidatDuController::class,'modif_profil']);
+
+//la  route pour enregistrer une modification
+ Route::post('/save_modif_profil/{id}',[CandidatDuController::class,'save_modif_profil']);
