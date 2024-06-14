@@ -15,11 +15,13 @@
 <div class="container d-flex justify-content-center  " >
     <form  class="col-5  m-3" action="/auth_candidat" method="post">
         @csrf
-
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Role</label>
+            <input type="text" class="form-control" name="role" id="exampleInputEmail1" aria-describedby="emailHelp">
+          </div>
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Email</label>
             <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp">
-
           </div>
         <div class="mb-3">
           <label for="exampleInputPassword1" class="form-label"> Mot de pase </label>

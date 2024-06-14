@@ -51,8 +51,9 @@
     tous element de la candidature doit etre ici  
 </h1>
 
+
 <div>
-   
+
 <table class="dataTable">
     <thead>
         <tr>
@@ -64,13 +65,16 @@
             <th>cv</th>
             <th>statut</th>
             <th>Action</th>
-            
+
         </tr>
     </thead>
     <tbody>
+
         @foreach ($candidatures as $candidature)
         
-        
+        @foreach ($users as $user)
+
+
         <tr>
             <td><a href="#">{{$candidature->nom}}</td>
             <td>{{$candidature->user->prenom}}</td>
