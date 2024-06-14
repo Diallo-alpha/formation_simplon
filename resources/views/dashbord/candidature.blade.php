@@ -61,34 +61,43 @@
             <th>niveau</th>
             <th>adresse</th>
             <th>date</th>
-            <th>Details</th>
+            <th>cv</th>
+            <th>statut</th>
             <th>Action</th>
             
         </tr>
     </thead>
     <tbody>
-        @foreach ($users as $user)
+        @foreach ($candidatures as $candidature)
         
         
         <tr>
-            <td><a href="#">{{$user->nom}}</td>
-            <td>{{$user->prenom}}</td>
-            <td>{{$user->niveau}}</td>
-            <td>{{$user->adresse}}</td>
-            <td>{{$user->created_at}}</td>
-            <td><a href="{{Route('fichiers.index',$user->id)}}">
-                <button class="button action">details</button>
-                </a></td>
+            <td><a href="#">{{$candidature->nom}}</td>
+            <td>{{$candidature->user->prenom}}</td>
+            <td>{{$candidature->user->niveau}}</td>
+            <td>{{$candidature->user->adresse}}</td>
+            <td>{{$candidature->created_at}}</td>
             <td>
-                <a href="">
-                <button class="button action">accepter</button>
-                </a>
-                <form action="{{Route('rejettercadidature',$user->id)}}" method="post">
-                    @csrf
-                    @method('DELETE')
-                <button type="submit" class="button action">rejeter</button>
-                </form>
-            </td>
+                            @if ($candidature->cv_path)
+                                <a href="{{ route('fichier.afficher', ['path' => $candidature->cv_path]) }}" target="_blank">Télécharger</a>
+                            @else
+                                Aucun fichier
+                            @endif
+                        </td>
+                        <td>{{ ucfirst($candidature->status) }}</td>
+                        <td>
+                            @if ($candidature->status == 'En attente')
+                                <a href="{{ route('candidature.accepter', $candidature->id) }}" class="btn btn-success">Accepter</a>
+                                <a href="{{ route('candidature.rejeter', $candidature->id) }}" class="btn btn-danger">Rejeter</a>
+                            @else
+                                <span>{{ ucfirst($candidature->status) }}</span>
+                            @endif
+                            <form action="{{ route('candidatures.destroy', $candidature->id) }}" method="POST" style="display:inline;">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger">Supprimer</button>
+                            </form>
+                        </td>
             @endforeach
     </tbody>
 </table>

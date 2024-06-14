@@ -8,6 +8,7 @@ use App\Models\Formation;
 use App\Models\Candidature;
 use Illuminate\Http\Request;
 use App\Models\CandidatureFormation;
+use Illuminate\Support\Facades\Storage;
 
 class CandidatureController extends Controller
 {
@@ -15,63 +16,75 @@ class CandidatureController extends Controller
     public function formulaireCand(){
         return view('candidatures.candidature');
     }
-    public function postuler(Request $request)
-    {
-        // Valider les champs de la requête
-        // $request->validate([
-        //     'user_id' => 'required|exists:users,id',
-        // 'formation_id' => 'required|exists:formations,id',
-        // 'cv' => 'required|file|mimes:pdf,doc,docx|max:2048', // Validation du fichier
-        // 'biographie' => 'required|string',
-        // 'motivations' => 'required|string',// Validation du fichier
-        // ]);
-    
-        $userId = $request->input('user_id');
-        $formationId = $request->input('formation_id');
-        $user = User::findOrFail($userId);
-        $formation = Formation::findOrFail($formationId);
-    
-        // Attacher la formation à l'utilisateur
-        $user->formations()->attach($formationId);
-    
-        // Gérer le fichier téléchargé
-        if ($request->hasFile('cv')) {
-            $file = $request->file('cv');
-            $path = $file->store('public'); // Enregistrer le fichier dans 'public/documents'
-    
-            // Créer la candidature avec les autres champs du formulaire
-            Candidature::create([
-                'user_id' => $userId,
-            'formation_id' => $formationId,
-            'cv' => $path,
-            'biographie' => $request->input('biographie'),
-            'motivations' => $request->input('motivations')
+
+        public function postuler(Request $request)
+        {
+            $request->validate([
+                'user_id' => 'required|exists:users,id',
+                'formation_id' => 'required|exists:formations,id',
+                'cv' => 'required|file|mimes:pdf,doc,docx|max:2048',
+                'biographie' => 'required|string',
+                'motivations' => 'required|string',
             ]);
-            return redirect()->route('fichier.afficher', ['path' => $path]);
+    
+            if ($request->hasFile('cv')) {
+                $file = $request->file('cv');
+                $path = $file->store('public/documents');
+    
+                Candidature::create([
+                    'user_id' => $request->input('user_id'),
+                    'formation_id' => $request->input('formation_id'),
+                    'cv_path' => $path,
+                    'biographie' => $request->input('biographie'),
+                    'motivations' => $request->input('motivations'),
+                    'status' => 'En attente',
+                ]);
+    
+                return redirect()->route('candidatures.index')->with('message', 'Candidature soumise avec succès.');
+            }
+    
+            return redirect()->back()->withErrors(['cv' => 'Le fichier n\'a pas été téléchargé correctement.']);
+        }
+        public function afficher($path)
+{
+    $filePath = 'public/' . $path; 
+
+    if (Storage::exists($filePath)) {
+        return Storage::download($filePath);
+    }
+
+    return abort(404, 'Fichier non trouvé');
+}
+    
+        public function accepter($id)
+        {
+            $candidature = Candidature::findOrFail($id);
+            $candidature->update(['status' => 'accepter']);
+            return redirect()->back()->with('message', 'Candidature acceptée avec succès.');
         }
     
-        return redirect()->back()->withErrors(['cv' => 'Le fichier n\'a pas été téléchargé correctement.']);
-    }
-    public function afficher($path)
-    {
-        $filePath = storage_path('app/public/' . $path);
-    
-        if (!file_exists($filePath)) {
-            return redirect()->back()->withErrors(['message' => 'Le fichier n\'existe pas ou n\'est pas lisible.']);
+        public function rejeter($id)
+        {
+            $candidature = Candidature::findOrFail($id);
+            $candidature->update(['status' => 'Rejetée']);
+            return redirect()->back()->with('message', 'Candidature rejetée avec succès.');
         }
     
-        return response()->file($filePath);
-    }
-        
-
-
-    public function index($id) {
-        $candidatures = Candidature::find($id);
-        $users = User::find($id);
-
-        return view('candidatures.infocandid', compact('candidatures','users'));
-
-    }
+        public function index()
+        {
+            $candidatures = Candidature::with('user', 'formation')->get();
+            return view('candidatures.listecandidat', compact('candidatures'));
+        }
+    
+        public function destroy($id)
+        {
+            $candidature = Candidature::findOrFail($id);
+            $candidature->delete();
+            return redirect()->back()->with('message', 'Candidature supprimée avec succès.');
+        }
+    
+    
+   
     public function affichercandid($id){
         
         $candidatures=User::find($id);
@@ -79,5 +92,5 @@ class CandidatureController extends Controller
     }
    
   
-    
 }
+

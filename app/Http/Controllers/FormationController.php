@@ -97,23 +97,18 @@ class FormationController extends Controller
         return view('dashbord.formation',compact('formations'));
     }
 
-    public function afficher($id)
+    public function candidats($id)
     {
-        $formation = Formation::find($id);
-        if (!$formation) {
-            return redirect()->back()->with('error', 'Formation not found.');
-        }
-        $users = $formation->users;
-        return view('dashbord.candidature', compact('formation', 'users'));
+        $formation = Formation::findOrFail($id);
+        $candidatures = $formation->candidatures()->with('user')->get();
+
+        return view('dashbord.candidature', compact('formation', 'candidatures'));
     }
-    public function supprimercand($id){
-        $user = request('user_id');
-        $candidature=Candidature::findOrFail($id);
-        if ($candidature->user_id !== $user->id) {
-            return redirect()->back()->withErrors(['message' => 'Non autorisé à supprimer cette candidature.']);
-        }
+    public function valide(request $request){
+        
+    }
+  
       
-        return redirect()->back();
-    }
+     
 
 }
