@@ -8,6 +8,7 @@ use App\Models\Formation;
 use App\Models\Candidature;
 use Illuminate\Http\Request;
 use App\Models\CandidatureFormation;
+use App\Notifications\candidatureNotification;
 use Illuminate\Support\Facades\Storage;
 
 class CandidatureController extends Controller
@@ -60,6 +61,10 @@ class CandidatureController extends Controller
         {
             $candidature = Candidature::findOrFail($id);
             $candidature->update(['status' => 'accepter']);
+            // recherche du user a qui appartient la candidature
+            $user = $candidature->user;
+            $user->notify(new candidatureNotification());
+        
             return redirect()->back()->with('message', 'Candidature acceptée avec succès.');
         }
 

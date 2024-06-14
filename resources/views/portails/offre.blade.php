@@ -5,12 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="{{ asset('css/candidat.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/index.css') }}">
+
 
     <link rel="stylesheet" href="{{ asset('css/offre.css') }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-
+    
 </head>
 <body>
+  <header>
+    <div class="logo">
+        <img src="images/simplon 1.svg" alt="Logo">
+    </div>
+    <nav class="nav-menu">
+      <ul>
+          <li><a href="#">Accueil</a></li>
+          <li><a href="#">Service</a></li>
+          <li><a href="#">Projet</a></li>
+          <li><a href="#">Support</a></li>
+        </ul>
+  </nav>
+    <div class="login-button">
+        <button>S'inscrire</button>
+    </div>
+</header>
 
     <section class="baniere">
         <div class="box-baniere1">
@@ -31,59 +49,69 @@
         <section class="cont-box d-flex  flex-wrap ">
           @foreach ($formations as $formation )
 
-           {{-- <div class="card mb-3" style="max-width: 540px;">
-            <div class="row g-0">
-              <div class="col-md-6">
-                <img src="{{asset('/images/' . $formation->image)}}" class="img-fluid rounded-start" alt="...">
-              </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <h5 class="card-title">{{ $formation->titre }}</h5>
-                  <p class="card-text">{{ $formation->description }}</p>
-                  <button class="btn btn-danger btn-center btn_postuler">Postuler</button>
-                </div>
-              </div>
-            </div>
-          </div>  --}}
-          {{-- <div class="card" style="width: 20rem;">
-            <div class="d-flex">
-                <!-- Image à gauche -->
-                <img src="{{asset('/images/' . $formation->image)}}" class="card-img-top" alt="..." style="flex: 0 0 50%; max-width: 50%;">
 
-                <!-- Contenu de la carte à droite -->
-                <div class="card-body" style="flex: 1;">
-                    <h5 class="card-title">{{ $formation->titre }}</h5>
-                    <p class="card-text">{{ $formation->description }}</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
-        </div> --}}
-        {{-- <div class="container">
-          <div class="card">
-            <div class="image">
-              <img src="{{asset('/images/' . $formation->image)}}" alt="Image 1">
-            </div>
-            <div class="text">
-              <h2>Titre 1</h2>
-              <p>Texte de description 1...</p>
-            </div>
-          </div> --}}
+          <div class="box">
 
-          <div class="card" style="width: 22rem; margin-top: -250px;">
             <img src="{{asset('/images/' . $formation->image)}}" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">{{ $formation->titre }}</h5>
-              <p class="card-text">{{ Str::limit($formation->description, 100) }}</p>
-              <h5 class="card-title">Date limite:  {{ $formation->date_expiration }}</h5>
-
-             <a href="{{route('details.formation')}}" class="btn btn-danger">Voir plus</a>
-
+            
+            <div class="box-element1">
+                <h3 class="title-dark text-center">{{ $formation->titre }}</h3>
+              <p>
+                {{ Str::limit($formation->description, 100) }}
+              </p>
+              <a href="detail" style="text-decoration: none"> <button class="btn btn-danger btn_postuler col-12" style="display: flex; justify-content: center; align-items: center; border-radius:100px">Voir plus</button> 
+              </a>
             </div>
-          </div>
+
+        </div>
 
 
           @endforeach
+          {{-- <footer>
+            <div class="container">
+              <div class="row">
+                <div class="col">
+                  <img src="images/simplon 1.svg" alt="" class="footer-logo">
+                </div>
+                <div class="col">
+                  <h3>Sevices</h3>
+                  <ul>
+                    <li>Developpement web</li>
+                    <li>Referent digital</li>
+                    <li>SAASS</li>
+                    <li>Developpement web </li>
+                    <br>
+                  </ul>
+                </div>
+                <div class="col">
+                  <h3>Resources</h3>
+                  <ul>
+                  <li>Fabrique</li>
+                  <li>Blog</li>
+                  <li>Themes</li>
+                </ul>
+                <br>
+                </div>
+                <div class="col">
+                  <h3>Simplons</h3>
+                    <ul>
+                      <li>A propos de nous</li>
+                      <li>Nous contactez</li>
+                    </ul>
+                    <div class="newsletter">
+                      <input type="email" placeholder="votre adresse e-mail">
+                      <button type="button" class="btn btn-danger button-newletter">Abonner</button>
+                    </div>
+                    <br>
+                </div>
+              </div>
+            </div>
+            <div><br></div> --}}
+          </footer>
+          
+
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+   
 
 </body>
 

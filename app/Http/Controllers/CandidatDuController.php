@@ -33,7 +33,7 @@ class CandidatDuController extends Controller
 
     }
     //afficher le profil d'une candidat
-    public function profil_candidat($id){
+     public function profil_candidat($id){
 
         if(Auth::check() ) {
             $user = User::find($id);
@@ -42,8 +42,7 @@ class CandidatDuController extends Controller
         return view('/dashbord.candidat');
         }else {
             return  redirect()->back()->with('status','impossible');
-              }
-    }
+              }}
 
 //la methode pour voir afficher profil
     public function candidat_profil($id)
@@ -76,4 +75,9 @@ public function save_modif_profil( Request $request ,$id){
     $user->update($request->all());
     return redirect()->back()->with('success','Modification reussi');
 }
+    //     return view('/dashbord.candidat');
+    //     }else {
+    //         return  redirect()->back()->with('status','impossible');
+    //           }
+    //
 }

@@ -65,7 +65,7 @@
             <button type="submit" class="btn btn-primary mt-3">
                 Login
             </button>
-            <p>Vous n'avez pas de compte ?</p> <a href=""></a>
+            <p>Vous n'avez pas de compte ?</p> <a href="register">s'inscrire</a>
         </div>
     </form>
 </div>
