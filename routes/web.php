@@ -18,7 +18,7 @@ use App\Http\Controllers\CandidatureFormationController;
 // Route::get('/',[PortailController::class,'portail'] );
 
 //route pour formations
-Route::get('/', [FormationController::class, 'listeFormation'])->name('formation.liste');
+Route::get('/listeFormation', [FormationController::class, 'listeFormation'])->name('formation.liste');
 Route::get('/formations/ajouter', [FormationController::class, 'afficherFormAjouterFormation'])->name('formulaire.ajout.formation');
 Route::post('/formations', [FormationController::class, 'traitementAjouFormation'])->name('formations.traitement');
 //modifier une formation
@@ -40,7 +40,7 @@ Route::get('formulaire_postuler',[CandidatureController::class,'formulaireCand']
 Route::post('postuler',[CandidatureController::class,'postuler'])->name('postuler');
 Route::get('afficherDetailsCandidature/{id}',[CandidatureController::class,'index'])->name('fichiers.index');
 Route::get('ListeCandidates',[AuthController::class,'listecandature']);
-//rejetter la candidature 
+//rejetter la candidature
 Route::delete('candidatSup/{id}',[CandidatureController::class,'supprimercand'])->name('rejettercadidature');
 
 
