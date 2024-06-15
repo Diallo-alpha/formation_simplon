@@ -33,7 +33,7 @@ class User extends Authenticatable
     }
     public function formations()
         {
-            return $this->belongsToMany(Formation::class, 'candidature_formations', 'formation_id', 'user_id');
+            return $this->belongsToMany(Formation::class, 'candidatures', 'formation_id', 'user_id');
             
         }
     /**

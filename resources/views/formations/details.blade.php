@@ -60,27 +60,13 @@
     </style>
   </head>
   <body>
-
-    <div class="card mb-3 custom-card container">
-      <div class="custom-card-container">
-        <img src="{{asset('/images/' . $formation->image)}}" class="card-img-top" alt="...">
-        <div class="custom-card-body">
-          <h1 class="card-title">{{ $formation->titre }}</h1>
-          <p class="card-text">
-            <small class="text-body-secondary">{{ $formation->description }}</small>
-          </p>
-        </div>
-      </div>
-    </div>
-
-
 <div class="container " style="display: flex; align-items: center;">
       <div class="card border mb-3 m-5" style="max-width: 50rem;">
-        <div class="card-header"><h1>Programme</h1></div>
+      <img src="{{asset('/images/' . $formation->image)}}" class="card-img-top" alt="...">
         <div style="width: 40%; height: 2px; background-color: red; margin: 20px 0;"></div>
         <div class="card-body m-4 " style="height: 150px;">
-          <h5 class="card-title">Primary card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <h5 class="card-title">{{ $formation->titre }}</h5>
+          <p class="card-text">{{ $formation->description }}</p>
           <div style="position: absolute; bottom: 10px; right: 10px;color: red">durée 6 mois</div>
         </div>
       </div>
@@ -144,7 +130,7 @@
 
       <div class="container col-12">
       <div class="text-center pr-30px"style="position:center;">
-        <a href="{{ route('auth.getLogin',$formation->id)  }}"><button class="btn btn-danger text-white btn-adjusted">Postuler</button></a> 
+        <a href="{{ url('formulaire_postuler',$formation->id)  }}"><button class="btn btn-danger text-white btn-adjusted">Postuler</button></a> 
       </div>
       </div>
 

@@ -64,12 +64,7 @@
                 <h4 class="section-title">Motivations</h4>
                 <p>{{$candidatures->motivations}}</p>
             </div>
-            @if ($candidatures->cv)
-                                <a href="{{ route('fichier.afficher',['path' => $candidatures->cv]) }}" target="_blank">Télécharger</a>
-                            @else
-                            
-                                Aucun fichier
-                            @endif
+          
         </div>
 
    

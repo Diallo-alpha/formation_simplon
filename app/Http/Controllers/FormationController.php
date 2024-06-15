@@ -123,14 +123,7 @@ class FormationController extends Controller
         return view('dashbord.candidature', compact('formation', 'candidatures'));
     }
     public function valide(request $request){
-        
+
     }
-  
-    // gestion de la notification
-    // public function notif(){
-        
-    // }
-      
-     
 
 }
