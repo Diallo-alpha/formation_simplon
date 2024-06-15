@@ -58,8 +58,19 @@ class AuthController extends Controller
             // Regénère la session pour éviter les attaques de fixation de session
             $request->session()->regenerate();
 
-            // Redirige vers la page de tableau de bord ou une autre page
-            return redirect()->intended('offre');
+            // Récupérer l'utilisateur connecté
+            $user = Auth::user();
+
+            // Vérifiez le rôle de l'utilisateur et redirigez en conséquence
+            switch ($user->role) {
+                case 'personnel':
+                    return redirect('formationAdsbord');
+                case 'candidat':
+                    return redirect('mes-candidatures');
+                default:
+                    // Redirigez vers une page par défaut ou de tableau de bord si le rôle n'est pas défini
+                    return redirect()->intended('offre');
+            }
         }
 
         // Si l'authentification échoue, redirige vers la page de connexion avec un message d'erreur
