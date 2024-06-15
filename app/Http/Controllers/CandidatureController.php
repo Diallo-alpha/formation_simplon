@@ -66,8 +66,8 @@ class CandidatureController extends Controller
             $candidature = Candidature::findOrFail($id);
             $candidature->update(['status' => 'accepter']);
             // recherche du user a qui appartient la candidature
-            // $user = $candidature->user;
-            // $user->notify(new candidatureNotification());
+            $user = $candidature->user;
+            Mail::to($user->email)->send(new notification($candidature));
             // $user = $candidature->user;
         // Mail::to($user->email)->send(new Notification($candidature));
         
