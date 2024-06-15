@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -7,55 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="{{ asset('css/personnel.css') }}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-</head>
-<body>
-<div class="cont_all">
-<!-- la dashbord -->
-<div class="dashbord">
-<section class="info_perso">
-    <div class="info_img"><img class="photo_dashbord" src="img/1693355856042.jpeg" alt=""></div>
-    <div>
-        <h1>Coach Barro</h1>
-        <p>78 225 17 74</p>
-    </div>
-</section>
+    <link rel="stylesheet" href="{{ asset('css/offre.css') }}">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
-
-<nav class="navbar">
-    <!-- le sidebar -->
-
-<ul>
-
-<li class="colonne ">
-
-    <i class="fa-solid fa-bars-progress" style="color: #fff;"></i>
-    <a href="/dashbord.html">Tableau de bord</a>
-</li>
-<li class="colonne   colonne_cote  colonne_CHEF">
-    <i class="fa-solid fa-school" style="color: #000;"></i> <a href="formation_dashbord">formations</a>
-</li>
-<li class="colonne">
-    <i class="fa-solid fa-people-group" style="color: #ffffff;"></i> <a href="/dashbord_candidat.html">Candidats</a>
-</li>
-<li class="colonne">
-    <i class="fa-solid fa-graduation-cap" style="color: #ffffff;"></i> <a href="/dashbord_candidature.html">Candidatures</a>
-</li>
-<li class="colonne">
-
-    <a href="">Connexion</a>
-</li>
-
-</ul>
-</nav>
-</div>
-
-
-
-<!-- le conteneur des elements -->
-<div class="conteneur_element">
-
- <style>
+    <style>
  body {
     font-family: Arial, sans-serif;
     justify-content: center;
@@ -143,6 +97,11 @@
     background: #c0392b;
 }
 </style>
+
+
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body>
 <div class="card">
@@ -163,24 +122,43 @@
         <button class="apply-button">postuler</button>
     </div>
 </div>
-</div>
+
+
+
+
+<!-- le conteneur des elements -->
+{{-- <div class="conteneur_element">
+    <div class="cont-All ">
+        <h1 class="text-danger text-center p-2" style="margin-top: -50px;">Nos Formations</h1>
+       <section class="cont-box d-flex  flex-wrap ">
+         @foreach ($formations as $formation )
+
+         <div class="box">
+
+           <img src="{{asset('/images/' . $formation->image)}}" class="card-img-top" alt="...">
+
+           <div class="box-element1">
+               <h3 class="title-dark text-center">{{ $formation->titre }}</h3>
+             <p>
+               {{ Str::limit($formation->description, 100) }}
+             </p>
+             <a href="detail" style="text-decoration: none"> <button class="btn btn-danger btn_postuler col-12" style="display: flex; justify-content: center; align-items: center; border-radius:100px">Voir plus</button>
+             </a>
+           </div>
+
+       </div>
+
+         @endforeach --}}
 
 
 
 
 
-</div>
 
 
 
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
-
-
-
-
-
-
-</div>
 </body>
 </html>
 
