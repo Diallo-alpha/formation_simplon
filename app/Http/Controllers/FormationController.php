@@ -125,5 +125,12 @@ class FormationController extends Controller
     public function valide(request $request){
 
     }
+  
+    // gestion de la notification
+    // public function notif(){
+        
+    // }
+      
+     
 
 }

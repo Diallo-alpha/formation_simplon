@@ -82,3 +82,5 @@ Route::get('/modif_profil',[CandidatDuController::class,'modif_profil']);
 
 //profil candidate
 
+// gestion de la notification
+Route::get('notif', [FormationController::class, 'notify']);

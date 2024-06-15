@@ -75,9 +75,18 @@ class CandidatureController extends Controller
         $candidature = Candidature::findOrFail($id);
         $candidature->update(['status' => 'accepter']);
 
-        // Notifier l'utilisateur de l'acceptation de sa candidature
-        $user = $candidature->user;
-        $user->notify(new candidatureNotification());
+        public function accepter($id)
+        {
+            $candidature = Candidature::findOrFail($id);
+            $candidature->update(['status' => 'accepter']);
+            // recherche du user a qui appartient la candidature
+            $user = $candidature->user;
+            Mail::to($user->email)->send(new notification($candidature));
+            // $user = $candidature->user;
+        // Mail::to($user->email)->send(new Notification($candidature));
+        
+            return redirect()->back()->with('message', 'Candidature acceptée avec succès.');
+        }
 
         return redirect()->back()->with('message', 'Candidature acceptée avec succès.');
     }
