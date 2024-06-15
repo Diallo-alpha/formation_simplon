@@ -36,10 +36,20 @@
         </aside>
         <div class="dashboard">
             <header>
-                <h1>TABLEAU DE BORD</h1>
-                <div class="user-info">
-                    <i class="fa-solid fa-bell icon"></i>
-                </div>
+            @if (session('message'))
+            <div class="alert alert-success">
+                {{ session('message') }}
+            </div>
+        @endif
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
             </header>
             <section class="stats">
                 <h1>Mes candidatures</h1>

@@ -8,7 +8,8 @@ use App\Models\Formation;
 use App\Mail\Notification;
 
 use App\Models\Candidature;
-use Illuminate\Http\Client\Request;
+use Illuminate\Http\Request;
+
 use App\Http\Controllers\Controller;
 use App\Models\CandidatureFormation;
 use Illuminate\Support\Facades\Auth;
