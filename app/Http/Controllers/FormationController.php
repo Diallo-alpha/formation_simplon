@@ -1,7 +1,8 @@
 <?php
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Log;
 use App\Models\Formation;
+use App\Models\Candidature;
 use Illuminate\Http\Request;
 
 class FormationController extends Controller
@@ -55,8 +56,9 @@ class FormationController extends Controller
         return view('formations.modifierFormation', compact('formation'));
     }
 
-    public function traitementModiifier(Request $request, Formation $formation)
+    public function traitementModiifier(Request $request, $id)
     {
+        // Valider les données entrantes
         $request->validate([
             'titre' => 'required|string|max:255',
             'description' => 'required|string',
@@ -64,18 +66,34 @@ class FormationController extends Controller
             'image' => 'nullable|file|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
+        // Récupérer la formation par son id
+        $formation = Formation::findOrFail($id);
+
+        // Mettre à jour les champs de la formation
         $formation->titre = $request->titre;
         $formation->description = $request->description;
         $formation->date_expiration = $request->date_expiration;
 
+        // Gestion de l'image
         if ($request->hasFile('image')) {
+            // Supprimer l'ancienne image si elle existe
+            if ($formation->image) {
+                $oldImagePath = public_path('images') . '/' . $formation->image;
+                if (file_exists($oldImagePath)) {
+                    unlink($oldImagePath);
+                }
+            }
+
+            // Enregistrer la nouvelle image
             $imageName = time() . '.' . $request->image->extension();
             $request->image->move(public_path('images'), $imageName);
             $formation->image = $imageName;
         }
 
-        $formation->update();
+        // Sauvegarder les changements
+        $formation->save();
 
+        // Redirection avec message de succès
         return redirect()->route('formation.liste')->with('success', 'Formation mise à jour avec succès.');
     }
 
@@ -87,8 +105,9 @@ class FormationController extends Controller
     }
     // Controller details
 
-    public function detailsformation(){
-         return view('formations.details');
+    public function detailsformation($id){
+        $formation=Formation::findOrFail($id);
+         return view('formations.details',compact('formation'));
     }
 // affichage des formation dans le dashbord
     public function formation_dashbord(){
@@ -96,14 +115,18 @@ class FormationController extends Controller
         return view('dashbord.formation',compact('formations'));
     }
 
-    public function afficher($id)
+    public function candidats($id)
     {
-        $formation = Formation::find($id);
-        if (!$formation) {
-            return redirect()->back()->with('error', 'Formation not found.');
-        }
-        $users = $formation->users;
-        return view('dashbord.candidature', compact('formation', 'users'));
+        $formation = Formation::findOrFail($id);
+        $candidatures = $formation->candidatures()->with('user')->get();
+
+        return view('dashbord.candidature', compact('formation', 'candidatures'));
     }
+    public function valide(request $request){
+        
+    }
+  
+      
+     
 
 }

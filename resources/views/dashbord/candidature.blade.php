@@ -26,13 +26,13 @@
 <ul>
 
 <li class="colonne ">
-    <i class="fa-solid fa-bars-progress" style="color: #ffffff;"></i>   <a href="/dashbord.html">Tableau de bord</a>
+    <i class="fa-solid fa-bars-progress" style="color: #ffffff;"></i>   <a href="formationAdsbord">Tableau de bord</a>
 </li>
 <li class="colonne   colonne_cote">
-    <i class="fa-solid fa-school" style="color: #ffffff;"></i>   <a href="candidat_dashbord">formations</a>
+    <i class="fa-solid fa-school" style="color: #ffffff;"></i>   <a href="formationAdsbord">formations</a>
 </li>
 <li class="colonne colonne_CHEF">
-    <i class="fa-solid fa-people-group" style="color: #000;"></i> <a href="/dashbord_candidat.html ">Candidats</a>
+    <i class="fa-solid fa-people-group" style="color: #000;"></i> <a href=" ">Candidats</a>
 </li>
 <li class="colonne">
     <i class="fa-solid fa-graduation-cap" style="color: #ffff;"></i>  <a href="/dashbord_candidature.html">Candidatures</a>
@@ -49,6 +49,8 @@
 <h1>
     tous element de la candidature doit etre ici
 </h1>
+
+
 <div>
 
 <table class="dataTable">
@@ -59,34 +61,43 @@
             <th>niveau</th>
             <th>adresse</th>
             <th>date</th>
-            <th>Details</th>
+            <th>cv</th>
+            <th>statut</th>
             <th>Action</th>
 
         </tr>
     </thead>
     <tbody>
-        @foreach ($users as $user)
 
+        @foreach ($candidatures as $candidature)
 
         <tr>
-            <td><a href="#">{{$user->nom}}</td>
-            <td>{{$user->prenom}}</td>
-            <td>{{$user->niveau}}</td>
-            <td>{{$user->adresse}}</td>
-            <td>{{$user->created_at}}</td>
-            <td><a href="{{Route('fichiers.index',$user->id)}}">
-                <button class="button action">details</button>
-                </a></td>
+            <td><a href="#">{{$candidature->user->nom}}</td>
+            <td>{{$candidature->user->prenom}}</td>
+            <td>{{$candidature->user->niveau}}</td>
+            <td>{{$candidature->user->adresse}}</td>
+            <td>{{$candidature->created_at}}</td>
             <td>
-                <a href="">
-                <button class="button action">accepter</button>
-                </a>
-                <form action="{{Route('rejettercadidature',$user->id)}}" method="post">
-                    @csrf
-                    @method('DELETE')
-                <button type="submit" class="button action">rejeter</button>
-                </form>
-            </td>
+                            @if ($candidature->cv_path)
+                                <a href="{{ route('fichier.afficher', ['path' => $candidature->cv_path]) }}" target="_blank">Télécharger</a>
+                            @else
+                                Aucun fichier
+                            @endif
+                        </td>
+                        <td>{{ ucfirst($candidature->status) }}</td>
+                        <td>
+                            @if ($candidature->status == 'En attente')
+                                <a href="{{ route('candidature.accepter', $candidature->id) }}" class="btn btn-success">Accepter</a>
+                                <a href="{{ route('candidature.rejeter', $candidature->id) }}" class="btn btn-danger">Rejeter</a>
+                            @else
+                                <span>{{ ucfirst($candidature->status) }}</span>
+                            @endif
+                            <form action="{{ route('candidatures.destroy', $candidature->id) }}" method="POST" style="display:inline;">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger">Supprimer</button>
+                            </form>
+                        </td>
             @endforeach
     </tbody>
 </table>

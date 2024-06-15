@@ -26,10 +26,10 @@
 <ul>
 
 <li class="colonne ">
-    <i class="fa-solid fa-bars-progress" style="color: #ffffff;"></i>   <a href="/dashbord.html">Tableau de bord</a>
+    <i class="fa-solid fa-bars-progress" style="color: #ffffff;"></i>   <a href="formationAdsbord">Tableau de bord</a>
 </li>
 <li class="colonne   colonne_cote">
-    <i class="fa-solid fa-school" style="color: #ffffff;"></i>   <a href="formation_dashbord">formations</a>
+    <i class="fa-solid fa-school" style="color: #ffffff;"></i>   <a href="formationAdsbord">formations</a>
 </li>
 <li class="colonne colonne_CHEF">
     <i class="fa-solid fa-people-group" style="color: #000;"></i> <a href="candidat_dashbord ">Candidats</a>

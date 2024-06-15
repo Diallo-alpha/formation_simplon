@@ -1,51 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <title>Document</title>
+    <title>Postuler</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-    <form action="{{Route('postuler')}}" method="post" enctype="multipart/form-data">
-        @csrf
-       
-        
-        <label  for="">Biographie</label><br>
-        <textarea class="desc" type="text" name="biographie" id=""> </textarea><br>
-        <label  for="">motivation</label><br>
-        <textarea class="desc" type="text" name="motivations"></textarea><br>
-        <label for="">cv</label><br>
-        <input type="file" name="cv" class="form-control"><br>
-        
-        <button class="btn btn-primary" type="submit">envoyer</button>
-    </form>
-    <style>
-        form{
-           margin-left: 30%;
-          padding-top: 10%;
-        }
-        .desc{
-            border: 1px solid #CE0033;
-            align-items: center;
-            right: 10%;
-            width: 506px;
-            height: 100px;
-            margin: 10px;
-            border-radius: 2px;
-        }
-        form{
-            margin-top: 10px;
-        }
-        .form-control{
-            width: 506px;
-            border: 1px solid #CE0033;
-            margin: 10px;
-        }
-        label{
-            
-        }
-    </style>
+    <div class="container">
+        <h1 class="mt-5">Postuler</h1>
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+        <form action="{{ route('candidature.postuler') }}" method="POST" enctype="multipart/form-data">
+            @csrf
+            <div class="form-group">
+            <p>{{Auth::User()->prenom}}</p>
+                <input type="hidden" name="user_id" class="form-control" value="{{Auth::User()->id}}">
+                <input type="hidden" name="formation_id" class="form-control" value="{{$formation->id}}">
+            <div class="form-group">
+                <label for="cv">CV</label>
+                <input type="file" name="cv" class="form-control-file" required>
+            </div>
+            <div class="form-group">
+                <label for="biographie">Biographie</label>
+                <textarea name="biographie" class="form-control" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="motivations">Motivations</label>
+                <textarea name="motivations" class="form-control" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Soumettre</button>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
