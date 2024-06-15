@@ -19,8 +19,8 @@
                 <li><a href="#">Contact</a></li>
             </ul>
             <div class="auth-buttons">
-                <button>se connecter</button>
-                <button>S'INSCRIRE</button>
+                <button><a href="{{route('auth.getLogin')}}">se connecter</a></button>
+                <button> <a href="{{route('auth.getRegister')}}">S'INSCRIRE</a></button>
             </div>
         </nav>
     </header>
