@@ -11,68 +11,66 @@ class AuthController extends Controller
 {
     public function getRegister()
     {
-        return view('Auth.register'); // Retournez la vue d'inscription
+        return view('Auth.register'); // Retourne la vue d'inscription
     }
 
     public function postRegister(Request $request)
     {
-        // Validez et créez l'utilisateur
-        // $request->validate([
-        //     'nam' => 'required|string|max:255',
-        //     'email' => 'required|string|email|unique:users|max:255',
-        //     'password' => 'required|string|min:4|max:255',
-        // ]);
+        // Valide les données de la requête
+        $validatedData = $request->validate([
+            'nom' => 'required|string|max:255',
+            'prenom' => 'required|string|max:255',
+            'telephone' => 'required|string|max:15',
+            'adresse' => 'required|string|max:255',
+            'email' => 'required|string|email|unique:users|max:255',
+            'password' => 'required|string|min:4|max:255',
+        ]);
 
-        // Créer l'utilisateur
+        // Crée un nouvel utilisateur
+        User::create([
+            'nom' => $validatedData['nom'],
+            'prenom' => $validatedData['prenom'],
+            'telephone' => $validatedData['telephone'],
+            'adresse' => $validatedData['adresse'],
+            'email' => $validatedData['email'],
+            'password' => Hash::make($validatedData['password']),
+        ]);
 
-        User::create($request->all() );
-
-
-
-        return redirect()->route('auth.getLogin');
-         }
-
-        public function login() {
-            return view('login');
-        }
-
+        // Redirige vers la page de connexion après inscription
+        return redirect()->route('auth.getLogin')->with('success', 'Inscription réussie. Vous pouvez maintenant vous connecter.');
+    }
 
     public function getLogin()
     {
-        return view('Auth.login'); // Retournez la vue de connexion
+        return view('Auth.login'); // Retourne la vue de connexion
     }
 
     public function postLogin(Request $request)
     {
-        // Validez les informations d'identification
-        // $credentials = $request->validate([
-        //     'email' => 'required|string|email',
-        //     'password' => 'required|string',
-        // ]);
+        // Valide les informations d'identification
+        $credentials = $request->validate([
+            'email' => 'required|string|email',
+            'password' => 'required|string',
+        ]);
 
-        // $credentials = $request->validate([
-        //     'nom' => 'required|string|max:255',
-        //     'email' => 'required|string|email|unique:users|max:255',
-        //     'password' => 'required|string|min:4|max:255|regex:/[A-Z]+.*[a-z]+.*[0-9]+.*[\W_]+/',
-        // ]);
+        // Tente de connecter l'utilisateur
+        if (Auth::attempt($credentials)) {
+            // Regénère la session pour éviter les attaques de fixation de session
+            $request->session()->regenerate();
 
+            // Redirige vers la page de tableau de bord ou une autre page
+            return redirect()->intended('offre');
+        }
 
-        // Connectez l'utilisateur
-        // if (Auth::attempt($credentials)) {
-        //     $request->session()->regenerate();
-        //     // Redirigez vers la page de tableau de bord ou une autre page
-        //     return redirect()->intended('offre');
-        // }
-
-        // Si l'authentification échoue, redirigez vers la page de connexion avec un message d'erreur
+        // Si l'authentification échoue, redirige vers la page de connexion avec un message d'erreur
         return back()->withErrors([
             'email' => 'Les informations d\'identification fournies ne correspondent pas à nos enregistrements.',
-        ]);
+        ])->onlyInput('email');
     }
 
     public function logout()
     {
-        Auth::logout(); // Déconnectez l'utilisateur
-        return redirect()->route('auth.getLogin'); // Redirigez vers la page de connexion
+        Auth::logout(); // Déconnecte l'utilisateur
+        return redirect()->route('auth.getLogin')->with('success', 'Vous avez été déconnecté avec succès.'); // Redirige vers la page de connexion
     }
 }

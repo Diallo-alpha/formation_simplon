@@ -1,12 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Mail\Notification;
 
-use App\Models\User;
-use App\Models\Formation;
-
+use App\Http\Controllers\Controller;
 use App\Models\Candidature;
-use Illuminate\Http\Request;
+
 use App\Models\CandidatureFormation;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
