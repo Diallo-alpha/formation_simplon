@@ -21,6 +21,7 @@ class User extends Authenticatable
     protected $fillable = [
         'nom',
         'prenom',
+        'profil',
         'niveau',
         'telephone',
         'adresse',
@@ -34,7 +35,7 @@ class User extends Authenticatable
     public function formations()
         {
             return $this->belongsToMany(Formation::class, 'candidatures', 'formation_id', 'user_id');
-            
+
         }
     /**
      * The attributes that should be hidden for serialization.

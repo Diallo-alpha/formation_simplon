@@ -47,7 +47,7 @@ class FormationController extends Controller
             'users_id' => $request->users_id,
         ]);
 
-        return redirect()->route('formation.liste')->with('success', 'Formation créée avec succès');
+        return redirect()->route('formation.personnel')->with('success', 'Formation créée avec succès');
     }
 
     public function modifierFormation($id)
