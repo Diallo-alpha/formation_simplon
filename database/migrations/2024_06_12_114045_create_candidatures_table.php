@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('cv_path');
             $table->string('status')->default('En attente');
             $table->timestamps();
-
+ 
             // Définir les clés étrangères
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('formation_id')->references('id')->on('formations')->onDelete('cascade');

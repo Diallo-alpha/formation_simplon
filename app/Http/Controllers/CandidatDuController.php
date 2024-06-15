@@ -47,29 +47,28 @@ class CandidatDuController extends Controller
               }}
 
 //la methode pour voir afficher profil
-    public function candidat_profil($id)
+public function candidat_profil()
 {
+    // Récupérer l'ID de l'utilisateur connecté
+    $id = Auth::id();
 
-   $id= '1';
-
-  $request['id'] = $id;
-
+    // Trouver l'utilisateur par ID
     $user = User::find($id);
 
     // Passer l'utilisateur à la vue
     return view('candidatDashboard.profilcandidat', compact('user'));
 }
 //la methode pour afficher modifier profil
-public function modif_profil($id){
+public function modif_profil()
+{
+    // Récupérer l'ID de l'utilisateur connecté
+    $id = Auth::id();
 
-    //   $id= '17';
+    // Trouver l'utilisateur par ID
+    $user = User::find($id);
 
-    // $request['id'] = $id;
-
-  $user = User::find($id);
-
-    return view ('/candidatDashboard.modif_profilcandidat',compact('user'));
-
+    // Passer l'utilisateur à la vue de modification de profil
+    return view('candidatDashboard.modif_profilcandidat', compact('user'));
 }
 //la methode pour enregistrer modification
 public function save_modif_profil( Request $request ,$id){

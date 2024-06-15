@@ -32,6 +32,13 @@ Route::get('detaille/{id}', [FormationController::class,'detailsformation'])->na
 
 
 //routes qui permet de faire la candiadture
+Route::get('formulaire_postuler/{id}',[CandidatureController::class,'formulaireCand'])->name('formulaire.candidature');
+Route::post('postuler',[CandidatureController::class,'postuler'])->name('postuler');
+Route::get('afficherDetailsCandidature/{id}',[CandidatureController::class,'index'])->name('fichiers.index');
+Route::get('ListeCandidates',[AuthController::class,'listecandature']);//la methode n'est pas défini dans le controller
+//rejetter la candidature
+Route::delete('candidatSup/{id}',[CandidatureController::class,'supprimercand'])->name('rejettercadidature');
+
 
 // Route::get('afficher_candidat',[CandidatureController::class,'afficher']);
 // details de la formation
@@ -65,7 +72,7 @@ Route::get('candidature/accepter/{id}', [CandidatureController::class, 'accepter
 Route::get('candidature/rejeter/{id}', [CandidatureController::class, 'rejeter'])->name('candidature.rejeter');
 Route::get('cadidate/{id}',[FormationController::class,'candidats'])->name('candidatureFormation');
 //candidature d'un seul elements
-Route::get('/mes-candidatures', [CandidatureFormationController::class, 'candidatureListe']);
+Route::get('/mes-candidatures', [CandidatureController::class, 'listeCandidatures'])->name('mes.candidatures');
 //la route pour afficher le profil
 Route::get('/candidat_profil/{id}',[CandidatDuController::class,'candidat_profil'])->name('candidat_profil');
  //la route pour la modification du profil
