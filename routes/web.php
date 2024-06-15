@@ -46,9 +46,9 @@ Route::delete('candidatSup/{id}',[CandidatureController::class,'supprimercand'])
 
 Route::delete('/supprimmer_candidat/{id}', [CandidatDuController::class, 'supprimer_candidat'])->name('supprimer.candiate');
 // gestion du dashbord
-Route::get('formationAdsbord',[FormationController::class,'formation_dashbord']);
+Route::get('formationAdsbord',[FormationController::class,'formation_dashbord'])->name('dashbord');
 Route::get('detail/{id}', [FormationController::class,'detailsformation']);
-Route::get('afficherFOR/{id}',[CandidatureController::class,'affichercandid']);
+Route::get('afficherFOR/{id}',[CandidatureController::class,'affichercandid'])->name('candidats');
 Route::get('/formations/afficher/{id}', [FormationController::class, 'afficher'])->name('candidatureFormation');
 // offre de formation
 // Route::get('offreform',[OffreFormationController::class,'offredetail']);

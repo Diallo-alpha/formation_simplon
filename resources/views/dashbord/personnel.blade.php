@@ -31,7 +31,7 @@
     <a href="/dashbord.html">Tableau de bord</a>
 </li>
 <li class="colonne   colonne_cote">
-    <i class="fa-solid fa-school" style="color: #fafcff;"></i> <a href="formationAdsbord">formations</a>
+    <i class="fa-solid fa-school" style="color: #fafcff;"></i> <a href="{{route('dashbord')}}">formations</a>
 </li>
 <li class="colonne">
     <i class="fa-solid fa-people-group" style="color: #ffffff;"></i> <a href="candidat_dashbord">Candidats</a>
