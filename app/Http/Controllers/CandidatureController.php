@@ -1,19 +1,18 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Models\User;
+
 use App\Models\Formation;
+use App\Mail\Notification;
 
 use App\Models\Candidature;
-use Illuminate\Http\Request;
+use Illuminate\Http\Client\Request;
+use App\Http\Controllers\Controller;
 use App\Models\CandidatureFormation;
-
 use Illuminate\Support\Facades\Auth;
-
-use App\Notifications\candidatureNotification;
-
 use Illuminate\Support\Facades\Storage;
+use App\Notifications\candidatureNotification;
 
 class CandidatureController extends Controller
 {
@@ -71,8 +70,10 @@ class CandidatureController extends Controller
             $candidature = Candidature::findOrFail($id);
             $candidature->update(['status' => 'accepter']);
             // recherche du user a qui appartient la candidature
-            $user = $candidature->user;
-            $user->notify(new candidatureNotification());
+            // $user = $candidature->user;
+            // $user->notify(new candidatureNotification());
+            // $user = $candidature->user;
+        // Mail::to($user->email)->send(new Notification($candidature));
         
             return redirect()->back()->with('message', 'Candidature acceptée avec succès.');
         }
@@ -107,6 +108,8 @@ class CandidatureController extends Controller
         $candidatures=User::find($id);
         return view('dashbord.candidature',compact('candidatures'));
     }
+
+    
 
 
 }

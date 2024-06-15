@@ -16,21 +16,14 @@ class AuthController extends Controller
 
     public function postRegister(Request $request)
     {
-        // Validez et créez l'utilisateur
         $request->validate([
-            // 'nam' => 'required|string|max:255',
-            // 'email' => 'required|string|email|unique:users|max:255',
-            // 'password' => 'required|string|min:4|max:255',
+
         ]);
 
         // Créer l'utilisateur
 
-        // $user = new User();
+       
         User::create($request->all() );
-        // $user->name = $request->name;
-        // $user->email = $request->email;
-        // $user->password = Hash::make($request->password);
-        // $user->save();
 
 
         return redirect()->route('auth.getLogin');
@@ -40,19 +33,6 @@ class AuthController extends Controller
             
             return view('login');
         }
-
-
-
-
-
-        // User::create($request->all() );
-
-        // Connectez l'utilisateur après son inscription
-        // Auth::login($user);
-
-    //     // Redirigez vers la page de tableau de bord ou une autre page
-    //     return redirect()->route('login');
-    // }
 
     public function getLogin()
     {
@@ -73,7 +53,7 @@ class AuthController extends Controller
         $request->session()->regenerate();
 
         // Récupérer l'utilisateur connecté
-        $user = Auth::user(); 
+        $user = Auth::user();
 
         // Vérifiez le rôle de l'utilisateur et redirigez en conséquence
         switch ($user->role) {
@@ -98,6 +78,6 @@ class AuthController extends Controller
     {
         Auth::logout(); // Déconnectez l'utilisateur
         return redirect()->route('auth.getLogin'); // Redirigez vers la page de connexion
-}   
+}
 
 }
