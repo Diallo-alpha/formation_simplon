@@ -61,10 +61,10 @@ class CandidatureController extends Controller
 
             // Rediriger vers la liste des candidatures avec un message de succès
             return redirect()->route('mes.candidatures')->with('message', 'Candidature soumise avec succès.');
-        }else
-
-        // Rediriger en arrière avec un message d'erreur si le CV n'a pas été téléchargé correctement
-        return redirect()->back()->withErrors(['cv' => 'Le fichier n\'a pas été téléchargé correctement.']);
+        } else {
+            // Rediriger en arrière avec un message d'erreur si le CV n'a pas été téléchargé correctement
+            return redirect()->back()->withErrors(['cv' => 'Le fichier n\'a pas été téléchargé correctement.']);
+        }
     }
 
     /**
@@ -74,21 +74,16 @@ class CandidatureController extends Controller
      * @return \Illuminate\Http\RedirectResponse
      */
     public function accepter($id)
-     {
-    // //     $candidature = Candidature::findOrFail($id);
-    // //     $candidature->update(['status' => 'accepter']);
+    {
+        $candidature = Candidature::findOrFail($id);
+        $candidature->update(['status' => 'accepter']);
 
-    //     public function accepter($id)
-    //     {
-            $candidature = Candidature::findOrFail($id);
-            $candidature->update(['status' => 'accepter']);
-            // recherche du user a qui appartient la candidature
-            $user = $candidature->user;
-            Mail::to($user->email)->send(new Notification($candidature));
-            return redirect()->back()->with('message', 'Candidature acceptée avec succès.');
-        }
+        // Notifier l'utilisateur de l'acceptation de sa candidature
+        // $user = $candidature->user;
+        // $user->notify(new candidatureNotification());
 
-    
+        return redirect()->back()->with('message', 'Candidature acceptée avec succès.');
+    }
 
     /**
      * Rejeter une candidature.
