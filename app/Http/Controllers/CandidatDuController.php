@@ -64,7 +64,7 @@ public function modif_profil(){
 
     // $request['id'] = $id;
 
-  $user = User::find($id);
+  $user = User::find($id)->get();
 
     return view ('/candidatDashboard.modif_profilcandidat',compact('user'));
 

@@ -60,6 +60,7 @@ Route::get('candidature/rejeter/{id}', [CandidatureController::class, 'rejeter']
 Route::get('cadidate/{id}',[FormationController::class,'candidats'])->name('candidatureFormation');
 //candidature d'un seul elements
 Route::get('/mes-candidatures', [CandidatureFormationController::class, 'candidatureListe']);
+//GESTION PROFIL
 //la route pour afficher le profil
 Route::get('/candidat_profil/{id}',[CandidatDuController::class,'candidat_profil'])->name('candidat_profil');
  //la route pour la modification du profil
