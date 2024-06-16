@@ -35,21 +35,12 @@
             </nav>
         </aside>
         <div class="dashboard">
+            
             <header>
-            @if (session('message'))
-            <div class="alert alert-success">
-                {{ session('message') }}
-            </div>
-        @endif
-        @if ($errors->any())
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
+                <h1>TABLEAU DE BORD</h1>
+                <div class="user-info">
+                    <i class="fa-solid fa-bell icon"></i>
+                </div>
             </header>
             <section class="stats">
                 <h1>Mes candidatures</h1>
@@ -81,5 +72,8 @@
             </section>
         </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

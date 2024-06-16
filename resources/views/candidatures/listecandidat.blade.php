@@ -9,7 +9,20 @@
 <body>
     <div class="container">
         <h1 class="mt-5">Liste des Candidatures</h1>
-       
+        @if (session('message'))
+            <div class="alert alert-success">
+                {{ session('message') }}
+            </div>
+        @endif
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         <table class="table table-bordered mt-3">
             <thead>
                 <tr>
