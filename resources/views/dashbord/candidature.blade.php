@@ -64,17 +64,16 @@
         @foreach ($candidatures as $candidature)
 
         <tr>
-            <td><a href="#">{{$candidature->user->nom}}</td>
+            <td><a href="{{Route('detail.candidature',$candidature->id)}}">{{$candidature->user->nom}}</td>
             <td>{{$candidature->user->prenom}}</td>
             <td>{{$candidature->user->niveau}}</td>
             <td>{{$candidature->user->adresse}}</td>
             <td>{{$candidature->created_at}}</td>
             <td>
-                            @if ($candidature->cv_path)
-                                <a href="{{ route('fichier.afficher', ['path' => $candidature->cv_path]) }}" target="_blank">Télécharger</a>
-                            @else
-                                Aucun fichier
-                            @endif
+                            
+                               
+                                <a href="{{ route('fichier.afficher', ['path' => str_replace('public/', '', $candidature->cv_path)]) }}" target="_blank">Télécharger</a>
+                           
                         </td>
                         <td>{{ ucfirst($candidature->status) }}</td>
                         <td>
