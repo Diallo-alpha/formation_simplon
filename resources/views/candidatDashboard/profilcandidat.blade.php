@@ -44,7 +44,7 @@
                         </li>
                         <li class="colonne">
                             <i class="fa-solid fa-graduation-cap"></i>
-                            <a href="/dashbord_candidature.html">Candidatures</a>
+                            <a href="{{route('mes.candidatures')}}">Candidatures</a>
                         </li>
                         <li class="colonne">
                             <a href="#">Connexion</a>

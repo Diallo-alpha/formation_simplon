@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use App\Models\User;
@@ -16,22 +15,31 @@ class AuthController extends Controller
 
     public function postRegister(Request $request)
     {
+        // Validez les champs du formulaire
         $request->validate([
-
+            'nom' => 'required|string|max:50',
+            'prenom' => 'required|string|max:100',
+            'telephone' => 'required|string',
+            'niveau' => 'nullable|string',
+            'adresse' => 'required|string',
+            'email' => 'required|string|email|max:255|unique:users',
+            'password' => 'required|string|min:4|confirmed',
         ]);
 
-        // Créer l'utilisateur
+        // Créez l'utilisateur en définissant le rôle par défaut et en hachant le mot de passe
+        User::create([
+            'nom' => $request->nom,
+            'prenom' => $request->prenom,
+            'telephone' => $request->telephone,
+            'niveau' => $request->niveau,
+            'adresse' => $request->adresse,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            'role' => 'candidat', 
+        ]);
 
-       
-        User::create($request->all() );
-
-
-        return redirect()->route('auth.getLogin');
-         }
-
-        public function login() {
-            return view('login');
-        }
+        return redirect()->route('auth.getLogin')->with('status', 'Inscription réussie ! Vous pouvez maintenant vous connecter.');
+    }
 
     public function getLogin()
     {
@@ -39,44 +47,42 @@ class AuthController extends Controller
     }
 
     public function postLogin(Request $request)
-{
-    // Validez les informations d'identification
-    $credentials = $request->validate([
-        'email' => 'required|string|email',
-        'password' => 'required|string',
-    ]);
+    {
+        // Validez les informations d'identification
+        $credentials = $request->validate([
+            'email' => 'required|string|email',
+            'password' => 'required|string',
+        ]);
 
-    // Connectez l'utilisateur
-    if (Auth::attempt($credentials)) {
-        // Regénérer la session pour éviter les attaques de fixation de session
-        $request->session()->regenerate();
+        // Connectez l'utilisateur
+        if (Auth::attempt($credentials)) {
+            // Regénérer la session pour éviter les attaques de fixation de session
+            $request->session()->regenerate();
 
-        // Récupérer l'utilisateur connecté
-        $user = Auth::user();
+            // Récupérer l'utilisateur connecté
+            $user = Auth::user();
 
-        // Vérifiez le rôle de l'utilisateur et redirigez en conséquence
-        switch ($user->role) {
-            case 'personnel':
-                return redirect('formationAdsbord');
-            case 'candidat':
-                return redirect('formulaire_postuler ');
-            default:
-                // Redirigez vers une page par défaut ou de tableau de bord si le rôle n'est pas défini
-                return redirect()->intended('offre');
+            // Vérifiez le rôle de l'utilisateur et redirigez en conséquence
+            switch ($user->role) {
+                case 'personnel':
+                    return redirect('formationAdsbord');
+                case 'candidat':
+                    return redirect('/mes-candidatures');
+                default:
+                    // Redirigez vers une page par défaut ou de tableau de bord si le rôle n'est pas défini
+                    return redirect()->intended('offre');
+            }
         }
+
+        // Si l'authentification échoue, redirigez vers la page de connexion avec un message d'erreur
+        return back()->withErrors([
+            'email' => 'Les informations d\'identification fournies ne correspondent pas à nos enregistrements.',
+        ]);
     }
-
-    // Si l'authentification échoue, redirigez vers la page de connexion avec un message d'erreur
-    return back()->withErrors([
-        'email' => 'Les informations d\'identification fournies ne correspondent pas à nos enregistrements.',
-    ]);
-}
-
 
     public function logout()
     {
         Auth::logout(); // Déconnectez l'utilisateur
         return redirect()->route('auth.getLogin'); // Redirigez vers la page de connexion
-}
-
+    }
 }

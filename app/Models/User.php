@@ -26,6 +26,7 @@ class User extends Authenticatable
         'telephone',
         'adresse',
         'email',
+        'role',
         'password',
     ];
     public function candidatures()

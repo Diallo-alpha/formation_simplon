@@ -112,6 +112,10 @@
                     <span class="text-danger">{{ $message }}</span>
                 @enderror
             </div>
+            <div class="col-md-12">
+                <label for="password_confirmation" class="form-label">Confirmer le mot de passe</label>
+                <input type="password" name="password_confirmation" id="password_confirmation" class="form-control" required>
+            </div>
 
             <div class="col-md-12">
                 <button type="submit" class="btn l btn-dark mt-3">Inscription</button>
