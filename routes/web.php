@@ -22,18 +22,27 @@ Route::get('/offre',[FormationController::class, 'listeOffre'])->name('liste.off
 // route pour le formulaire pour l'inscription des candidat
 Route::get('candidat_inscription',[CandidatDuController::class,'inscription']);
 Route::post('sauvegarde_candidat',[CandidatDuController::class,'sauvegarde']);
+
+
 // details de la formation
-Route::get('detail', [FormationController::class,'detailsformation'])->name('details.formation');//ça marche
+
+Route::get('detaille/{id}', [FormationController::class,'detailsformation'])->name('details.formation');//ça marche
+
+
+
+
 //routes qui permet de faire la candiadture
-Route::get('formulaire_postuler',[CandidatureController::class,'formulaireCand']);
+Route::get('formulaire_postuler/{id}',[CandidatureController::class,'formulaireCand'])->name('formulaire.candidature');
 Route::post('postuler',[CandidatureController::class,'postuler'])->name('postuler');
 Route::get('afficherDetailsCandidature/{id}',[CandidatureController::class,'index'])->name('fichiers.index');
-Route::get('ListeCandidates',[AuthController::class,'listecandature']);//marche pas
+Route::get('ListeCandidates',[AuthController::class,'listecandature']);//la methode n'est pas défini dans le controller
 //rejetter la candidature
 Route::delete('candidatSup/{id}',[CandidatureController::class,'supprimercand'])->name('rejettercadidature');
+
+
 // Route::get('afficher_candidat',[CandidatureController::class,'afficher']);
 // details de la formation
-// Route::get('detail', [FormationController::class,'detailsformation'])->name('details.formation');ça marche
+// Route::get('details/{id}', [FormationController::class,'detailsformation'])->name('details.formation');
 
 Route::delete('/supprimmer_candidat/{id}', [CandidatDuController::class, 'supprimer_candidat'])->name('supprimer.candiate');
 // gestion du dashbord
@@ -50,16 +59,20 @@ Route::post('/login', [AuthController::class, 'postLogin'])->name('auth.postLogi
 Route::get('/register', [AuthController::class, 'getRegister'])->name('auth.getRegister');
 Route::post('/register', [AuthController::class, 'postRegister'])->name('auth.postRegister');
 Route::get('/logout', [AuthController::class, 'logout'])->name('auth.logout');
-Route::get('formulaire_postuler',[CandidatureController::class,'formulaireCand']);
+
+Route::get('formulaire_postuler/{id}',[CandidatureController::class,'formulaireCand']);
 Route::post('candidature/postuler', [CandidatureController::class, 'postuler'])->name('candidature.postuler');
-Route::get('candidature/{path}', [CandidatureController::class, 'afficher'])->name('fichier.afficher');
+
+
 Route::get('candidatures', [CandidatureController::class, 'index'])->name('candidatures.index');
+
+Route::get('candidature/{path}', [CandidatureController::class, 'afficher'])->name('fichier.afficher');
 Route::delete('candidature/{id}', [CandidatureController::class, 'destroy'])->name('candidatures.destroy');
 Route::get('candidature/accepter/{id}', [CandidatureController::class, 'accepter'])->name('candidature.accepter');
 Route::get('candidature/rejeter/{id}', [CandidatureController::class, 'rejeter'])->name('candidature.rejeter');
 Route::get('cadidate/{id}',[FormationController::class,'candidats'])->name('candidatureFormation');
 //candidature d'un seul elements
-Route::get('/mes-candidatures', [CandidatureFormationController::class, 'candidatureListe']);
+Route::get('/mes-candidatures', [CandidatureController::class, 'listeCandidatures'])->name('mes.candidatures');
 //GESTION PROFIL
 //la route pour afficher le profil
 Route::get('/candidat_profil/{id}',[CandidatDuController::class,'candidat_profil'])->name('candidat_profil');

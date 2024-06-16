@@ -47,7 +47,6 @@
 <!-- le conteneur des elements -->
 <div class="conteneur_element">
 <h1>
-
     tous element de la candidature doit etre ici
 </h1>
 
@@ -102,7 +101,6 @@
             @endforeach
     </tbody>
 </table>
-
 
 </div>
 
