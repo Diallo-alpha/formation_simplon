@@ -44,6 +44,9 @@
             height: auto;
             border-radius: 8px;
         }
+        .full-width-btn {
+            width: 100%;
+        }
     </style>
 </head>
 <body>
@@ -59,8 +62,8 @@
             <!-- Nom -->
             <div class="col-md-12">
                 <label for="nom" class="form-label">Nom</label>
-                <input id="nom" type="text" class="form-control" name="nom" value="{{ old('nom') }}"
-                title="Le nom ne doit contenir que des lettres et des espaces.">
+                <input id="nom" type="text" class="form-control" name="nom" value="{{ old('nom') }}" 
+                placeholder="Entrez votre nom" title="Le nom ne doit contenir que des lettres et des espaces.">
                 @error('nom')
                     <span class="text-danger">{{ $message }}</span>
                 @enderror
@@ -69,8 +72,8 @@
             <!-- Prénom -->
             <div class="col-md-12">
                 <label for="prenom" class="form-label">Prénom</label>
-                <input id="prenom" type="text" class="form-control" name="prenom" value="{{ old('prenom') }}"
-                title="Le prénom ne doit contenir que des lettres et des espaces.">
+                <input id="prenom" type="text" class="form-control" name="prenom" value="{{ old('prenom') }}" 
+                placeholder="Entrez votre prénom" title="Le prénom ne doit contenir que des lettres et des espaces.">
                 @error('prenom')
                     <span class="text-danger">{{ $message }}</span>
                 @enderror
@@ -79,8 +82,8 @@
             <!-- Téléphone -->
             <div class="col-md-12">
                 <label for="telephone" class="form-label">Téléphone</label>
-                <input id="telephone" type="text" class="form-control" name="telephone" value="{{ old('telephone') }}"
-                title="Le numéro de téléphone doit contenir 09 chiffres.">
+                <input id="telephone" type="text" class="form-control" name="telephone" value="{{ old('telephone') }}" 
+                placeholder="Entrez votre numéro de téléphone" title="Le numéro de téléphone doit contenir 09 chiffres.">
                 @error('telephone')
                     <span class="text-danger">{{ $message }}</span>
                 @enderror
@@ -89,7 +92,8 @@
             <!-- Adresse -->
             <div class="col-md-12">
                 <label for="adresse" class="form-label">Adresse</label>
-                <input id="adresse" type="text" class="form-control" name="adresse" value="{{ old('adresse') }}">
+                <input id="adresse" type="text" class="form-control" name="adresse" value="{{ old('adresse') }}" 
+                placeholder="Entrez votre adresse">
                 @error('adresse')
                     <span class="text-danger">{{ $message }}</span>
                 @enderror
@@ -98,7 +102,8 @@
             <!-- Email -->
             <div class="col-md-12">
                 <label for="email" class="form-label">Email</label>
-                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}">
+                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" 
+                placeholder="Entrez votre email">
                 @error('email')
                     <span class="text-danger">{{ $message }}</span>
                 @enderror
@@ -107,14 +112,15 @@
             <!-- Password -->
             <div class="col-md-12">
                 <label for="password" class="form-label">Mot de passe</label>
-                <input id="password" type="password" class="form-control" name="password" title="Le mot de passe doit contenir au moins 8 caractères.">
+                <input id="password" type="password" class="form-control" name="password" 
+                placeholder="Entrez votre mot de passe" title="Le mot de passe doit contenir au moins 8 caractères.">
                 @error('password')
                     <span class="text-danger">{{ $message }}</span>
                 @enderror
             </div>
 
             <div class="col-md-12">
-                <button type="submit" class="btn l btn-dark mt-3">Inscription</button>
+                <button type="submit" class="btn btn-dark mt-3 full-width-btn">Inscription</button>
                 <p>Vous avez un compte ? <a href="{{ route('auth.getLogin') }}">Connexion</a></p>
             </div>
         </form>
