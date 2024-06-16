@@ -88,6 +88,7 @@
 
 <!-- Bootstrap JS -->
 <!-- JavaScript Validation -->
+
 <script>
     function validateForm() {
         const email = document.getElementById('email').value;
@@ -105,7 +106,7 @@
 
         return true;
     }
-</sc>
+</script>
 
 </body>
 </html>
