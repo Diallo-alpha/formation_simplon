@@ -70,10 +70,10 @@
             <td>{{$candidature->user->adresse}}</td>
             <td>{{$candidature->created_at}}</td>
             <td>
-                            
-                               
+
+
                                 <a href="{{ route('fichier.afficher', ['path' => str_replace('public/', '', $candidature->cv_path)]) }}" target="_blank">Télécharger</a>
-                           
+
                         </td>
                         <td>{{ ucfirst($candidature->status) }}</td>
                         <td>

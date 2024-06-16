@@ -12,20 +12,22 @@ use Illuminate\Http\Request;
 
 use App\Http\Controllers\Controller;
 use App\Models\CandidatureFormation;
+// use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 use App\Notifications\candidatureNotification;
 
 
 class CandidatureController extends Controller
 {
-   
+
     public function formulaireCand($id) {
         $formation = Formation::find($id);
         return view('candidatures.candidature', compact('formation'));
     }
 
-  
+
     public function postuler(Request $request)
     {
         $user = Auth::user(); // Récupérer l'utilisateur actuellement connecté
@@ -64,11 +66,14 @@ class CandidatureController extends Controller
                 'status' => 'En attente',
             ]);
 
-            
+
             return redirect()->route('mes.candidatures')->with('message', 'Candidature soumise avec succès.');
+        } else {
+            // Rediriger en arrière avec un message d'erreur si le CV n'a pas été téléchargé correctement
+            return redirect()->back()->withErrors(['cv' => 'Le fichier n\'a pas été téléchargé correctement.']);
         }
 
-       
+
         return redirect()->back()->withErrors(['cv' => 'Le fichier n\'a pas été téléchargé correctement.']);
     }
 
@@ -84,15 +89,15 @@ class CandidatureController extends Controller
         $candidature->update(['status' => 'accepter']);
 
         // Notifier l'utilisateur de l'acceptation de sa candidature
-        $user = $candidature->user;
-        $user->notify(new candidatureNotification());
+        // $user = $candidature->user;
+        // $user->notify(new candidatureNotification());
 
         return redirect()->back()->with('message', 'Candidature acceptée avec succès.');
     }
 
-    
+
      // Rejeter une candidature.
-     
+
     public function rejeter($id)
     {
         $candidature = Candidature::findOrFail($id);
@@ -107,7 +112,7 @@ class CandidatureController extends Controller
         return view('candidatures.listecandidat', compact('candidatures')); // Retourner la vue avec les candidatures
     }
 
-   
+
     public function destroy($id)
     {
         $candidature = Candidature::findOrFail($id);
@@ -115,32 +120,32 @@ class CandidatureController extends Controller
         return redirect()->back()->with('message', 'Candidature supprimée avec succès.');
     }
 
-  
+
     public function affichercandid($id)
     {
         $candidatures = User::find($id)->candidatures()->with('formation')->get();
         return view('dashbord.candidature', compact('candidatures'));
     }
 
-  
-     
+
+
     public function listeCandidatures()
     {
-        $user = Auth::user(); 
-        $candidatures = Candidature::where('user_id', $user->id)->with('formation')->get(); 
+        $user = Auth::user();
+        $candidatures = Candidature::where('user_id', $user->id)->with('formation')->get();
 
-        return view('candidatDashboard.listeCandidature', compact('candidatures', 'user')); 
+        return view('candidatDashboard.listeCandidature', compact('candidatures', 'user'));
     }
     public function detailcandidature($id)
     {
         $user = Auth::user();
-        $candidatures = Candidature::find($id); 
+        $candidatures = Candidature::find($id);
 
-        return view('candidatures.infocandid', compact('candidatures', 'user')); 
+        return view('candidatures.infocandid', compact('candidatures', 'user'));
     }
     public function afficher($path)
     {
-        $path = 'public/' . $path; 
+        $path = 'public/' . $path;
         if (!Storage::exists($path)) {
             abort(404, 'Fichier non trouvé');
         }

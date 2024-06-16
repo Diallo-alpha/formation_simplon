@@ -8,7 +8,8 @@ use App\Http\Controllers\CandidatDuController;
 use App\Http\Controllers\CandidatureController;
 use App\Http\Controllers\OffreFormationController;
 use App\Http\Controllers\CandidatureFormationController;
-
+use Illuminate\Support\Facades\Mail;
+use App\Mail\TestMail;
 Route::get('/',[PortailController::class,'portail'] );
 //route pour formations
 Route::get('/listeFormation', [FormationController::class, 'listeFormation'])->name('formation.liste');
@@ -49,7 +50,7 @@ Route::delete('/supprimmer_candidat/{id}', [CandidatDuController::class, 'suppri
 // gestion du dashbord
 Route::get('formationAdsbord',[FormationController::class,'formation_dashbord'])->name('formation.personnel');
 Route::get('detail/{id}', [FormationController::class,'detailsformation']);
-Route::get('afficherFOR/{id}',[CandidatureController::class,'affichercandid']);
+Route::get('afficherFOR/{id}',[CandidatureController::class,'affichercandid'])->name('candidats');
 Route::get('/formations/afficher/{id}', [FormationController::class, 'afficher'])->name('candidatureFormation');
 // offre de formation
 // Route::get('offreform',[OffreFormationController::class,'offredetail']);
@@ -85,3 +86,14 @@ Route::get('/modif_profil',[CandidatDuController::class,'modif_profil']);
 
 //profil candidate
 
+// gestion de la notification
+Route::get('/send-test-mail', function () {
+    $details = [
+        'title' => 'Mail from Laravel Application',
+        'body' => 'This is a test mail sent using Laravel.'
+    ];
+
+    Mail::to('test-recipient@example.com')->send(new TestMail($details));
+
+    return 'Email sent successfully!';
+});
