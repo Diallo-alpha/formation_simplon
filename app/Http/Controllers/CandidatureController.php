@@ -79,8 +79,9 @@ class CandidatureController extends Controller
         $candidature->update(['status' => 'accepter']);
 
         // Notifier l'utilisateur de l'acceptation de sa candidature
-        // $user = $candidature->user;
-        // $user->notify(new candidatureNotification());
+        $user = $candidature->user;
+    // Envoi de l'e-mail avec la candidature
+    Mail::to($user->email)->send(new Notification($candidature));
 
         return redirect()->back()->with('message', 'Candidature acceptée avec succès.');
     }

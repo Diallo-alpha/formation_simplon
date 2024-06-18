@@ -40,7 +40,7 @@ Route::get('ListeCandidates',[AuthController::class,'listecandature']);//la meth
 Route::delete('candidatSup/{id}',[CandidatureController::class,'supprimercand'])->name('rejettercadidature');
 
 
-// Route::get('afficher_candidat',[CandidatureController::class,'afficher']);
+Route::get('afficher_candidat',[CandidatureController::class,'afficher']);
 // details de la formation
 // Route::get('details/{id}', [FormationController::class,'detailsformation'])->name('details.formation');
 
