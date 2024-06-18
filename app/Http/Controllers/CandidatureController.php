@@ -19,13 +19,18 @@ use Illuminate\Support\Facades\Storage;
 use App\Notifications\candidatureNotification;
 
 
+
+use \Illuminate\Http\RedirectResponse;
+
 class CandidatureController extends Controller
 {
+   
 
     public function formulaireCand($id) {
         $formation = Formation::find($id);
         return view('candidatures.candidature', compact('formation'));
     }
+
 
 
     public function offreform()
@@ -47,6 +52,7 @@ class CandidatureController extends Controller
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\RedirectResponse
      */
+
     public function postuler(Request $request)
     {
             // Vérifier si l'utilisateur est connecté
@@ -72,15 +78,16 @@ class CandidatureController extends Controller
                                           ->where('formation_id', $formation_id)
                                           ->first();
 
+
         if ($verifierCandidature) {
             return redirect()->back()->withErrors(['error' => 'Vous avez déjà postulé pour cette formation.']);
         }
         // Vérifier si un fichier CV est présent et le stocker
+
         if ($request->hasFile('cv')) {
             $file = $request->file('cv');
             $path = $file->store('documents', 'public');
 
-            // Créer une nouvelle candidature
             Candidature::create([
                 'user_id' => $request->input('user_id'),
                 'formation_id' => $request->input('formation_id'),
@@ -100,12 +107,7 @@ class CandidatureController extends Controller
 
     }
 
-    /**
-     * Accepter une candidature.
-     *
-     * @param int $id L'identifiant de la candidature.
-     * @return \Illuminate\Http\RedirectResponse
-     */
+   
     public function accepter($id)
     {
         $candidature = Candidature::findOrFail($id);
@@ -119,14 +121,13 @@ class CandidatureController extends Controller
     }
 
 
-     // Rejeter une candidature.
-
     public function rejeter($id)
     {
         $candidature = Candidature::findOrFail($id);
         $candidature->update(['status' => 'Rejetée']);
         return redirect()->back()->with('message', 'Candidature rejetée avec succès.');
     }
+
 
     public function index()
     {
@@ -150,7 +151,6 @@ class CandidatureController extends Controller
         $candidatures = $user->candidatures()->with('formation')->get();
         return view('dashbord.candidature', compact('candidatures'));
     }
-
 
 
     public function listeCandidatures()
