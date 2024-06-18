@@ -85,7 +85,7 @@
             transition: background 0.3s;
         }
         .apply-button:hover {
-            background: #c0392b;
+            background: #ce0033;
         }
     </style>
 </head>
@@ -99,29 +99,37 @@
                 <p>78 225 17 74</p>
             </div>
         </section>
-        <nav class="navbar">
+        <div class="navbar">
+            <!-- le sidebar -->
             <ul>
                 <li class="colonne">
-                    <i class="fa-solid fa-bars-progress" style="color: #fff;"></i>
-                    <a href="/dashbord.html">Tableau de bord</a>
+                    <i class="fa-solid fa-bars-progress"></i>
+                    <a href="#">Tableau de bord</a>
                 </li>
-                <li class="colonne colonne_cote colonne_CHEF">
-                    <i class="fa-solid fa-school" style="color: #000;"></i>
-                    <a href="formation_dashbord">Formations</a>
+                <li class="colonne colonne_cote ">
+                    <i class="fa-solid fa-school"></i>
+                    <a href="{{route('liste.formation.candidat')}}">Formations</a>
                 </li>
-                <li class="colonne">
-                    <i class="fa-solid fa-people-group" style="color: #ffffff;"></i>
-                    <a href="/dashbord_candidat.html">Candidats</a>
-                </li>
-                <li class="colonne">
-                    <i class="fa-solid fa-graduation-cap" style="color: #ffffff;"></i>
-                    <a href="/dashbord_candidature.html">Candidatures</a>
+                <li class="colonne colonne_CHEF">
+                    <i class="fa-solid fa-people-group"></i>
+                    <a href="{{route('candidat_profil', $users->id)}}">Profil</a>
                 </li>
                 <li class="colonne">
-                    <a href="#">Connexion</a>
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    <a href="{{route('mes.candidatures')}}">Candidatures</a>
+                </li>
+                <li class="colonne">
+                        <i class="fa-solid fa-sign-out-alt"></i>
+                        <a href="{{ route('auth.logout') }}"
+                           onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            Déconnexion
+                        </a>
+                        <form id="logout-form" action="{{ route('auth.logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
                 </li>
             </ul>
-        </nav>
+        </div>
     </div>
     <div class="conteneur_element">
         <h1 class="mb-4">Liste des Formations</h1>

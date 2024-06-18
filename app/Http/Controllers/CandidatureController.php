@@ -32,9 +32,9 @@ class CandidatureController extends Controller
     {
         // Récupérer toutes les formations de la base de données
         $formations = Formation::all();
-
+        $users = Auth::user();
         // Retourner la vue avec les données des formations
-        return view('candidatDashboard.offreform', compact('formations'));
+        return view('candidatDashboard.offreform', compact('formations','users'));
     }
     public function formulaireCandAuth($id)
     {
@@ -49,6 +49,11 @@ class CandidatureController extends Controller
      */
     public function postuler(Request $request)
     {
+            // Vérifier si l'utilisateur est connecté
+    if (!Auth::check()) {
+        return redirect()->route('auth.getLogin')->with('error', 'Vous devez être connecté pour postuler.');
+    }
+
         $user = Auth::user(); // Récupérer l'utilisateur actuellement connecté
 
         // Valider les données de la demande

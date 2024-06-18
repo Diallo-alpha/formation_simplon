@@ -32,15 +32,15 @@
                     <ul>
                         <li class="colonne">
                             <i class="fa-solid fa-bars-progress"></i>
-                            <a href="/dashbord.html">Tableau de bord</a>
+                            <a href="#">Tableau de bord</a>
                         </li>
                         <li class="colonne colonne_cote ">
                             <i class="fa-solid fa-school"></i>
-                            <a href="formation_dashbord">Formations</a>
+                            <a href="{{route('liste.formation.candidat')}}">Formations</a>
                         </li>
                         <li class="colonne colonne_CHEF">
                             <i class="fa-solid fa-people-group"></i>
-                            <a href="/dashbord_candidat.html">Profil</a>
+                            <a href="{{route('candidat_profil', $user->id)}}">Profil</a>
                         </li>
                         <li class="colonne">
                             <i class="fa-solid fa-graduation-cap"></i>

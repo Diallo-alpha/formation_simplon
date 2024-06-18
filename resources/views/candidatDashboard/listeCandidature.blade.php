@@ -18,7 +18,7 @@
             <nav>
                 <ul>
                     <li> <i class="fa-solid fa-bars-progress"></i> <a href="#">TABLEAU DE BORD</a></li>
-                    <li><i class="fa-solid fa-school"></i> <a href="#">Formation</a></li>
+                    <li><i class="fa-solid fa-school"></i> <a href="{{route('liste.formation.candidat')}}">Formation</a></li>
                     <li><a href="/candidat_profil/{{$user->id}}"><i class="fas fa-user"></i> Profil</a></li>
                     <li><i class="fa-solid fa-people-group"></i> <a href="#">Candidature</a></li>
                     <li>
@@ -35,7 +35,7 @@
             </nav>
         </aside>
         <div class="dashboard">
-            
+
             <header>
                 <h1>TABLEAU DE BORD</h1>
                 <div class="user-info">
