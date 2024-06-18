@@ -18,12 +18,12 @@
                 </ul>
             </div>
         @endif
-        <form action="{{ route('candidature.postuler') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('postuler') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
             <p>{{Auth::User()->prenom}}</p>
                 <input type="hidden" name="user_id" class="form-control" value="{{Auth::User()->id}}">
-                <input type="hidden" name="formation_id" class="form-control" value="{{$formation->id}}">
+                <input type="hidden" name="formation_id" class="form-control" value="{{$formations->id}}">
             <div class="form-group">
                 <label for="cv">CV</label>
                 <input type="file" name="cv" class="form-control-file" required>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Liste des Formations</title>
     <link rel="stylesheet" href="{{ asset('css/personnel.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <style>
@@ -11,7 +11,6 @@
             font-family: Arial, sans-serif;
             justify-content: center;
             align-items: center;
-            height: 100vh;
             background-color: #f5f5f5;
             margin: 0;
             padding: 0;
@@ -19,13 +18,13 @@
         .card {
             display: flex;
             background: #fff;
-            border-radius: 100px 0 130px 0;
+            border-radius: 20px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             overflow: hidden;
-            width: 1000px;
-            height: 500px;
-            margin: 100px auto;
-            padding-top: 10px;
+            width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            flex-direction: column;
         }
         .card-content {
             padding: 20px;
@@ -33,42 +32,38 @@
         }
         .card-content h2 {
             margin: 0;
-            font-size: 60px;
+            font-size: 24px;
             color: #333;
             text-align: center;
         }
         .card-content .date {
             margin: 10px 0;
             color: #777;
+            text-align: center;
         }
-        .qualities {
-            list-style: none;
-            padding: 0;
-        }
-        .qualities li {
-            display: flex;
-            align-items: center;
-            background: #f5f5f5;
-            border-radius: 20px;
-            padding: 10px;
+        .card-content p {
             margin: 10px 0;
+            text-align: center;
+            color: #333;
         }
-        .qualities li img {
-            margin-right: 30px;
+        .card-content .actions {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .card-content .actions form {
+            display: inline-block;
         }
         .card-image {
-            background: #f5f5f5;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: 500px;
-            margin-right: 5px;
+            text-align: center;
+            margin-bottom: 20px;
         }
         .card-image img {
             width: 100%;
-            height: 200px;
-            object-fit: cover;
+            height: auto;
+            max-width: 200px;
+            border-radius: 10px;
         }
         .contact {
             text-align: center;
@@ -78,7 +73,7 @@
             color: #e74c3c;
             text-decoration: none;
             display: block;
-            padding: 20px 10px;
+            padding: 10px 0;
         }
         .apply-button {
             background: #e74c3c;
@@ -96,7 +91,6 @@
 </head>
 <body>
 <div class="cont_all">
-    <!-- la dashbord -->
     <div class="dashbord">
         <section class="info_perso">
             <div class="info_img"><img class="photo_dashbord" src="img/1693355856042.jpeg" alt=""></div>
@@ -105,9 +99,7 @@
                 <p>78 225 17 74</p>
             </div>
         </section>
-
         <nav class="navbar">
-            <!-- le sidebar -->
             <ul>
                 <li class="colonne">
                     <i class="fa-solid fa-bars-progress" style="color: #fff;"></i>
@@ -115,7 +107,7 @@
                 </li>
                 <li class="colonne colonne_cote colonne_CHEF">
                     <i class="fa-solid fa-school" style="color: #000;"></i>
-                    <a href="formation_dashbord">formations</a>
+                    <a href="formation_dashbord">Formations</a>
                 </li>
                 <li class="colonne">
                     <i class="fa-solid fa-people-group" style="color: #ffffff;"></i>
@@ -126,13 +118,11 @@
                     <a href="/dashbord_candidature.html">Candidatures</a>
                 </li>
                 <li class="colonne">
-                    <a href="">Connexion</a>
+                    <a href="#">Connexion</a>
                 </li>
             </ul>
         </nav>
     </div>
-
-    <!-- le conteneur des elements -->
     <div class="conteneur_element">
         <h1 class="mb-4">Liste des Formations</h1>
         @if(session('success'))
@@ -140,48 +130,20 @@
             {{ session('success') }}
         </div>
         @endif
-        <table class="table">
-            <tbody>
-                @foreach($formations as $formation)
-                <tr>
-                    <td>{{ $formation->titre }}</td>
-                    <td>{{Str::limit( $formation->description ,100)}}</td>
-                    <td>{{ $formation->date_expiration }}</td>
-                    <td>
-                        <a href="{{ route('form.modification.formation', $formation->id) }}" class="btn btn-warning btn-sm">Modifier</a>
-                        <form action="{{ route('formation.supprimer', $formation->id) }}" method="POST" style="display:inline-block;">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-danger btn-sm">Supprimer</button>
-                        </form>
-                    </td>
-                    <td>
-                        <a href="{{Route('candidatureFormation',$formation->id)}}">candidat</a>
-                    </td>
-                </tr>
-                @endforeach
-            </tbody>
-        </table>
 
+        @foreach($formations as $formation)
         <div class="card">
-            <div class="card-content">
-                <h2>Developpement Web</h2>
-                <div class="date">Date limite: 18/05/2020</div>
-                <ul class="qualities">
-                    <li><img src="https://img.icons8.com/ios-filled/20/000000/checkmark.png"/>Qualite</li>
-                    <li><img src="https://img.icons8.com/ios-filled/20/000000/checkmark.png"/>Qualite</li>
-                    <li><img src="https://img.icons8.com/ios-filled/20/000000/checkmark.png"/>Qualite</li>
-                </ul>
-            </div>
             <div class="card-image">
-                <img src="{{asset('/img/image 4.png')}}" alt="Profile Picture">
-                <div class="contact">
-                    <a href="tel:+3338900997">📞 33 890 09 97</a>
-                    <a href="mailto:simplon@gmail.com">📧 simplon@gmail.com</a>
-                    <button class="apply-button">postuler</button>
-                </div>
+                <img src="{{ asset('images/'.$formation->image)}}" alt="Formation Image" onerror="this.onerror=null;this.src='{{ asset('images/default.jpg') }}';">
+            </div>
+            <div class="card-content">
+                <h2>{{ $formation->titre }}</h2>
+                <p>{{ Str::limit($formation->description, 100) }}</p>
+                <div class="date">Date limite: {{ $formation->date_expiration }}</div>
+                <a href="{{ route('formulaire.candidature.auth', $formation->id) }}" class="btn btn-primary btn-sm">Postuler</a>
             </div>
         </div>
+        @endforeach
     </div>
 </div>
 </body>

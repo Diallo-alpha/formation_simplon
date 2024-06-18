@@ -22,6 +22,19 @@ class CandidatureController extends Controller
         return view('candidatures.candidature', compact('formation'));
     }
 
+    public function offreform()
+    {
+        // Récupérer toutes les formations de la base de données
+        $formations = Formation::all();
+
+        // Retourner la vue avec les données des formations
+        return view('candidatDashboard.offreform', compact('formations'));
+    }
+    public function formulaireCandAuth($id)
+    {
+        $formations = Formation::findOrFail($id);
+        return view('candidatures.candidature', compact('formations'));
+    }
     /**
      * Soumettre une candidature.
      *
