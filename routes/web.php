@@ -43,6 +43,7 @@ Route::get('candidature/{path}', [CandidatureController::class, 'afficher'])->na
 Route::delete('candidature/{id}', [CandidatureController::class, 'destroy'])->name('candidatures.destroy'); // Supprimer une candidature
 Route::get('candidature/accepter/{id}', [CandidatureController::class, 'accepter'])->name('candidature.accepter'); // Accepter une candidature
 Route::get('candidature/rejeter/{id}', [CandidatureController::class, 'rejeter'])->name('candidature.rejeter'); // Rejeter une candidature
+Route::get('cadidate/{id}',[FormationController::class,'candidats'])->name('candidatureFormation');
 
 // Gestion du tableau de bord
 Route::get('formationAdsbord', [FormationController::class, 'formation_dashbord'])->name('formation.personnel'); // Afficher le tableau de bord des formations
