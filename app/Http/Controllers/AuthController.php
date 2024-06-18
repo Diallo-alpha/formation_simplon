@@ -35,7 +35,7 @@ class AuthController extends Controller
             'adresse' => $request->adresse,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'role' => 'candidat', 
+            'role' => 'candidat',
         ]);
 
         return redirect()->route('auth.getLogin')->with('status', 'Inscription réussie ! Vous pouvez maintenant vous connecter.');
@@ -80,9 +80,12 @@ class AuthController extends Controller
         ]);
     }
 
-    public function logout()
+    public function logout(Request $request)
     {
-        Auth::logout(); // Déconnectez l'utilisateur
-        return redirect()->route('auth.getLogin'); // Redirigez vers la page de connexion
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect('/login');
     }
 }

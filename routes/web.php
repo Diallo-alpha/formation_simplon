@@ -50,11 +50,11 @@ Route::get('detail/{id}', [FormationController::class, 'detailsformation']); // 
 Route::get('afficherFOR/{id}', [CandidatureController::class, 'affichercandid'])->name('candidats.formation'); // Afficher les candidats pour une formation
 
 // Offre de formation
-Route::get('offreform', [CandidatureController::class, 'offreform']); // Afficher l'offre de formation
+Route::get('offreform', [CandidatureController::class, 'offreform'])->name('liste.formation.candidat'); // Afficher l'offre de formation
 
 // Authentification
 Route::get('/login', [AuthController::class, 'getLogin'])->name('auth.getLogin'); // Formulaire de login
 Route::post('/login', [AuthController::class, 'postLogin'])->name('auth.postLogin'); // Traitement du login
 Route::get('/register', [AuthController::class, 'getRegister'])->name('auth.getRegister'); // Formulaire d'inscription
 Route::post('/register', [AuthController::class, 'postRegister'])->name('auth.postRegister'); // Traitement de l'inscription
-Route::get('/logout', [AuthController::class, 'logout'])->name('auth.logout'); // Déconnexion
+Route::post('/logout', [AuthController::class, 'logout'])->name('auth.logout');
