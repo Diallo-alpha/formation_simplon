@@ -128,9 +128,9 @@
         </div>
       </div>
 
-      <div class="container col-12">
-      <div class="text-center pr-30px"style="position:center;">
-        <a href="{{ url('formulaire_postuler',$formation->id)  }}"><button class="btn btn-danger text-white btn-adjusted">Postuler</button></a> 
+      <div class="container">
+      <div class="text-start pr-30px"style="position:start; margin-left:15px;">
+        <a href="{{ url('formulaire_postuler',$formation->id)  }}"><button class="btn btn-danger text-white btn-adjusted" style="margin-left:30px; width:100px; text-aligne:center; margin-bottom:25px;">Postuler</button></a> 
       </div>
       </div>
 

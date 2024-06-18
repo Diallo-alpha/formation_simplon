@@ -21,15 +21,12 @@
                 <img src="{{asset('images/simplon 1.svg')}}" alt="Simplon.co">
             </div>
             <ul>
-                <li><a href="#">Home</a></li>
+                <li><a href="#">Accueil</a></li>
                 <li><a href="#">Services</a></li>
-                <li><a href="#">Projects</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="#">Offre</a></li>
             </ul>
             <div class="auth-buttons">
-                <button>se connecter</button>
-                <button>S'INSCRIRE</button>
-            </div>
+          
         </nav>
     </header>
     <section class="baniere">
