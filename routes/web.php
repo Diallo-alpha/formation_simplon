@@ -38,15 +38,16 @@ Route::get('afficherDetailsCandidature/{id}', [CandidatureController::class, 'in
 Route::delete('candidatSup/{id}', [CandidatureController::class, 'supprimercand'])->name('rejettercadidature'); // Rejeter une candidature
 Route::get('/mes-candidatures', [CandidatureController::class, 'listeCandidatures'])->name('mes.candidatures'); // Lister mes candidatures
 Route::get('candidatures', [CandidatureController::class, 'index'])->name('candidatures.index'); // Liste des candidatures
-Route::get('candidature/{path}', [CandidatureController::class, 'afficher'])->name('fichier.afficher'); // Afficher un fichier de candidature
+Route::get('detailcandature/{id}',[CandidatureController::class,'detailcandidature'])->name('detail.candidature');
+Route::get('candidature/{path}', [CandidatureController::class, 'afficher'])->name('fichier.afficher'); // Afficher un fichier de candidature pour une formation
 Route::delete('candidature/{id}', [CandidatureController::class, 'destroy'])->name('candidatures.destroy'); // Supprimer une candidature
 Route::get('candidature/accepter/{id}', [CandidatureController::class, 'accepter'])->name('candidature.accepter'); // Accepter une candidature
 Route::get('candidature/rejeter/{id}', [CandidatureController::class, 'rejeter'])->name('candidature.rejeter'); // Rejeter une candidature
 
 // Gestion du tableau de bord
-Route::get('formationAdsbord', [FormationController::class, 'formation_dashbord']); // Afficher le tableau de bord des formations
+Route::get('formationAdsbord', [FormationController::class, 'formation_dashbord'])->name('formation.personnel'); // Afficher le tableau de bord des formations
 Route::get('detail/{id}', [FormationController::class, 'detailsformation']); // Détails d'une formation
-Route::get('afficherFOR/{id}', [CandidatureController::class, 'affichercandid']); // Afficher les candidats pour une formation
+Route::get('afficherFOR/{id}', [CandidatureController::class, 'affichercandid'])->name('candidats.formation'); // Afficher les candidats pour une formation
 
 // Offre de formation
 Route::get('offreform', [CandidatureController::class, 'offreform']); // Afficher l'offre de formation
