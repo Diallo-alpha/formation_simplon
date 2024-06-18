@@ -143,7 +143,7 @@
                 <h2>{{ $formation->titre }}</h2>
                 <p>{{ Str::limit($formation->description, 100) }}</p>
                 <div class="date">Date limite: {{ $formation->date_expiration }}</div>
-                <a href="{{ route('formulaire.candidature.auth', $formation->id) }}" class="btn btn-primary btn-sm">Postuler</a>
+                <a href="{{ url('formulaire_postuler',$formation->id)  }}"><button class="btn btn-danger text-white btn-adjusted">Postuler</button></a>
             </div>
         </div>
         @endforeach
