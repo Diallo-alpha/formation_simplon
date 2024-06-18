@@ -94,14 +94,14 @@ class FormationController extends Controller
         $formation->save();
 
         // Redirection avec message de succès
-        return redirect()->route('formation.liste')->with('success', 'Formation mise à jour avec succès.');
+        return redirect()->route('formation.personnel')->with('success', 'Formation mise à jour avec succès.');
     }
 
     public function supprimmerFormation($id)
     {
         $formation = Formation::findOrFail($id);
         $formation->delete();
-        return redirect()->route('formation.liste')->with('success', 'Formation supprimée avec succès.');
+        return redirect()->route('formation.personnel')->with('success', 'Formation supprimée avec succès.');
     }
     // Controller details
 

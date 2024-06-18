@@ -11,7 +11,7 @@ use App\Http\Controllers\CandidatureController;
 use App\Http\Controllers\CandidatureFormationController;
 
 // Route pour afficher le portail principal
-Route::get('/', [PortailController::class, 'portail']);
+Route::get('/', [PortailController::class, 'portail'])->name('index');
 
 // Routes pour les formations
 Route::get('/listeFormation', [FormationController::class, 'listeFormation'])->name('formation.liste'); // Liste des formations
