@@ -5,6 +5,49 @@
         padding:00 ;
 
     }
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+    }
+    body{
+        overflow-x: hidden;
+    }
+    header {
+        background-color: #fff;
+        padding: 20px;
+        border-bottom: 1px solid #ddd;
+    }
+
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    nav ul {
+        display: flex;
+        list-style: none;
+    }
+
+    nav ul li {
+        margin: 0 15px;
+    }
+
+    nav ul li a {
+        text-decoration: none;
+        color: #333;
+    }
+
+    .auth-buttons button {
+        margin-left: 10px;
+        padding: 10px 20px;
+        border: none;
+        background-color: #ce0333;
+        color: #fff;
+        cursor: pointer;
+    }
     .baniere{
         width: 100%;
         height: 23rem;
@@ -87,7 +130,7 @@ width: 40%;
     }
 
 
-    
+
 
 
 
