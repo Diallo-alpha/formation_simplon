@@ -11,7 +11,7 @@
 <body>
     <header>
         <div class="logo">
-            <img src="{{asset('images/simplon 1.svg')}}" alt="Logo">
+            <img src="{{ asset($user->profil) }}" alt="Profil Utilisateur" style="width: 50px; height: 50px; border-radius: 50%;">
         </div>
         <div class="login-button">
             <i class="fa-solid fa-bell"></i>
@@ -44,7 +44,7 @@
                         </li>
                         <li class="colonne">
                             <i class="fa-solid fa-graduation-cap"></i>
-                            <a href="/dashbord_candidature.html">Candidatures</a>
+                            <a href="{{route('mes.candidatures')}}">Candidatures</a>
                         </li>
                         <li class="colonne">
                             <a href="#">Connexion</a>
@@ -105,7 +105,7 @@
  <div class="col-12">
     <h6>Biographie:</h6>
 <div class="col-11 p-1" style="border:gray 1px solid ; border-radius:0.5rem; height:9rem; padding:0.4rem;" >
-<p>la users n'a pas de biographie  </p>
+<p>{{$user->biographie}} </p>
 </div>
 </div>
 

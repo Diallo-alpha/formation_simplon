@@ -47,7 +47,7 @@ class FormationController extends Controller
             'users_id' => $request->users_id,
         ]);
 
-        return redirect()->route('formation.liste')->with('success', 'Formation créée avec succès');
+        return redirect()->route('formation.personnel')->with('success', 'Formation créée avec succès');
     }
 
     public function modifierFormation($id)
@@ -105,8 +105,9 @@ class FormationController extends Controller
     }
     // Controller details
 
-    public function detailsformation(){
-         return view('formations.details');
+    public function detailsformation($id){
+        $formation=Formation::findOrFail($id);
+         return view('formations.details',compact('formation'));
     }
 // affichage des formation dans le dashbord
     public function formation_dashbord(){
@@ -122,10 +123,14 @@ class FormationController extends Controller
         return view('dashbord.candidature', compact('formation', 'candidatures'));
     }
     public function valide(request $request){
-        
+
     }
-  
-      
-     
+
+    // gestion de la notification
+    // public function notif(){
+
+    // }
+
+
 
 }

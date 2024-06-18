@@ -29,7 +29,7 @@
     <i class="fa-solid fa-bars-progress" style="color: #ffffff;"></i>   <a href="formationAdsbord">Tableau de bord</a>
 </li>
 <li class="colonne   colonne_cote">
-    <i class="fa-solid fa-school" style="color: #ffffff;"></i>   <a href="formationAdsbord">formations</a>
+    <i class="fa-solid fa-school" style="color: #ffffff;"></i>   <a href="{{route('dashbord')}}">formations</a>
 </li>
 <li class="colonne colonne_CHEF">
     <i class="fa-solid fa-people-group" style="color: #000;"></i> <a href="candidat_dashbord ">Candidats</a>

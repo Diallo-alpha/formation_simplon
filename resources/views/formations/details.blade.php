@@ -60,31 +60,13 @@
     </style>
   </head>
   <body>
-    <div class="card mb-3 custom-card container">
-      <div class="custom-card-container">
-        <img src="{{asset('img/Image_collée.png')}}" class="img-fluid custom-img" alt="...">
-        <div class="custom-card-body">
-          <h1 class="card-title">Internet Industriel des Objets (IIoT)</h1>
-          <p class="card-text ">
-            Découvrez l'Internet des Objets Industriels (IIOT) avec notre formation chez SIMPLON. Apprenez à collecter, analyser et utiliser des données en temps réel pour optimiser les processus industriels. Nos formateurs experts vous guideront à travers des projets pratiques. Aucune expérience préalable n'est requise, juste une passion pour la technologie. Rejoignez-nous et devenez un acteur de l'industrie.
-          </p>
-          <p class="card-text">
-            <small class="text-body-secondary">Contactez-nous pour plus d'informations et inscriptions.</small>
-          </p>
-        </div>
-      </div>
-    </div>
-    <h2 class="text-center mt-5">SIMPLON vous offre une opportunité unique de vous <br>
-      former dans ce secteur en pleine croissance !</h2>
-
-
 <div class="container " style="display: flex; align-items: center;">
       <div class="card border mb-3 m-5" style="max-width: 50rem;">
-        <div class="card-header"><h1>Programme</h1></div>
+      <img src="{{asset('/images/' . $formation->image)}}" class="card-img-top" alt="...">
         <div style="width: 40%; height: 2px; background-color: red; margin: 20px 0;"></div>
         <div class="card-body m-4 " style="height: 150px;">
-          <h5 class="card-title">Primary card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <h5 class="card-title">{{ $formation->titre }}</h5>
+          <p class="card-text">{{ $formation->description }}</p>
           <div style="position: absolute; bottom: 10px; right: 10px;color: red">durée 6 mois</div>
         </div>
       </div>
@@ -147,11 +129,8 @@
       </div>
 
       <div class="container col-12">
-
       <div class="text-center pr-30px"style="position:center;">
-        <a href="login">        <button class="btn btn-danger text-white btn-adjusted">Postuler</button>
-        </a>
-
+        <a href="{{ url('formulaire_postuler',$formation->id)  }}"><button class="btn btn-danger text-white btn-adjusted">Postuler</button></a> 
       </div>
       </div>
 

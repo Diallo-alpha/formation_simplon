@@ -20,34 +20,25 @@
 </section>
 
 
-<nav class="navbar">
-    <!-- le sidebar -->
-
-<ul>
-
-<li class="colonne ">
-    <i class="fa-solid fa-bars-progress" style="color: #ffffff;"></i>   <a href="formationAdsbord">Tableau de bord</a>
-</li>
-<li class="colonne   colonne_cote">
-    <i class="fa-solid fa-school" style="color: #ffffff;"></i>   <a href="formationAdsbord">formations</a>
-</li>
-<li class="colonne colonne_CHEF">
-    <i class="fa-solid fa-people-group" style="color: #000;"></i> <a href=" ">Candidats</a>
-</li>
-<li class="colonne">
-    <i class="fa-solid fa-graduation-cap" style="color: #ffff;"></i>  <a href="/dashbord_candidature.html">Candidatures</a>
-</li>
-<li class="colonne ">
-    <a href="">Connexion</a>
-</li>
-
-</ul>
+<nav class='navbar'>
+    <ul>
+        <li class="colonne"><i class="fa-solid fa-bars-progress"></i><a href="#"><span> </span>TABLEAU DE BORD</a></li>
+        <li class="colonne"><i class="fa-solid fa-school"></i> <a href="{{ route('formation.personnel') }}"><span> </span>Formation</a></li>
+        <li class="colonne"><i class="fa-solid fa-people-group"></i><a href="{{route('candidatures.index')}}"><span> </span>Candidats</a></li>
+        <li class="colonne"><i class="fa-solid fa-sign-out-alt"></i><a href="{{ route('auth.logout') }}"
+            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+            Déconnexion
+        </a>
+        <form id="logout-form" action="{{ route('auth.logout') }}" method="POST" style="display: none;">
+            @csrf
+        </form>
+        </li>
+    </ul>
 </nav>
 </div>
 <!-- le conteneur des elements -->
 <div class="conteneur_element">
 <h1>
-
     tous element de la candidature doit etre ici
 </h1>
 
@@ -73,17 +64,16 @@
         @foreach ($candidatures as $candidature)
 
         <tr>
-            <td><a href="#">{{$candidature->user->nom}}</td>
+            <td><a href="{{Route('detail.candidature',$candidature->id)}}">{{$candidature->user->nom}}</td>
             <td>{{$candidature->user->prenom}}</td>
             <td>{{$candidature->user->niveau}}</td>
             <td>{{$candidature->user->adresse}}</td>
             <td>{{$candidature->created_at}}</td>
             <td>
-                            @if ($candidature->cv_path)
-                                <a href="{{ route('fichier.afficher', ['path' => $candidature->cv_path]) }}" target="_blank">Télécharger</a>
-                            @else
-                                Aucun fichier
-                            @endif
+
+
+                                <a href="{{ route('fichier.afficher', ['path' => str_replace('public/', '', $candidature->cv_path)]) }}" target="_blank">Télécharger</a>
+
                         </td>
                         <td>{{ ucfirst($candidature->status) }}</td>
                         <td>
@@ -102,7 +92,6 @@
             @endforeach
     </tbody>
 </table>
-
 
 </div>
 
