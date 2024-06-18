@@ -172,7 +172,7 @@
 
                     </td>
                   <td>
-                   <a href="{{Route('candidats.formation',$formation->id)}}">candidat</a>
+                   <a href="{{Route('candidatureFormation',$formation->id)}}">candidat</a>
                    </td>
                 </tr>
             @endforeach
