@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Register</title>
+    <title>Login</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
@@ -44,6 +44,9 @@
             height: auto;
             border-radius: 8px;
         }
+        .full-width-btn {
+            width: 100%;
+        }
     </style>
 </head>
 <body>
@@ -60,7 +63,7 @@
             <!-- Email Address -->
             <div class="col-md-12">
                 <label for="email" class="form-label">Email</label>
-                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}">
+                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" placeholder="Entrez votre email">
                 @error('email')
                     <span class="text-danger">{{ $message }}</span>
                 @enderror
@@ -69,16 +72,14 @@
             <!-- Password -->
             <div class="col-md-12">
                 <label for="password" class="form-label">Password</label>
-                <input id="password" type="password" class="form-control" name="password" autocomplete="current-password">
+                <input id="password" type="password" class="form-control" name="password" autocomplete="current-password" placeholder="Entrez votre mot de passe">
                 @error('password')
                     <span class="text-danger">{{ $message }}</span>
                 @enderror
             </div>
 
             <div class="col-md-12">
-                <button type="submit" class="btn btn-dark mt-3">
-                    Login
-                </button>
+                <button type="submit" class="btn btn-dark mt-3 full-width-btn">Login</button>
                 <p>Vous n'avez pas de compte ? <a href="{{ route('auth.getRegister') }}">Inscription</a></p>
             </div>
         </form>

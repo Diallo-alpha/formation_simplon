@@ -28,6 +28,25 @@ class CandidatureController extends Controller
     }
 
 
+    public function offreform()
+    {
+        // Récupérer toutes les formations de la base de données
+        $formations = Formation::all();
+
+        // Retourner la vue avec les données des formations
+        return view('candidatDashboard.offreform', compact('formations'));
+    }
+    public function formulaireCandAuth($id)
+    {
+        $formations = Formation::findOrFail($id);
+        return view('candidatures.candidature', compact('formations'));
+    }
+    /**
+     * Soumettre une candidature.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function postuler(Request $request)
     {
         $user = Auth::user(); // Récupérer l'utilisateur actuellement connecté
