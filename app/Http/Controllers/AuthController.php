@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use App\Models\User;
@@ -11,51 +10,53 @@ class AuthController extends Controller
 {
     public function getRegister()
     {
-        return view('Auth.register'); // Retourne la vue d'inscription
+        return view('Auth.register'); // Retournez la vue d'inscription
     }
 
     public function postRegister(Request $request)
     {
-        // Valide les données de la requête
-        $validatedData = $request->validate([
-            'nom' => 'required|string|max:255',
-            'prenom' => 'required|string|max:255',
-            'telephone' => 'required|string|max:15',
-            'adresse' => 'required|string|max:255',
-            'email' => 'required|string|email|unique:users|max:255',
-            'password' => 'required|string|min:4|max:255',
+        // Validez les champs du formulaire
+        $request->validate([
+            'nom' => 'required|string|max:50',
+            'prenom' => 'required|string|max:100',
+            'telephone' => 'required|string',
+            'niveau' => 'nullable|string',
+            'adresse' => 'required|string',
+            'email' => 'required|string|email|max:255|unique:users',
+            'password' => 'required|string|min:4|confirmed',
         ]);
 
-        // Crée un nouvel utilisateur
+        // Créez l'utilisateur en définissant le rôle par défaut et en hachant le mot de passe
         User::create([
-            'nom' => $validatedData['nom'],
-            'prenom' => $validatedData['prenom'],
-            'telephone' => $validatedData['telephone'],
-            'adresse' => $validatedData['adresse'],
-            'email' => $validatedData['email'],
-            'password' => Hash::make($validatedData['password']),
+            'nom' => $request->nom,
+            'prenom' => $request->prenom,
+            'telephone' => $request->telephone,
+            'niveau' => $request->niveau,
+            'adresse' => $request->adresse,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            'role' => 'candidat',
         ]);
 
-        // Redirige vers la page de connexion après inscription
-        return redirect()->route('auth.getLogin')->with('success', 'Inscription réussie. Vous pouvez maintenant vous connecter.');
+        return redirect()->route('auth.getLogin')->with('status', 'Inscription réussie ! Vous pouvez maintenant vous connecter.');
     }
 
     public function getLogin()
     {
-        return view('Auth.login'); // Retourne la vue de connexion
+        return view('Auth.login'); // Retournez la vue de connexion
     }
 
     public function postLogin(Request $request)
     {
-        // Valide les informations d'identification
+        // Validez les informations d'identification
         $credentials = $request->validate([
             'email' => 'required|string|email',
             'password' => 'required|string',
         ]);
 
-        // Tente de connecter l'utilisateur
+        // Connectez l'utilisateur
         if (Auth::attempt($credentials)) {
-            // Regénère la session pour éviter les attaques de fixation de session
+            // Regénérer la session pour éviter les attaques de fixation de session
             $request->session()->regenerate();
 
             // Récupérer l'utilisateur connecté
@@ -66,22 +67,25 @@ class AuthController extends Controller
                 case 'personnel':
                     return redirect('formationAdsbord');
                 case 'candidat':
-                    return redirect('mes-candidatures');
+                    return redirect('/mes-candidatures');
                 default:
                     // Redirigez vers une page par défaut ou de tableau de bord si le rôle n'est pas défini
                     return redirect()->intended('offre');
             }
         }
 
-        // Si l'authentification échoue, redirige vers la page de connexion avec un message d'erreur
+        // Si l'authentification échoue, redirigez vers la page de connexion avec un message d'erreur
         return back()->withErrors([
             'email' => 'Les informations d\'identification fournies ne correspondent pas à nos enregistrements.',
-        ])->onlyInput('email');
+        ]);
     }
 
-    public function logout()
+    public function logout(Request $request)
     {
-        Auth::logout(); // Déconnecte l'utilisateur
-        return redirect()->route('auth.getLogin')->with('success', 'Vous avez été déconnecté avec succès.'); // Redirige vers la page de connexion
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect('/login');
     }
 }

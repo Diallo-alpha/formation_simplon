@@ -40,7 +40,11 @@
           <label for="exampleInputPassword1" class="form-label"> Mot de pase </label>
           <input type="password" class="form-control" name="password" id="exampleInputPassword1">
         </div>
-     
+        <div class="mb-3">
+            <label for="password_confirmation">Confirmer le mot de passe</label>
+            <input type="password" name="password_confirmation" id="password_confirmation" class="form-control" required>
+        </div>
+
 
 
         <button type="submit" class="btn btn-danger">Submit</button>

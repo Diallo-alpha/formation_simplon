@@ -13,10 +13,9 @@
                 <img src="{{asset('images/simplon 1.svg')}}" alt="Simplon.co">
             </div>
             <ul>
-                <li><a href="#">Home</a></li>
+                <li><a href="#">Accueil</a></li>
                 <li><a href="#">Services</a></li>
-                <li><a href="#">Projects</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="{{route('liste.offre')}}">Offers</a></li>
             </ul>
             <div class="auth-buttons">
                 <button><a href="{{route('auth.getLogin')}}">se connecter</a></button>
@@ -30,46 +29,105 @@
     </section>
 
     <section class="offers">
-        <h2>Nos Differentres offres</h2>
-        <p>formations informatiques gratuites pour rendre l'éducation numérique accessible à tous.</p>
+        <h2 class="All_titre">Nos Différences</h2>
+        <p style="margin:0rem 0rem 2rem 0rem ">formations informatiques gratuites pour rendre l'éducation numérique accessible à tous.</p>
         <div class="offer-cards">
             <div class="card">
-                <img src="{{asset('img/image 4.png')}}" alt="HTML5 Logo">
-                <h3>Developpement web</h3>
-                <p>Le développement web consiste à créer et maintenir des sites internet et des applications web. Il englobe plusieurs aspects, y compris la conception web, la programmation, la gestion de bases de données et la mise en réseau.</p>
+                <img class="img_box" src="{{asset('img/pexels-alxs-919734.jpg')}}" alt="HTML5 Logo">
+             <div class="card-text">
+                <h3 class="card_text_titre" >Developpement web</h3>
+                <p>Le développement web consiste à créer et maintenir des sites
+                    internet et des applications web. Il englobe plusieurs aspects,
+                    y compris la conception web, la programmation, la gestion de bases de
+                     données et la mise en réseau.</p>
+            </div>
             </div>
             <div class="card">
-                <img src="{{asset('img/image 4.png')}}" alt="PHP Logo">
-                <h3>Developpement Backend</h3>
-                <p>Le développement web consiste à créer et maintenir des sites internet et des applications web. Il englobe plusieurs aspects, y compris la conception web, la programmation, la gestion de bases de données et la mise en réseau.</p>
+                <img class="img_box" src="{{asset('img/pexels-pixabay-50711.jpg')}}" alt="PHP Logo">
+
+                <div class="card-text">
+                    <h3 class="card_text_titre">Developpement web</h3>
+                    <p>Le développement web consiste à créer et maintenir des sites
+                        internet et des applications web. Il englobe plusieurs aspects,
+                        y compris la conception web, la programmation, la gestion de bases de
+                         données et la mise en réseau.</p>
+                </div>
             </div>
             <div class="card">
-                <img src="{{asset('img/image 4.png')}}" alt="Referent Digital Logo">
-                <h3>Referent Digital</h3>
-                <p>Le développement web consiste à créer et maintenir des sites internet et des applications web. Il englobe plusieurs aspects, y compris la conception web, la programmation, la gestion de bases de données et la mise en réseau.</p>
+                <img class="img_box" src="{{asset('img/pexels-pixabay-270408.jpg')}}" alt="Referent Digital Logo">
+                <div class="card-text">
+                    <h3 class="card_text_titre">Developpement web</h3>
+                    <p>Le développement web consiste à créer et maintenir des sites
+                        internet et des applications web. Il englobe plusieurs aspects,
+                        y compris la conception web, la programmation, la gestion de bases de
+                         données et la mise en réseau.</p>
+                </div>
             </div>
         </div>
     </section>
     <section class="a-propos">
-        <h2>A propos de nous</h2>
+        <h2 class="All_titre">A propos de nous</h2>
         <div class="about-content">
-            <img src="{{asset('img/image 4.png')}}" alt="About us">
+            <img src="{{asset('img/pexels-kevin-ku-92347-577585.jpg')}}" alt="About us">
             <div class="about-text">
-                <p>Bienvenue chez Simplon, une entreprise dédiée à l'innovation et à l'excellence dans le domaine des technologies de l'information. Notre mission est de rendre le savoir numérique accessible à tous, en offrant des solutions de formation informatique gratuites et de haute qualité.</p>
+                <p>Bienvenue chez Simplon, une entreprise dédiée à
+                    l'innovation et à l'excellence dans le domaine des technologies de
+                     l'information. Notre mission est de rendre le savoir numérique accessible à
+                      tous, en offrant des solutions de formation informatique gratuites et de haute qualité.</p>
             </div>
         </div>
     </section>
-    <section class="chifrre" style="background-image: url('{{ asset('img/image chiffre.png') }}');">
-       <div><img src="{{asset('img/image 5.png')}}" alt="simplon logo" class="chiffre-img"></div>
+    <h2 class="All_titre">Nos Chiffres</h2>
+    <section class="chifrre" style="background-image: url('{{ asset('img/Bg.png') }}'); ">
+       <div class="cont-img-chiffre"></div>
        <div class="chiffre-content">
-       <div class="contenu-chiffre">
-        <p><strong>140</strong> <br> <span>student</span> </p>
+        <div class="contenu-chiffre-texte">
+            <div  class="cont-text">
+
+                <div class="text1"> <h1> 140</h1></div>
+                <div class="text2"> <p class="text2n1"> student</p>  <h1>0+</h1>  </div>
+            </div>
+           <div> <p class="text3">Lorem ipsum dolor sit amet consectetur,
+             adipisicing elit. Culpa eos adipisci ipsum rerum
+             s corporis nostrum sequi!</p></div>
+           </div>
+       <div class="contenu-chiffre-texte">
+        <div  class="cont-text">
+
+            <div class="text1"> <h1> 140</h1></div>
+            <div class="text2"> <p class="text2n1"> student</p>  <h1>0+</h1>  </div>
+        </div>
+       <div> <p class="text3">Lorem ipsum dolor sit amet consectetur,
+         adipisicing elit. Culpa eos adipisci ipsum rerum
+         s corporis nostrum sequi!</p></div>
        </div>
+       <div class="contenu-chiffre-texte">
+        <div  class="cont-text">
+
+            <div class="text1"> <h1> 140</h1></div>
+            <div class="text2"> <p class="text2n1"> student</p>  <h1>0+</h1>  </div>
+        </div>
+       <div> <p class="text3">Lorem ipsum dolor sit amet consectetur,
+         adipisicing elit. Culpa eos adipisci ipsum rerum
+         s corporis nostrum sequi!</p></div>
+       </div>
+       <div class="contenu-chiffre-texte">
+        <div  class="cont-text">
+
+            <div class="text1"> <h1> 140</h1></div>
+            <div class="text2"> <p class="text2n1"> student</p>  <h1>0+</h1>  </div>
+        </div>
+       <div> <p class="text3">Lorem ipsum dolor sit amet consectetur,
+         adipisicing elit. Culpa eos adipisci ipsum rerum
+         s corporis nostrum sequi!</p></div>
+       </div>
+
     </div>
+
     </section>
 
     <section class="partners">
-        <h2>Nos partenaires</h2>
+        <h2 class="All_titre">A propos de nous</h2>
         <div class="partner-logos">
             <div class="partner-logo"><img src="{{asset('images/simplon 1.svg')}}" alt=""></div>
             <div class="partner-logo"><img src="{{asset('images/simplon 1.svg')}}" alt=""></div>

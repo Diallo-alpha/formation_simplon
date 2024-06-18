@@ -74,70 +74,115 @@ nav ul li a {
     justify-content: space-around;
     margin-top: 20px;
 }
+ .img_box{
+    width: 100%;
+ }
 
 .offers .card {
     background-color: #fff;
-    padding: 20px;
+
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 30%;
 }
-
+.card-text{
+    padding: 1rem;
+}
+.card_text_titre{
+    padding: 0rem 0rem 1rem 0rem;
+    color:brown;
+}
 .a-propos{
     background-color: #fff;
-
 }
 
-.a-propos h2 {
+ .All_titre {
     color: #ce0333;
     text-align: center;
     font-weight: 800;
     font-size: 45px;
+    margin: 2rem;
 }
 
 .about-content {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 3px 10px;
+
     border: 2px solid #3333;
     border-radius: 20px;
-    margin: auto;
-    width: 94%;
-    height: 47vh;
+   width: 80%;
+   margin: 00 auto;
+
+
     /* gap: 20px; */
 }
 
 .a-propos img {
-    width: 45%;
-    border-radius: 40px 0 0 40px; /* Bords arrondis pour l'image */
-    height: 352px;
+
+
+    height: 28rem ;
+    width: auto;
+    padding: 1.3rem;
+    border-radius: 10rem 0rem 10rem 0rem;
 }
 
 .about-text {
-    width: 50%;
-    text-align: justify;
+padding: 1rem;
+font-size: 2.2rem;
+font-family: Arial, Helvetica, sans-serif;
+font-weight: 100;
+
 }
 .chifrre{
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
-    width: 95%;
+    width: 100%;
     margin: auto;
-    height: 550px;
+    height: 62rem;
+    display: flex;
+    justify-content: space-between;
 }
 .chiffre-img{
-    width: 300px;
+    width: 70%;
     height: auto;
     text-align: start;
-    margin-left: -600px;
-    margin-top: 70px;
+    z-index: 10000;
 }
 .chifrre, .partners {
     margin-top: 30px;
     text-align: center;
     padding: 50px 20px;
 }
+.contenu-chiffre-texte{
+color: #fff;
+display: flex;
+justify-content: space-around;
+gap: 3rem;
+height: auto;
+margin-left: 44rem;
+padding: 1.5rem;
+align-items: center;
+}
+.text1{
+margin-top:0rem 0rem 0rem 4rem  ;
+font-weight: bold;
+font-size: 2rem;
+}
 
+.text2{
+    font-weight: bold;
+    font-size: 2rem;
+}
+.text3{
+    padding: 2rem;
+}
+.text2n1{
+  font-size: 0.90rem;
+  margin-left: 4rem;
+  font-weight: 100;
+  margin-top: 0.5rem;
+}
 .partner-logos {
     display: flex;
     justify-content: space-around;

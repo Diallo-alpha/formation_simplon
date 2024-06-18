@@ -11,84 +11,84 @@
         flex-grow: 1;
         padding: 20px;
     }
-    
+
     .container {
         background-color: #fff;
         padding: 20px;
         border-radius: 8px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
-    
+
     h1 {
         font-size: 24px;
         margin-bottom: 20px;
     }
-    
+
     .table {
         width: 100%;
         margin-bottom: 20px;
         border-collapse: collapse;
     }
-    
+
     .table th,
     .table td {
         padding: 12px;
         text-align: left;
         border-bottom: 1px solid #ddd;
     }
-    
+
     .table th {
         background-color: #343a40;
         color: #fff;
     }
-    
+
     .table tr:nth-child(even) {
         background-color: #f2f2f2;
     }
-    
+
     .table tr:hover {
         background-color: #ddd;
     }
-    
+
     .table img {
         width: 100px;
         height: auto;
     }
-    
+
     .btn {
         text-decoration: none;
         padding: 10px 20px;
         border-radius: 5px;
         transition: background-color 0.3s;
     }
-    
+
     .btn-success {
         background-color: #28a745;
         color: #fff;
     }
-    
+
     .btn-success:hover {
         background-color: #218838;
     }
-    
+
     .btn-warning {
         background-color: #ffc107;
         color: #000;
     }
-    
+
     .btn-warning:hover {
         background-color: #e0a800;
     }
-    
+
     .btn-danger {
         background-color: #dc3545;
         color: #fff;
     }
-    
+
     .btn-danger:hover {
         background-color: #c82333;
     }
-    
+
     .alert {
         padding: 15px;
         background-color: #d4edda;
@@ -97,10 +97,10 @@
         border-radius: 5px;
         margin-bottom: 20px;
     }
-    
-    
+
+
     </style>
-    
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body>
@@ -114,39 +114,30 @@
         <p>78 225 17 74</p>
     </div>
 </section>
-
-
-<nav class="navbar">
-    <!-- le sidebar -->
-
-<ul>
-
-<li class="colonne ">
-
-    <i class="fa-solid fa-bars-progress" style="color: #fff;"></i>
-    <a href="/dashbord.html">Tableau de bord</a>
-</li>
-<li class="colonne   colonne_cote  colonne_CHEF">
-    <i class="fa-solid fa-school" style="color: #000;"></i> <a href="formationAdsbord">formations</a>
-</li>
-<li class="colonne">
-    <i class="fa-solid fa-people-group" style="color: #ffffff;"></i> <a href="">Candidats</a>
-</li>
-<li class="colonne">
-    <i class="fa-solid fa-graduation-cap" style="color: #ffffff;"></i> <a href="/dashbord_candidature.html">Candidatures</a>
-</li>
-<li class="colonne">
-
-    <a href="">Connexion</a>
-</li>
-
-</ul>
-</nav>
+ <nav class='navbar'>
+                <ul>
+                    <li class="colonne"><i class="fa-solid fa-bars-progress"></i><a href="#"><span> </span>TABLEAU DE BORD</a></li>
+                    <li class="colonne"><i class="fa-solid fa-school"></i> <a href="{{ route('formation.personnel') }}"><span> </span>Formation</a></li>
+                    <li class="colonne"><i class="fa-solid fa-people-group"></i><a href="#"><span> </span>Candidats</a></li>
+                    <li class="colonne"><i class="fa-solid fa-sign-out-alt"></i><a href="{{ route('auth.logout') }}"
+                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        Déconnexion
+                    </a>
+                    <form id="logout-form" action="{{ route('auth.logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+                    </li>
+                </ul>
+            </nav>
 </div>
 <!-- le conteneur des elements -->
 <div class="conteneur_element">
     <div class="container mt-5">
         <h1 class="mb-4">Liste des Formations</h1>
+        <a href="{{ route('formulaire.ajout.formation') }}" class="btn btn-success mb-3">Ajouter une Formation</a>
+        <br>
+        <br>
+        <br>
         @if(session('success'))
         <div class="alert alert-success">
             {{ session('success') }}
@@ -178,15 +169,15 @@
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger btn-sm">Supprimer</button>
                         </form>
-                        
+
                     </td>
                   <td>
-                   <a href="{{Route('candidatureFormation',$formation->id)}}">candidat</a>
+                   <a href="{{route('candidatureFormation',$formation->id)}}">candidat</a>
                    </td>
                 </tr>
             @endforeach
             </tbody>
-        </table> 
+        </table>
 
 
 
