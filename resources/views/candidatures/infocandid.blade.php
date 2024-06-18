@@ -326,10 +326,9 @@
                </section>
                
                <section>
-                  <div class="sectionTitle">
-                  <a href="{{ route('fichier.afficher', ['path' => str_replace('public/', '', $candidatures->cv_path)]) }}" target="_blank">Télécharger cv</a>
+               <div class="sectionTitle">
+                  <a href="{{ route('fichier.cv', ['path' => str_replace('public/', '', $candidatures->cv_path)]) }}" target="_blank">Télécharger cv</a>
                   </div>
-                 
                   <div class="clear"></div>
                </section>
             </div>

@@ -98,7 +98,6 @@ class CandidatureController extends Controller
         }
 
 
-        return redirect()->back()->withErrors(['cv' => 'Le fichier n\'a pas été téléchargé correctement.']);
     }
 
     /**
@@ -171,7 +170,7 @@ class CandidatureController extends Controller
     }
     public function afficher($path)
     {
-        $path = 'public/' . $path;
+        $path = 'public/' . $path; 
         if (!Storage::exists($path)) {
             abort(404, 'Fichier non trouvé');
         }
