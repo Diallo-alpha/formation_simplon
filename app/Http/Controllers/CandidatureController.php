@@ -147,7 +147,8 @@ class CandidatureController extends Controller
 
     public function affichercandid($id)
     {
-        $candidatures = User::find($id)->candidatures()->with('formation')->get();
+        $user = User::find($id);
+        $candidatures = $user->candidatures()->with('formation')->get();
         return view('dashbord.candidature', compact('candidatures'));
     }
 
@@ -155,6 +156,7 @@ class CandidatureController extends Controller
 
     public function listeCandidatures()
     {
+        
         $user = Auth::user();
         $candidatures = Candidature::where('user_id', $user->id)->with('formation')->get();
 
