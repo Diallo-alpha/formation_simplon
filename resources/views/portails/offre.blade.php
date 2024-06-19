@@ -40,7 +40,6 @@
          développer vos compétences et avancer votre
         carrière avec nos experts. Rejoignez-nous!
             </h6>
-           <button class="btn btn-danger rounded-3  "> S'abonner </button>
         </div>
     </section>
     <div class="cont-All ">
