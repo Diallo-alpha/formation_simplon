@@ -7,6 +7,14 @@
 body{
     overflow-x: hidden;
 }
+.boutton{
+    border-radius: 50px;
+}
+.boutton a{
+    color: white;
+text-decoration: none;
+    
+}
 header {
     background-color: #fff;
     padding: 20px;
@@ -106,6 +114,14 @@ nav ul li a {
     font-size: 45px;
     margin: 4rem;
     
+}
+.titre{
+    color: #ce0333;
+    text-align: center;
+    font-weight: 800;
+    font-size: 45px;
+    margin: 2rem;
+
 }
 .partenaire{
     color: #ce0333;

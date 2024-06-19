@@ -23,8 +23,8 @@
                 <li><a href="{{route('liste.offre')}}">Offers</a></li>
             </ul>
             <div class="auth-buttons">
-                <button><a href="{{route('auth.getLogin')}}">se connecter</a></button>
-                <button> <a href="{{route('auth.getRegister')}}">S'INSCRIRE</a></button>
+                <button class="boutton"><a href="{{route('auth.getLogin')}}">se connecter</a></button>
+                <button class="boutton"> <a href="{{route('auth.getRegister')}}">S'INSCRIRE</a></button>
             </div>
         </nav>
     </header>
@@ -34,7 +34,7 @@
     </section>
 
     <section class="offers">
-        <h2 class="All_titre">Nos Différents offres</h2>
+        <h2 class="titre">Nos Différents offres</h2>
         <p style="margin:0rem 0rem 2rem 0rem ">formations informatiques gratuites pour rendre <br> l'éducation numérique accessible à tous.</p>
         <div class="offer-cards">
             <div class="card">
