@@ -72,7 +72,7 @@
             <td>
 
 
-                                <a href="{{ route('fichier.afficher', ['path' => str_replace('public/', '', $candidature->cv_path)]) }}" target="_blank">Télécharger</a>
+                                <a href="{{ route('fichier.cv', ['path' => str_replace('public/', '', $candidature->cv_path)]) }}" target="_blank">Télécharger</a>
 
                         </td>
                         <td>{{ ucfirst($candidature->status) }}</td>

@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Liste des Formations</title>
     <link rel="stylesheet" href="{{ asset('css/personnel.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/dasboardCandidat.css')}}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -91,45 +93,39 @@
 </head>
 <body>
 <div class="cont_all">
-    <div class="dashbord">
-        <section class="info_perso">
-            <div class="info_img"><img class="photo_dashbord" src="img/1693355856042.jpeg" alt=""></div>
-            <div>
-                <h1>Coach Barro</h1>
-                <p>78 225 17 74</p>
+    <div class="sidebar">
+        <div class="profile">
+            <img src="{{asset('images/'. $users->profil)}}" alt="Image de Profil">
+            <div class="profile-info">
+                <h3>{{$users->nom}}</h3>
+                <p>{{$users->telephone}}</p>
             </div>
-        </section>
-        <div class="navbar">
-            <!-- le sidebar -->
-            <ul>
-                <li class="colonne">
-                    <i class="fa-solid fa-bars-progress"></i>
-                    <a href="#">Tableau de bord</a>
-                </li>
-                <li class="colonne colonne_cote ">
-                    <i class="fa-solid fa-school"></i>
-                    <a href="{{route('liste.formation.candidat')}}">Formations</a>
-                </li>
-                <li class="colonne colonne_CHEF">
-                    <i class="fa-solid fa-people-group"></i>
-                    <a href="{{route('candidat_profil', $users->id)}}">Profil</a>
-                </li>
-                <li class="colonne">
-                    <i class="fa-solid fa-graduation-cap"></i>
-                    <a href="{{route('mes.candidatures')}}">Candidatures</a>
-                </li>
-                <li class="colonne">
-                        <i class="fa-solid fa-sign-out-alt"></i>
-                        <a href="{{ route('auth.logout') }}"
-                           onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                            Déconnexion
-                        </a>
-                        <form id="logout-form" action="{{ route('auth.logout') }}" method="POST" style="display: none;">
-                            @csrf
-                        </form>
-                </li>
-            </ul>
         </div>
+        <ul class="menu">
+            <li class="menu-item active">
+                <a href="#"><i class="fa-solid fa-bars-progress"></i> Tableau de Bord</a>
+            </li>
+            <li class="menu-item">
+                <a href="{{route('liste.formation.candidat')}}"><i class="fa-solid fa-school"></i> Formation</a>
+            </li>
+            <li class="menu-item">
+                <a href="/candidat_profil/{{$users->id}}"><i class="fas fa-user"></i> Profil</a>
+            </li>
+
+            <li class="menu-item">
+                <a href="{{route('mes.candidatures')}}"><i class="fas fa-user-tie"></i> Candidature</a>
+            </li>
+            <li class="menu-item">
+                    <a href="{{ route('auth.logout') }}"
+                       onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                       <i class="fa-solid fa-sign-out-alt"></i>
+                        Déconnexion
+                    </a>
+                    <form id="logout-form" action="{{ route('auth.logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+                </li>
+         </ul>
     </div>
     <div class="conteneur_element">
         <h1 class="mb-4">Liste des Formations</h1>
@@ -148,7 +144,8 @@
                 <h2>{{ $formation->titre }}</h2>
                 <p>{{ Str::limit($formation->description, 100) }}</p>
                 <div class="date">Date limite: {{ $formation->date_expiration }}</div>
-                <a href="{{ route('formulaire.candidature.auth', $formation->id) }}" class="btn btn-primary btn-sm">Postuler</a>
+                <a href="{{ url('formulaire_postuler',$formation->id)  }}"><button class="btn btn-danger text-white btn-adjusted">Postuler</button></a> <br> <br>
+                <a href="detaille/{{ $formation->id }}" style="text-decoration: none"> <button class="btn btn-danger text-white btn-adjusted">Voir plus</button>
             </div>
         </div>
         @endforeach

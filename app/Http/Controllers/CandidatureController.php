@@ -98,7 +98,6 @@ class CandidatureController extends Controller
         }
 
 
-        return redirect()->back()->withErrors(['cv' => 'Le fichier n\'a pas été téléchargé correctement.']);
     }
 
     /**
@@ -147,7 +146,8 @@ class CandidatureController extends Controller
 
     public function affichercandid($id)
     {
-        $candidatures = User::find($id)->candidatures()->with('formation')->get();
+        $user = User::find($id);
+        $candidatures = $user->candidatures()->with('formation')->get();
         return view('dashbord.candidature', compact('candidatures'));
     }
 
@@ -155,6 +155,7 @@ class CandidatureController extends Controller
 
     public function listeCandidatures()
     {
+        
         $user = Auth::user();
         $candidatures = Candidature::where('user_id', $user->id)->with('formation')->get();
 
@@ -169,7 +170,7 @@ class CandidatureController extends Controller
     }
     public function afficher($path)
     {
-        $path = 'public/' . $path;
+        $path = 'public/' . $path; 
         if (!Storage::exists($path)) {
             abort(404, 'Fichier non trouvé');
         }

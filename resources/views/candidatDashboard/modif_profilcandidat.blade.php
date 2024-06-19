@@ -5,55 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="{{ asset('css/profilCandidat.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/dasboardCandidat.css')}}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body>
-    <header style="position: fixed">
-        <div class="logo">
-            <img src="{{asset('images/simplon 1.svg')}}" alt="Logo">
-        </div>
-        <div class="login-button">
-            <i class="fa-solid fa-bell"></i>
-        </div>
-    </header>
     <main>
         <div class="cont_all">
             <!-- la dashbord -->
-            <div class="dashbord">
-                <section class="info_perso" style="display: flex">
-                    <div class="info_img">
-                        <img style=" width:4rem; height:auto ; border-radius:4rem;  margin:1rem;" class="photo_dashbord" src="{{asset('images/1718204214.jpg')}}" alt="">
+            <div class="sidebar">
+                <div class="profile">
+                    <img src="{{asset('images/'. $user->profil)}}" alt="Image de Profil">
+                    <div class="profile-info">
+                        <h3>Samba Bery</h3>
+                        <p>Code 232 445 000 435</p>
                     </div>
-                    <div style="margin:1rem 0; color:white">
-                        <h5>Coach Barro</h5>
-                        <p>77 000 00 00</p>
-                    </div>
-                </section>
-                <div class="navbar">
-                    <!-- le sidebar -->
-                    <ul>
-                        <li class="colonne">
-                            <i class="fa-solid fa-bars-progress"></i>
-                            <a href="/dashbord.html">Tableau de bord</a>
-                        </li>
-                        <li class="colonne colonne_cote">
-                            <i class="fa-solid fa-school"></i>
-                            <a href="formation_dashbord">Formations</a>
-                        </li>
-                        <li class="colonne colonne_CHEF">
-                            <i class="fa-solid fa-people-group"></i>
-                            <a href="/dashbord_candidat.html">Profil</a>
-                        </li>
-                        <li class="colonne">
-                            <i class="fa-solid fa-graduation-cap"></i>
-                            <a href="/dashbord_candidature.html">Candidatures</a>
-                        </li>
-                        <li class="colonne">
-                            <a href="#">Connexion</a>
-                        </li>
-                    </ul>
                 </div>
+                <ul class="menu">
+                    <li class="menu-item active">
+                        <a href="#"><i class="fa-solid fa-bars-progress"></i> Tableau de Bord</a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="{{route('liste.formation.candidat')}}"><i class="fa-solid fa-school"></i> Formation</a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="/candidat_profil/{{$user->id}}"><i class="fas fa-user"></i> Profil</a>
+                    </li>
+
+                    <li class="menu-item">
+                        <a href="{{route('mes.candidatures')}}"><i class="fas fa-user-tie"></i> Candidature</a>
+                    </li>
+                    <li class="menu-item">
+                            <a href="{{ route('auth.logout') }}"
+                               onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                               <i class="fa-solid fa-sign-out-alt"></i>
+                                Déconnexion
+                            </a>
+                            <form id="logout-form" action="{{ route('auth.logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+                        </li>
+                 </ul>
             </div>
             <div class="conteneur_element">
                 <div class="col-11 d-flex justify-content-between">

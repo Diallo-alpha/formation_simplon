@@ -11,7 +11,7 @@ use App\Http\Controllers\CandidatureController;
 use App\Http\Controllers\CandidatureFormationController;
 
 // Route pour afficher le portail principal
-Route::get('/', [PortailController::class, 'portail']);
+Route::get('/', [PortailController::class, 'portail'])->name('index');
 
 // Routes pour les formations
 Route::get('/listeFormation', [FormationController::class, 'listeFormation'])->name('formation.liste'); // Liste des formations
@@ -43,7 +43,8 @@ Route::get('candidature/{path}', [CandidatureController::class, 'afficher'])->na
 Route::delete('candidature/{id}', [CandidatureController::class, 'destroy'])->name('candidatures.destroy'); // Supprimer une candidature
 Route::get('candidature/accepter/{id}', [CandidatureController::class, 'accepter'])->name('candidature.accepter'); // Accepter une candidature
 Route::get('candidature/rejeter/{id}', [CandidatureController::class, 'rejeter'])->name('candidature.rejeter'); // Rejeter une candidature
-
+Route::get('cadidate/{id}',[FormationController::class,'candidats'])->name('candidatureFormation');
+Route::get('/fichiers/{path}', [CandidatureController::class, 'afficher'])->where('path', '.*')->name('fichier.cv');
 // Gestion du tableau de bord
 Route::get('formationAdsbord', [FormationController::class, 'formation_dashbord'])->name('formation.personnel'); // Afficher le tableau de bord des formations
 Route::get('detail/{id}', [FormationController::class, 'detailsformation']); // Détails d'une formation
