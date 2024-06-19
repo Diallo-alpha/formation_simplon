@@ -13,15 +13,23 @@ use App\Http\Controllers\CandidatureFormationController;
 // Route pour afficher le portail principal
 Route::get('/', [PortailController::class, 'portail'])->name('index');
 
+Route::middleware(['auth', 'role:personnel'])->group(function () {
+    Route::get('/formations/ajouter', [FormationController::class, 'afficherFormAjouterFormation'])->name('formulaire.ajout.formation');
+    Route::post('/formations', [FormationController::class, 'traitementAjouFormation'])->name('formations.traitement');
+    Route::get('/formation/{id}', [FormationController::class, 'modifierFormation'])->name('form.modification.formation');
+    Route::put('/formations/{id}', [FormationController::class, 'traitementModiifier'])->name('miseAjourTraitement');
+    Route::delete('/formation/{id}', [FormationController::class, 'supprimmerFormation'])->name('formation.supprimer');
+    Route::get('/offre', [FormationController::class, 'listeOffre'])->name('liste.offre'); // Liste des offres de formation
+});
 // Routes pour les formations
-Route::get('/listeFormation', [FormationController::class, 'listeFormation'])->name('formation.liste'); // Liste des formations
-Route::get('/formations/ajouter', [FormationController::class, 'afficherFormAjouterFormation'])->name('formulaire.ajout.formation'); // Formulaire pour ajouter une formation
-Route::post('/formations', [FormationController::class, 'traitementAjouFormation'])->name('formations.traitement'); // Traitement de l'ajout de formation
-Route::get('/formation/{id}', [FormationController::class, 'modifierFormation'])->name('form.modification.formation'); // Modifier une formation
-Route::put('/formations/{id}', [FormationController::class, 'traitementModiifier'])->name('miseAjourTraitement'); // Traitement de la mise à jour d'une formation
-Route::delete('/formation/{id}', [FormationController::class, 'supprimmerFormation'])->name('formation.supprimer'); // Supprimer une formation
-Route::get('/offre', [FormationController::class, 'listeOffre'])->name('liste.offre'); // Liste des offres de formation
-Route::get('detaille/{id}', [FormationController::class, 'detailsformation'])->name('details.formation'); // Détails d'une formation
+// Route::get('/listeFormation', [FormationController::class, 'listeFormation'])->name('formation.liste'); // Liste des formations
+// Route::get('/formations/ajouter', [FormationController::class, 'afficherFormAjouterFormation'])->name('formulaire.ajout.formation'); // Formulaire pour ajouter une formation
+// Route::post('/formations', [FormationController::class, 'traitementAjouFormation'])->name('formations.traitement'); // Traitement de l'ajout de formation
+// Route::get('/formation/{id}', [FormationController::class, 'modifierFormation'])->name('form.modification.formation'); // Modifier une formation
+// Route::put('/formations/{id}', [FormationController::class, 'traitementModiifier'])->name('miseAjourTraitement'); // Traitement de la mise à jour d'une formation
+// Route::delete('/formation/{id}', [FormationController::class, 'supprimmerFormation'])->name('formation.supprimer'); // Supprimer une formation
+// Route::get('/offre', [FormationController::class, 'listeOffre'])->name('liste.offre'); // Liste des offres de formation
+// Route::get('detaille/{id}', [FormationController::class, 'detailsformation'])->name('details.formation'); // Détails d'une formation
 
 // Routes pour l'inscription des candidats
 Route::get('candidat_inscription', [CandidatDuController::class, 'inscription']); // Formulaire d'inscription des candidats

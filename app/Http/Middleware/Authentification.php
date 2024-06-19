@@ -5,8 +5,9 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Illuminate\Support\Facades\Auth;
 
-class verifier_candidature
+class Authentification
 {
     /**
      * Handle an incoming request.
@@ -15,6 +16,9 @@ class verifier_candidature
      */
     public function handle(Request $request, Closure $next): Response
     {
+        if (!Auth::check()) {
+            return redirect('/');
+        }
         return $next($request);
     }
 }

@@ -1,18 +1,23 @@
 <?php
-
 use Illuminate\Foundation\Application;
+use Illuminate\Foundation\Testing\Middleware;
 use Illuminate\Foundation\Configuration\Exceptions;
-use Illuminate\Foundation\Configuration\Middleware;
 
-return Application::configure(basePath: dirname(__DIR__))
+return Application::configure(dirname(__DIR__))
     ->withRouting(
         web: __DIR__.'/../routes/web.php',
         commands: __DIR__.'/../routes/console.php',
         health: '/up',
     )
-    ->withMiddleware(function (Middleware $middleware) {
-        //
+    ->withMiddleware(function ($middleware) {
+        $middleware->append([
+            'auth' => \App\Http\Middleware\Authentification::class,
+            'role' => \App\Http\Middleware\RoleMiddleware::class,
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
-        //
-    })->create();
+        // Gérer les exceptions ici si nécessaire
+    })
+    ->create();
+
+
