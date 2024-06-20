@@ -152,7 +152,7 @@
                     {{-- <th>Image</th> --}}
                     {{-- <th>Utilisateur</th> --}}
                     <th>Actions</th>
-                    <th>Candidat</th>
+                    <th>Candidats</th>
 
                 </tr>
             </thead>
@@ -172,7 +172,7 @@
 
                     </td>
                   <td>
-                   <a href="{{route('candidatureFormation',$formation->id)}}">candidat</a>
+                   <a href="{{route('candidatureFormation',$formation->id)}}">candidats</a>
                    </td>
                 </tr>
             @endforeach

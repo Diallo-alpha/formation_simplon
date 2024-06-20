@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simplon.co</title>
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
+    <style>
+        .text_baniere{
+            font-size: 2px;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -18,19 +23,19 @@
                 <li><a href="{{route('liste.offre')}}">Offers</a></li>
             </ul>
             <div class="auth-buttons">
-                <button><a href="{{route('auth.getLogin')}}">se connecter</a></button>
-                <button> <a href="{{route('auth.getRegister')}}">S'INSCRIRE</a></button>
+                <button class="boutton"><a href="{{route('login')}}">se connecter</a></button>
+                <button class="boutton"> <a href="{{route('auth.getRegister')}}">S'INSCRIRE</a></button>
             </div>
         </nav>
     </header>
     <section class="hero" style="background-image: url('{{ asset('images/banner.png') }}');">
-        <h1>L'informatique pour tous, <br> gratuitement.</h1>
-        <p>Notre entreprise s'engage à offrir des <br> formations informatiques gratuites pour rendre <br>l'éducation numérique accessible à tous.</p>
+        <h1  class="first_titre">L'informatique pour tous, <br> gratuitement.</h1>
+        <p class="text_baniere">Notre entreprise s'engage à offrir des <br> formations informatiques gratuites pour rendre <br>l'éducation numérique accessible à tous.</p>
     </section>
 
     <section class="offers">
-        <h2 class="All_titre">Nos Différences</h2>
-        <p style="margin:0rem 0rem 2rem 0rem ">formations informatiques gratuites pour rendre l'éducation numérique accessible à tous.</p>
+        <h2 class="titre">Nos Différents offres</h2>
+        <p style="margin:0rem 0rem 2rem 0rem ">formations informatiques gratuites pour rendre <br> l'éducation numérique accessible à tous.</p>
         <div class="offer-cards">
             <div class="card">
                 <img class="img_box" src="{{asset('img/pexels-alxs-919734.jpg')}}" alt="HTML5 Logo">
@@ -112,27 +117,21 @@
          s corporis nostrum sequi!</p></div>
        </div>
        <div class="contenu-chiffre-texte">
-        <div  class="cont-text">
-
-            <div class="text1"> <h1> 140</h1></div>
-            <div class="text2"> <p class="text2n1"> student</p>  <h1>0+</h1>  </div>
-        </div>
-       <div> <p class="text3">Lorem ipsum dolor sit amet consectetur,
-         adipisicing elit. Culpa eos adipisci ipsum rerum
-         s corporis nostrum sequi!</p></div>
-       </div>
+        
 
     </div>
 
     </section>
 
     <section class="partners">
-        <h2 class="All_titre">A propos de nous</h2>
+        <h2 class="partenaire">Nos partenaires</h2>
         <div class="partner-logos">
             <div class="partner-logo"><img src="{{asset('images/simplon 1.svg')}}" alt=""></div>
             <div class="partner-logo"><img src="{{asset('images/simplon 1.svg')}}" alt=""></div>
             <div class="partner-logo"><img src="{{asset('images/simplon 1.svg')}}" alt=""></div>
             <div class="partner-logo"><img src="{{asset('images/simplon 1.svg')}}" alt=""></div>
+            <div class="partner-logo"><img src="{{asset('images/simplon 1.svg')}}" alt=""></div>
+
         </div>
     </section>
 
