@@ -151,7 +151,7 @@ class CandidatureController extends Controller
         $path = 'public/' . $path;
         if (!Storage::exists($path)) {
             abort(404, 'Fichier non trouvé');
-        }
+        
 
         return Storage::download($path);
     }
@@ -163,3 +163,4 @@ class CandidatureController extends Controller
            ->header('Content-Type', $mimeType);
 }
 }
+
