@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="{{ asset('css/personnel.css') }}">
     <link rel="stylesheet" href="{{ asset('css/dasboardCandidat.css')}}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -143,7 +144,8 @@
                 <h2>{{ $formation->titre }}</h2>
                 <p>{{ Str::limit($formation->description, 100) }}</p>
                 <div class="date">Date limite: {{ $formation->date_expiration }}</div>
-                <a href="{{ url('formulaire_postuler',$formation->id)  }}"><button class="btn btn-danger text-white btn-adjusted">Postuler</button></a>
+                <a href="{{ url('formulaire_postuler',$formation->id)  }}"><button class="btn btn-danger text-white btn-adjusted">Postuler</button></a> <br> <br>
+                <a href="detaille/{{ $formation->id }}" style="text-decoration: none"> <button class="btn btn-danger text-white btn-adjusted">Voir plus</button>
             </div>
         </div>
         @endforeach

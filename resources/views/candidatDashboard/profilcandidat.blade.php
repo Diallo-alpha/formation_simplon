@@ -61,7 +61,6 @@
                     <img style="width:5rem; height:auto; border-radius:10rem; border:brown solid 0.09rem" class="photo_dashbord" src="{{asset('images/1718204214.jpg')}}" alt="">
                     <div class="d-flex gap-3">
                         <a class="btn btn-dark p-2" href="/modif_profil">Modifier</a>
-                        <a class="btn btn-danger p-2" href="">Ajouter CV</a>
                     </div>
                 </div>
                 <!-- fin les actions et l'image du profil -->
@@ -103,12 +102,7 @@
                         </div>
                     </div>
                     <!-- box:biographie-->
-                    <div class="col-12">
-                        <h6>Biographie:</h6>
-                        <div class="col-11 p-1" style="border:gray 1px solid; border-radius:0.5rem; height:9rem; padding:0.4rem;">
-                            <p>{{$user->biographie}}</p>
-                        </div>
-                    </div>
+
                 </div>
             </div>
         </div>

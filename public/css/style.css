@@ -7,10 +7,22 @@
 body{
     overflow-x: hidden;
 }
+.boutton{
+    border-radius: 50px;
+}
+.boutton a{
+    color: white;
+text-decoration: none;
+    
+}
 header {
     background-color: #fff;
     padding: 20px;
     border-bottom: 1px solid #ddd;
+}
+.first_titre{
+    font-size: 64px;
+    font-weight: lighter;
 }
 
 nav {
@@ -100,7 +112,25 @@ nav ul li a {
     text-align: center;
     font-weight: 800;
     font-size: 45px;
+    margin: 4rem;
+    
+}
+.titre{
+    color: #ce0333;
+    text-align: center;
+    font-weight: 800;
+    font-size: 45px;
     margin: 2rem;
+
+}
+.partenaire{
+    color: #ce0333;
+    text-align: center;
+    font-weight: 800;
+    font-size: 45px;
+    margin: 6rem;
+    margin-top: -80px;
+
 }
 
 .about-content {
@@ -142,6 +172,7 @@ font-weight: 100;
     height: 62rem;
     display: flex;
     justify-content: space-between;
+    
 }
 .chiffre-img{
     width: 70%;
@@ -160,9 +191,10 @@ display: flex;
 justify-content: space-around;
 gap: 3rem;
 height: auto;
-margin-left: 44rem;
+margin-left: 54rem;
 padding: 1.5rem;
 align-items: center;
+margin-top: 20px;
 }
 .text1{
 margin-top:0rem 0rem 0rem 4rem  ;
