@@ -22,8 +22,7 @@
             </div>
             <ul>
                 <li><a href="{{route('index')}}">Accueil</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="{{route('liste.offre')}}">Offre</a></li>
+                <li><a href="{{route('liste.offre')}}">Offres</a></li>
             </ul>
             <div class="auth-buttons">
           
@@ -57,7 +56,7 @@
               <p>
                 {{ Str::limit($formation->description, 100) }}
               </p>
-              <a href="detaille/{{ $formation->id }}" style="text-decoration: none"> <button class="btn btn-danger btn_postuler col-12" style="display: flex; justify-content: center; align-items: center; border-radius:100px">Voir plus</button>
+              <a href="{{route('detail.formation', $formation->id)}}" style="text-decoration: none"> <button class="btn btn-danger btn_postuler col-12" style="display: flex; justify-content: center; align-items: center; border-radius:100px">Voir plus</button>
               </a>
             </div>
 
@@ -65,7 +64,8 @@
 
 
           @endforeach
-
+      
+   
           <footer>
             <div class="footer-content">
                 <div class="footer-logo">

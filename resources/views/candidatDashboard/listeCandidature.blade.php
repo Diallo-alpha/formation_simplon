@@ -47,7 +47,24 @@
         <div class="dashboard">
 
             <header>
-                <h1>TABLEAU DE BORD</h1>
+            <div class="container">
+       
+        @if (session('message'))
+            <div class="alert alert-success">
+               
+                <h1 lass="alert alert-success"> {{ session('message') }}</h1>
+            </div>
+        @endif
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+               
                 <div class="user-info">
                     <i class="fa-solid fa-bell icon"></i>
                 </div>

@@ -289,7 +289,7 @@
                   <ul>
                      <li class="icon" title="Kirjuta mulle!"><a href="mailto:my@mail.ee"><i class="fa fa-envelope">&nbsp;&nbsp;</i>{{$user->email}}</a></li>
                      <li class="icon" title="Helista mulle!"><a href="tel:1234567"><i class="fa fa-phone" aria-hidden="true"></i>{{$user->telephone}}</a></li>
-                     <li class="icon" title="Helista mulle!"><a href="tel:1234567"><i class="fa fa-phone" aria-hidden="true"></i> Adresse :{{$user->adresse}}</a></li>
+                     <li class="icon" title="Helista mulle!"><a href="tel:1234567"><i class="fa fa-home" aria-hidden="true"></i> Adresse :{{$user->adresse}}</a></li>
                      
                   </ul>
                </div>
