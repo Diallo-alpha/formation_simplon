@@ -178,13 +178,17 @@ class CandidatureController extends Controller
         return view('candidatures.infocandid', compact('candidatures', 'user'));
     }
     public function afficher($path)
-    {
-        $path = 'public/' . $path; 
-        if (!Storage::exists($path)) {
-            abort(404, 'Fichier non trouvé');
-        }
-
-        return Storage::download($path);
+{
+    $path = 'public/' . $path; 
+    if (!Storage::exists($path)) {
+        abort(404, 'Fichier non trouvé');
     }
+
+    $fileContent = Storage::get($path);
+    $mimeType = Storage::mimeType($path);
+
+    return response($fileContent, 200)
+           ->header('Content-Type', $mimeType);
+}
 }
 
