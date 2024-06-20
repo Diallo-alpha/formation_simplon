@@ -10,7 +10,7 @@ use App\Http\Controllers\CandidatureController;
 // use App\Http\Controllers\OffreFormationController;
 use App\Http\Controllers\CandidatureFormationController;
 
-                                // Route pour tous le monde
+                                // Route pour la page d'acceuil
 Route::get('/', [PortailController::class, 'portail'])->name('index');
 Route::get('/offre', [FormationController::class, 'listeOffre'])->name('liste.offre'); // Liste des offres de formation
 Route::get('detail/{id}', [FormationController::class, 'detailsformation']); // Détails d'une formation
@@ -32,8 +32,7 @@ Route::middleware(['auth', 'role:personnel'])->group(function ()
         Route::get('formationAdsbord', [FormationController::class, 'formation_dashbord'])->name('formation.personnel'); // Afficher le tableau de bord des formations
         Route::delete('/formation/{id}', [FormationController::class, 'supprimmerFormation'])->name('formation.supprimer'); // Supprimer une formation
         Route::get('afficherFOR/{id}', [CandidatureController::class, 'affichercandid'])->name('candidats.formation'); // Afficher les candidats pour une formation
-        // Routes pour l'inscription des candidats
-        Route::delete('/supprimmer_candidat/{id}', [CandidatDuController::class, 'supprimer_candidat'])->name('supprimer.candiate'); // Supprimer un candidat
+        
         //candidature
         Route::get('afficherDetailsCandidature/{id}', [CandidatureController::class, 'index'])->name('fichiers.index'); // Afficher les détails d'une candidature
         Route::delete('candidature/{id}', [CandidatureController::class, 'destroy'])->name('candidatures.destroy'); // Supprimer une candidature
@@ -77,6 +76,7 @@ Route::get('detaille/{id}', [FormationController::class, 'detailsformation'])->n
 // Routes pour l'inscription des candidats
 Route::get('candidat_inscription', [CandidatDuController::class, 'inscription']); // Formulaire d'inscription des candidats
 Route::post('sauvegarde_candidat', [CandidatDuController::class, 'sauvegarde']); // Sauvegarder les informations du candidat
+// Route::delete('/supprimmer_candidat/{id}', [CandidatDuController::class, 'supprimer_candidat'])->name('supprimer.candiate'); // Supprimer un candidat
 Route::delete('/supprimmer_candidat/{id}', [CandidatDuController::class, 'supprimer_candidat'])->name('supprimer.candiate'); // Supprimer un candidat
 Route::get('/candidat_profil/{id}', [CandidatDuController::class, 'candidat_profil'])->name('candidat_profil'); // Afficher le profil d'un candidat
 Route::get('/modif_profil', [CandidatDuController::class, 'modif_profil']); // Formulaire de modification du profil
