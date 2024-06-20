@@ -21,10 +21,12 @@ class User extends Authenticatable
     protected $fillable = [
         'nom',
         'prenom',
+        'profil',
         'niveau',
         'telephone',
         'adresse',
         'email',
+        'role',
         'password',
     ];
     public function candidatures()
@@ -34,7 +36,7 @@ class User extends Authenticatable
     public function formations()
         {
             return $this->belongsToMany(Formation::class, 'candidatures', 'formation_id', 'user_id');
-            
+
         }
     /**
      * The attributes that should be hidden for serialization.
@@ -58,4 +60,11 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+    // Dans app/Models/User.php
+
+    public function hasRole(string $role): bool
+    {
+        return $this->role === $role;
+    }
+
 }

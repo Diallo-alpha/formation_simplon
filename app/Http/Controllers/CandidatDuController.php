@@ -1,11 +1,11 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class CandidatDuController extends Controller
 {
@@ -14,71 +14,80 @@ class CandidatDuController extends Controller
     }
 
     public function sauvegarde(Request $request){
-        User::create($request->all());
-        return redirect()->back()->with('status','vous etes ajoutes avec succes');
+        $data = $request->all();
+        if ($request->hasFile('profil')) {
+            $file = $request->file('profil');
+            $fileName = time() . '_' . $file->getClientOriginalName();
+            $file->move(public_path('images'), $fileName);
+            $data['profil'] = 'images/' . $fileName;
+        }
+        User::create($data);
+        return redirect()->back()->with('status', 'Vous avez été ajouté avec succès');
     }
+
     public function afficher(){
-        $users=User::all();
-        return view('Candidats.afficher',compact('users'));
+        $users = User::all();
+        return view('Candidats.afficher', compact('users'));
     }
-// suppression des candidats
+
     public function supprimer_candidat($id){
-        $user=User::find($id);
+        $user = User::find($id);
+        if ($user->profil) {
+            $oldImagePath = public_path('images/' . basename($user->profil));
+            if (file_exists($oldImagePath)) {
+                unlink($oldImagePath);
+            }
+        }
         $user->delete();
         return redirect()->back();
     }
 
-    // affichage des candidats dans le dashbord
     public function candidat_dashbord(){
-        $users=User::where('role','candidat')->get();
-        return view('dashbord.candidat',compact('users'));
-
+        $users = User::where('role', 'candidat')->get();
+        return view('dashbord.candidat', compact('users'));
     }
-    //afficher le profil d'une candidat
-     public function profil_candidat($id){
 
-        if(Auth::check() ) {
+    public function profil_candidat($id){
+        if (Auth::check()) {
             $user = User::find($id);
-           $user->id = auth()->user()->id;
+            return view('dashbord.candidat', compact('user'));
+        } else {
+            return redirect()->back()->with('status', 'Impossible');
+        }
+    }
 
-        return view('/dashbord.candidat');
-        }else {
-            return  redirect()->back()->with('status','impossible');
-              }}
+    public function candidat_profil(){
+        $id = Auth::id();
+        $user = User::find($id);
+        return view('candidatDashboard.profilcandidat', compact('user'));
+    }
 
-//la methode pour voir afficher profil
-public function candidat_profil()
-{
-    // Récupérer l'ID de l'utilisateur connecté
-    $id = Auth::id();
+    public function modif_profil(){
+        $id = Auth::id();
+        $user = User::find($id);
+        return view('candidatDashboard.modif_profilcandidat', compact('user'));
+    }
 
-    // Trouver l'utilisateur par ID
-    $user = User::find($id);
+    public function save_modif_profil(Request $request, $id){
+        $user = User::find($id);
+        $data = $request->all();
 
-    // Passer l'utilisateur à la vue
-    return view('candidatDashboard.profilcandidat', compact('user'));
-}
-//la methode pour afficher modifier profil
-public function modif_profil()
-{
-    // Récupérer l'ID de l'utilisateur connecté
-    $id = Auth::id();
+        if ($request->hasFile('profil')) {
+            if ($user->profil) {
+                $oldImagePath = public_path('images/' . basename($user->profil));
+                if (file_exists($oldImagePath)) {
+                    unlink($oldImagePath);
+                }
+            }
 
-    // Trouver l'utilisateur par ID
-    $user = User::find($id);
+            $file = $request->file('profil');
+            $fileName = time() . '_' . $file->getClientOriginalName();
+            $file->move(public_path('images'), $fileName);
 
-    // Passer l'utilisateur à la vue de modification de profil
-    return view('candidatDashboard.modif_profilcandidat', compact('user'));
-}
-//la methode pour enregistrer modification
-public function save_modif_profil( Request $request ,$id){
-    $user = User::find($id);
-    $user->update($request->all());
-    return redirect()->back()->with('success','Modification reussi');
-}
-    //     return view('/dashbord.candidat');
-    //     }else {
-    //         return  redirect()->back()->with('status','impossible');
-    //           }
-    //
+            $data['profil'] = 'images/' . $fileName;
+        }
+
+        $user->update($data);
+        return redirect()->back()->with('success', 'Modification réussie');
+    }
 }

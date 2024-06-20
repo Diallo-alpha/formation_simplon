@@ -2,6 +2,7 @@
 
 namespace App\Mail;
 
+use App\Models\Candidature;
 use App\Models\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -17,7 +18,7 @@ class Notification extends Mailable
     /**
      * Create a new message instance.
      */
-    public function __construct(User $candidature)
+    public function __construct(Candidature $candidature)
     {
         $this->candidature = $candidature;
     }
@@ -27,10 +28,9 @@ class Notification extends Mailable
      */
     public function build()
     {
-        return $this->from('ndeyecisse188@gmail.com')
+        return $this->from('noreply@example.com')
                     ->subject('Votre candidature a été acceptée')
-                    ->view('emails.candidature_notification')
-                    ->with([
+                    ->markdown('emails.candidature_notification', [
                         'candidature' => $this->candidature,
                     ]);
     }

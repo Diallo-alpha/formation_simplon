@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-
     <link rel="stylesheet" href="{{ asset('css/candidat.css') }}">
+    {{-- <link rel="stylesheet" href="{{ asset('css/index.css') }}"> --}}
+    <link rel="stylesheet" href="{{asset('css/style.css')}}">
 
 
     <link rel="stylesheet" href="{{ asset('css/index.css') }}">
-
     <link rel="stylesheet" href="{{ asset('css/offre.css') }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
@@ -22,15 +22,12 @@
                 <img src="{{asset('images/simplon 1.svg')}}" alt="Simplon.co">
             </div>
             <ul>
-                <li><a href="#">Home</a></li>
+                <li><a href="{{route('index')}}">Accueil</a></li>
                 <li><a href="#">Services</a></li>
-                <li><a href="#">Projects</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="{{route('liste.offre')}}">Offre</a></li>
             </ul>
             <div class="auth-buttons">
-                <button>se connecter</button>
-                <button>S'INSCRIRE</button>
-            </div>
+
         </nav>
     </header>
     <section class="baniere">
@@ -44,7 +41,6 @@
          développer vos compétences et avancer votre
         carrière avec nos experts. Rejoignez-nous!
             </h6>
-           <button class="btn btn-danger rounded-3  "> S'abonner </button>
         </div>
     </section>
     <div class="cont-All ">
@@ -62,7 +58,11 @@
               <p>
                 {{ Str::limit($formation->description, 100) }}
               </p>
+
               <a href="detaille/{{ $formation->id }}" style="text-decoration: none"> <button class="btn btn-danger btn_postuler col-12" style="display: flex; justify-content: center; align-items: center; border-radius:100px">Voir plus</button>
+
+              <a href="detail" style="text-decoration: none"> <button class="btn btn-danger btn_postuler col-12" style="display: flex; justify-content: center; align-items: center; border-radius:100px">Voir plus</button>
+
               </a>
             </div>
 
