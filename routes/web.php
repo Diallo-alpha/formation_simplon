@@ -13,7 +13,7 @@ use App\Http\Controllers\CandidatureFormationController;
                                 // Route pour tous le monde
 Route::get('/', [PortailController::class, 'portail'])->name('index');
 Route::get('/offre', [FormationController::class, 'listeOffre'])->name('liste.offre'); // Liste des offres de formation
-Route::get('detail/{id}', [FormationController::class, 'detailsformation']); // Détails d'une formation
+Route::get('detail/{id}', [FormationController::class, 'detailsformation'])->name('detail.formation'); // Détails d'une formation
                                 // Authentification
 Route::get('/login', [AuthController::class, 'getLogin'])->name('login'); // Formulaire de login
 Route::post('/login', [AuthController::class, 'postLogin'])->name('auth.postLogin'); // Traitement du login
