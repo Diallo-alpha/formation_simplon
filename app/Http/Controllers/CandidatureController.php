@@ -112,10 +112,11 @@ class CandidatureController extends Controller
         return redirect()->back()->with('message', 'Candidature acceptée avec succès.');
     }
 
-    public function acceptation(){
-        // Notifier l'utilisateur de l'acceptation de sa candidature
+    // public function acceptation(){
+    //     // Notifier l'utilisateur de l'acceptation de sa candidature
+    //     Mail::to($candidat->email)->send(new Notification($data));
       
-    }
+    // }
 
 
     public function rejeter($id)
