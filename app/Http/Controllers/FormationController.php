@@ -126,10 +126,7 @@ class FormationController extends Controller
 
     }
 
-    // gestion de la notification
-    // public function notif(){
-
-    // }
+    
 
 
 

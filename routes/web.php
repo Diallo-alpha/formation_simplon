@@ -110,3 +110,5 @@ Route::post('/login', [AuthController::class, 'postLogin'])->name('auth.postLogi
 Route::get('/register', [AuthController::class, 'getRegister'])->name('auth.getRegister'); // Formulaire d'inscription
 Route::post('/register', [AuthController::class, 'postRegister'])->name('auth.postRegister'); // Traitement de l'inscription
 Route::post('/logout', [AuthController::class, 'logout'])->name('auth.logout');
+// gestion de la notification
+Route::get('notification/{id}',[CandidatureController::class, 'notification']);
