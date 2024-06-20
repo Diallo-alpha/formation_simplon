@@ -111,6 +111,7 @@ class CandidatureController extends Controller
     {
         $candidature = Candidature::findOrFail($id);
         $candidature->update(['status' => 'accepter']);
+
     
         // Récupérer tous les utilisateurs avec le rôle 'candidat'
         $candidats = User::where('role', 'candidat')->get();
@@ -120,6 +121,13 @@ class CandidatureController extends Controller
             $candidat->notify(new CandidatureAcceptee());
         }
     
+
+
+        // Notifier l'utilisateur de l'acceptation de sa candidature
+        $user = $candidature->user;
+    // Envoi de l'e-mail avec la candidature
+    Mail::to($user->email)->send(new Notification($candidature));
+
         return redirect()->back()->with('message', 'Candidature acceptée avec succès.');
     }
 

@@ -28,7 +28,7 @@ class Notification extends Mailable
      */
     public function build()
     {
-        return $this->from('noreply@example.com')
+        return $this->from('ndeyecisse188@gmail.com')
                     ->subject('Votre candidature a été acceptée')
                     ->markdown('emails.candidature_notification', [
                         'candidature' => $this->candidature,
