@@ -145,7 +145,7 @@
                 <p>{{ Str::limit($formation->description, 100) }}</p>
                 <div class="date">Date limite: {{ $formation->date_expiration }}</div>
                 <a href="{{ url('formulaire_postuler',$formation->id)  }}"><button class="btn btn-danger text-white btn-adjusted">Postuler</button></a> <br> <br>
-                <a href="detaille/{{ $formation->id }}" style="text-decoration: none"> <button class="btn btn-danger text-white btn-adjusted">Voir plus</button>
+                <a href="{{route('detail.formation', $formation->id)}}" style="text-decoration: none"> <button class="btn btn-danger text-white btn-adjusted">Voir plus</button>
             </div>
         </div>
         @endforeach
