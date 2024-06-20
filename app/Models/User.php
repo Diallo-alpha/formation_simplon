@@ -60,4 +60,11 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+    // Dans app/Models/User.php
+
+    public function hasRole(string $role): bool
+    {
+        return $this->role === $role;
+    }
+
 }

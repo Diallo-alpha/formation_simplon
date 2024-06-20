@@ -56,10 +56,26 @@
     </div>
     <div class="form-section">
         <h1>Login</h1>
-
+             {{-- @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+                @endif --}}
         <form method="POST" action="{{ route('auth.postLogin') }}" class="row g-3" onsubmit="return validateForm()">
             @csrf
-
+           @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+                @endif
             <!-- Email Address -->
             <div class="col-md-12">
                 <label for="email" class="form-label">Email</label>
