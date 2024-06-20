@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 use App\Notifications\candidatureNotification;
-
+use App\Notifications\CandidatureAcceptee;
 
 class CandidatureController extends Controller
 {
@@ -110,11 +110,15 @@ class CandidatureController extends Controller
     {
         $candidature = Candidature::findOrFail($id);
         $candidature->update(['status' => 'accepter']);
-
-        // Notifier l'utilisateur de l'acceptation de sa candidature
-        // $user = $candidature->user;
-        // $user->notify(new candidatureNotification());
-
+    
+        // Récupérer tous les utilisateurs avec le rôle 'candidat'
+        $candidats = User::where('role', 'candidat')->get();
+    
+        // Envoyer une notification à chaque candidat
+        foreach ($candidats as $candidat) {
+            $candidat->notify(new CandidatureAcceptee());
+        }
+    
         return redirect()->back()->with('message', 'Candidature acceptée avec succès.');
     }
 

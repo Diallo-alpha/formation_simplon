@@ -125,7 +125,7 @@
 
             <div class="col-md-12">
                 <button type="submit" class="btn btn-dark mt-3 full-width-btn">Inscription</button>
-                <p>Vous avez un compte ? <a href="{{ route('auth.getLogin') }}">Connexion</a></p>
+                <p>Vous avez un compte ? <a href="{{ route('login') }}">Connexion</a></p>
             </div>
         </form>
     </div>
