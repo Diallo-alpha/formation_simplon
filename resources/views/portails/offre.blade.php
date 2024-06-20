@@ -21,7 +21,7 @@
                 <img src="{{asset('images/simplon 1.svg')}}" alt="Simplon.co">
             </div>
             <ul>
-                <li><a href="{{route('index')}}">Accueil</a></li>
+                <li><a href="{{url('/')}}">Accueil</a></li>
                 <li><a href="#">Services</a></li>
                 <li><a href="{{route('liste.offre')}}">Offre</a></li>
             </ul>
@@ -65,28 +65,7 @@
 
 
           @endforeach
-          
-          <div class="container-fluid bg-gradient p-5">
-         
-      <div class="row m-auto text-center w-80">
-
-      @foreach ($formations as $formation )
-     
-        <div class="col-4 princing-item red">
-          <div class="pricing-divider ">
-          <p>titre:{{ $formation->titre }}</p>
-          <img src="{{asset('/images/' . $formation->image)}}" class="card-img-top" alt="...">
-          </div>
-          <div class="card-body bg-white mt-0 shadow">
-           
-            <button type="button" class="btn btn-lg btn-block  btn-custom ">Sign up for free</button>
-          </div>
-        </div>
-        @endforeach
-        
-      </div>
-    
-    </div>
+      
    
           <footer>
             <div class="footer-content">

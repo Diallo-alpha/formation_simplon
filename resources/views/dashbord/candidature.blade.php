@@ -78,15 +78,15 @@
                         <td>{{ ucfirst($candidature->status) }}</td>
                         <td>
                             @if ($candidature->status == 'En attente')
-                                <a href="{{ route('candidature.accepter', $candidature->id) }}" class="btn btn-success">Accepter</a>
-                                <a href="{{ route('candidature.rejeter', $candidature->id) }}" class="btn btn-danger">Rejeter</a>
+                                <a href="{{ route('candidature.accepter', $candidature->id) }}" class="btn1">Accepter</a>
+                                <a href="{{ route('candidature.rejeter', $candidature->id) }}" class="btn2">Rejeter</a>
                             @else
                                 <span>{{ ucfirst($candidature->status) }}</span>
                             @endif
                             <form action="{{ route('candidatures.destroy', $candidature->id) }}" method="POST" style="display:inline;">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-danger">Supprimer</button>
+                                <button type="submit" class="btn3">Supprimer</button>
                             </form>
                         </td>
             @endforeach
@@ -110,5 +110,25 @@
 
 
 </div>
+<style>
+    .btn1{
+        background-color: green;
+        color: white;
+        padding: 20px;
+        border-radius: 5px;
+    }
+    .btn2{
+        background-color:#CE0033;
+        color: white;
+        padding: 20px;
+        border-radius: 5px;
+    }
+    .btn3{
+        background-color:#CE0033;
+        color: white;
+        padding: 10px;
+        border-radius: 5px;
+    }
+</style>
 </body>
 </html>
