@@ -109,12 +109,12 @@ class CandidatureController extends Controller
     {
         $candidature = Candidature::findOrFail($id);
         $candidature->update(['status' => 'accepter']);
-
-        // Notifier l'utilisateur de l'acceptation de sa candidature
-        // $user = $candidature->user;
-        // $user->notify(new candidatureNotification());
-
         return redirect()->back()->with('message', 'Candidature acceptée avec succès.');
+    }
+
+    public function acceptation(){
+        // Notifier l'utilisateur de l'acceptation de sa candidature
+      
     }
 
 
