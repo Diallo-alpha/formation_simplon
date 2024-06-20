@@ -46,12 +46,16 @@ Route::middleware(['auth', 'role:personnel'])->group(function ()
         Route::delete('candidatSup/{id}', [CandidatureController::class, 'supprimercand'])->name('rejettercadidature'); // Rejeter une candidature
         Route::get('cadidate/{id}',[FormationController::class,'candidats'])->name('candidatureFormation');
         Route::get('/fichiers/{path}', [CandidatureController::class, 'afficher'])->where('path', '.*')->name('fichier.cv');
+        Route::get('afficher_candidat',[CandidatDuController::class,'afficher']);
+
 
     });
                                 //mddleware pour les candidats
 Route::middleware(['auth', 'role:candidat'])->group(function ()
     {
         Route::get('/listeFormation', [FormationController::class, 'listeFormation'])->name('formation.liste'); // Liste des formations
+        Route::delete('/supprimmer_candidat/{id}', [CandidatDuController::class, 'supprimer_candidat'])->name('supprimer.candiate'); // Supprimer un candidat
+
         Route::get('candidat_inscription', [CandidatDuController::class, 'inscription']); // Formulaire d'inscription des candidats
         Route::post('sauvegarde_candidat', [CandidatDuController::class, 'sauvegarde']); // Sauvegarder les informations du candidat
         Route::get('/candidat_profil/{id}', [CandidatDuController::class, 'candidat_profil'])->name('candidat_profil'); // Afficher le profil d'un candidat
@@ -74,16 +78,17 @@ Route::middleware(['auth', 'role:candidat'])->group(function ()
 // Route::get('/offre', [FormationController::class, 'listeOffre'])->name('liste.offre'); // Liste des offres de formation
 // Route::get('detaille/{id}', [FormationController::class, 'detailsformation'])->name('details.formation'); // Détails d'une formation
 
-// // Routes pour l'inscription des candidats
+// // // Routes pour l'inscription des candidats
+//  Route::get('afficher_candidat',[CandidatDuController::class,'afficher']);
 // Route::get('candidat_inscription', [CandidatDuController::class, 'inscription']); // Formulaire d'inscription des candidats
 // Route::post('sauvegarde_candidat', [CandidatDuController::class, 'sauvegarde']); // Sauvegarder les informations du candidat
 // // Route::delete('/supprimmer_candidat/{id}', [CandidatDuController::class, 'supprimer_candidat'])->name('supprimer.candiate'); // Supprimer un candidat
-// Route::delete('/supprimmer_candidat/{id}', [CandidatDuController::class, 'supprimer_candidat'])->name('supprimer.candiate'); // Supprimer un candidat
+// Route::delete('supprimmer_candidat/{id}', [CandidatDuController::class, 'supprimer_candidat'])->name('supprimer.candiate'); // Supprimer un candidat
 // Route::get('/candidat_profil/{id}', [CandidatDuController::class, 'candidat_profil'])->name('candidat_profil'); // Afficher le profil d'un candidat
 // Route::get('/modif_profil', [CandidatDuController::class, 'modif_profil']); // Formulaire de modification du profil
 // Route::post('/save_modif_profil/{id}', [CandidatDuController::class, 'save_modif_profil']); // Enregistrer les modifications du profil
 
-// // Routes pour les candidatures
+// // // Routes pour les candidatures
 // Route::get('formulaire_postuler/{id}', [CandidatureController::class, 'formulaireCandAuth'])->name('formulaire.candidature.auth'); // Formulaire de candidature authentifiée
 // Route::post('postuler', [CandidatureController::class, 'postuler'])->name('postuler'); // Postuler à une formation
 // Route::get('afficherDetailsCandidature/{id}', [CandidatureController::class, 'index'])->name('fichiers.index'); // Afficher les détails d'une candidature
@@ -103,7 +108,7 @@ Route::middleware(['auth', 'role:candidat'])->group(function ()
 // Route::get('afficherFOR/{id}', [CandidatureController::class, 'affichercandid'])->name('candidats.formation'); // Afficher les candidats pour une formation
 
 // // Offre de formation
-// Route::get('offreform', [CandidatureController::class, 'offreform'])->name('liste.formation.candidat'); // Afficher l'offre de formation
+Route::get('offreform', [CandidatureController::class, 'offreform'])->name('liste.formation.candidat'); // Afficher l'offre de formation
 
 
 // Authentification

@@ -37,7 +37,7 @@ class CandidatDuController extends Controller
 
     public function afficher(){
         $users = User::all();
-        return view('Candidats.afficher', compact('users'));
+        return view('dashbord.candidat', compact('users'));
     }
 
     public function supprimer_candidat($id){
@@ -51,6 +51,8 @@ class CandidatDuController extends Controller
         $user->delete();
         return redirect()->back();
     }
+
+    
 
     public function candidat_dashbord(){
         $users = User::where('role', 'candidat')->get();
