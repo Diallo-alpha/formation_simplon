@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use App\Models\User;
@@ -38,7 +39,7 @@ class AuthController extends Controller
             'role' => 'candidat',
         ]);
 
-        return redirect()->route('auth.getLogin')->with('status', 'Inscription réussie ! Vous pouvez maintenant vous connecter.');
+        return redirect()->route('login')->with('status', 'Inscription réussie! Vous pouvez maintenant vous connecter.');
     }
 
     public function getLogin()
@@ -62,22 +63,27 @@ class AuthController extends Controller
             // Récupérer l'utilisateur connecté
             $user = Auth::user();
 
-            // Vérifiez le rôle de l'utilisateur et redirigez en conséquence
-            switch ($user->role) {
-                case 'personnel':
-                    return redirect('formationAdsbord');
-                case 'candidat':
-                    return redirect('/mes-candidatures');
-                default:
-                    // Redirigez vers une page par défaut ou de tableau de bord si le rôle n'est pas défini
-                    return redirect()->intended('offre');
-            }
+            // Redirigez l'utilisateur basé sur son rôle
+            return $this->redirectToBasedOnRole();
         }
 
         // Si l'authentification échoue, redirigez vers la page de connexion avec un message d'erreur
         return back()->withErrors([
             'email' => 'Les informations d\'identification fournies ne correspondent pas à nos enregistrements.',
         ]);
+    }
+
+    protected function redirectToBasedOnRole()
+    {
+        $user = Auth::user();
+        switch ($user->role) {
+            case 'personnel':
+                return redirect('formationAdsbord');
+            case 'candidat':
+                return redirect('/mes-candidatures');
+            default:
+                return redirect()->intended('offre');
+        }
     }
 
     public function logout(Request $request)

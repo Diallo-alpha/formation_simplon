@@ -23,7 +23,7 @@
                 <li><a href="{{route('liste.offre')}}">Offers</a></li>
             </ul>
             <div class="auth-buttons">
-                <button class="boutton"><a href="{{route('auth.getLogin')}}">se connecter</a></button>
+                <button class="boutton"><a href="{{route('login')}}">se connecter</a></button>
                 <button class="boutton"> <a href="{{route('auth.getRegister')}}">S'INSCRIRE</a></button>
             </div>
         </nav>

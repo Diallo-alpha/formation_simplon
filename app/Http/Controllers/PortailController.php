@@ -8,6 +8,7 @@ class PortailController extends Controller
 {
     //
     public function portail(){
+        
         return view('portails.index');
     }
 }
