@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 
+
 class CandidatureController extends Controller
 {
     public function formulaireCand($id) {
@@ -154,4 +155,11 @@ class CandidatureController extends Controller
 
         return Storage::download($path);
     }
+
+    $fileContent = Storage::get($path);
+    $mimeType = Storage::mimeType($path);
+
+    return response($fileContent, 200)
+           ->header('Content-Type', $mimeType);
+}
 }

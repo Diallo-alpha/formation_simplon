@@ -96,7 +96,7 @@
 
             <div class="col-md-12">
                 <button type="submit" class="btn btn-dark mt-3 full-width-btn">Connexion</button>
-                <p>Vous n'avez pas de compte ? <a href="{{ route('auth.getRegister') }}">Inscription</a></p>
+                <p>Vous n'avez pas de compte ? <a href="{{ url('/register') }}">Inscription</a></p>
             </div>
         </form>
 
