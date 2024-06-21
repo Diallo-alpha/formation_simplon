@@ -17,7 +17,8 @@
             background-color: #ffffff;
             border-radius: 8px;
             padding: 30px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);                
+            height: 780px;
         }
         h1 {
             margin-bottom: 30px;
@@ -120,7 +121,7 @@
             </div>
             <div class="col-md-12">
                 <label for="password_confirmation" class="form-label">Confirmer le mot de passe</label>
-                <input type="password" name="password_confirmation" id="password_confirmation" class="form-control" required>
+                <input type="password" name="password_confirmation" placeholder="Entrez votre mot de passe" title="Le mot de passe doit contenir au moins 8 caractères." id="password_confirmation" class="form-control" required>
             </div>
 
             <div class="col-md-12">

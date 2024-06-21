@@ -18,6 +18,7 @@
             border-radius: 8px;
             padding: 30px;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            height: 650px;
         }
         h1 {
             margin-bottom: 30px;
@@ -56,15 +57,7 @@
     </div>
     <div class="form-section">
         <h1>Login</h1>
-             {{-- @if ($errors->any())
-                <div class="alert alert-danger">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-                @endif --}}
+            
         <form method="POST" action="{{ route('auth.postLogin') }}" class="row g-3" onsubmit="return validateForm()">
             @csrf
            @if ($errors->any())
