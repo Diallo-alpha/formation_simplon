@@ -69,3 +69,5 @@ Route::middleware(['auth', 'role:candidat'])->group(function ()
     });
 
 Route::get('notif', [FormationController::class, 'notify']);
+//route base
+Route::get('/layout', [PortailController::class, 'base'])->name('base.index');
