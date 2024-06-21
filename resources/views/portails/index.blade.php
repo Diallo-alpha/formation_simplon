@@ -18,9 +18,8 @@
                 <img src="{{asset('images/simplon 1.svg')}}" alt="Simplon.co">
             </div>
             <ul>
-                <li><a href="#">Accueil</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="{{route('liste.offre')}}">Offers</a></li>
+                <li><a href="/">Accueil</a></li>
+                <li><a href="{{route('liste.offre')}}">Offres</a></li>
             </ul>
             <div class="auth-buttons">
                 <button class="boutton"><a href="{{route('login')}}">se connecter</a></button>

@@ -22,8 +22,7 @@
             </div>
             <ul>
                 <li><a href="{{route('index')}}">Accueil</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="{{route('liste.offre')}}">Offre</a></li>
+                <li><a href="{{route('liste.offre')}}">Offres</a></li>
             </ul>
             <div class="auth-buttons">
           
@@ -65,7 +64,8 @@
 
 
           @endforeach
-
+      
+   
           <footer>
             <div class="footer-content">
                 <div class="footer-logo">

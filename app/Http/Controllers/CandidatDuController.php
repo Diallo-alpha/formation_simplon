@@ -14,6 +14,16 @@ class CandidatDuController extends Controller
     }
 
     public function sauvegarde(Request $request){
+        // Validez les champs du formulaire
+        $request->validate([
+            'nom' => 'required|string|max:50',
+            'prenom' => 'required|string|max:100',
+            'telephone' => 'required|string',
+            'niveau' => 'nullable|string',
+            'adresse' => 'required|string',
+            'email' => 'required|string|email|max:255|unique:users',
+            'password' => 'required|string|min:4|confirmed',
+        ]);
         $data = $request->all();
         if ($request->hasFile('profil')) {
             $file = $request->file('profil');
@@ -27,7 +37,7 @@ class CandidatDuController extends Controller
 
     public function afficher(){
         $users = User::all();
-        return view('Candidats.afficher', compact('users'));
+        return view('dashbord.candidat', compact('users'));
     }
 
     public function supprimer_candidat($id){
@@ -41,6 +51,8 @@ class CandidatDuController extends Controller
         $user->delete();
         return redirect()->back();
     }
+
+    
 
     public function candidat_dashbord(){
         $users = User::where('role', 'candidat')->get();
