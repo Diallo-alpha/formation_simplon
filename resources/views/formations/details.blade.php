@@ -23,7 +23,10 @@
         display: flex;
         align-items: center; /* Vertically align items */
       }
-
+      .boutton{
+        margin-top: 80px
+      }
+     
       .card-text{
         font-size: 20px
       }
@@ -69,9 +72,16 @@
           <p class="card-text">{{ $formation->description }}</p>
           <div style="position: absolute; bottom: 10px; right: 10px;color: red">durée 6 mois</div>
         </div>
+        {{-- <div class="container"> --}}
+          {{-- <div class="text-start pr-30px"style="position:start; margin-left:15px;"> --}}
+            <a href="{{ url('formulaire_postuler',$formation->id)  }}" class="boutton"><button class="btn btn-danger text-white btn-adjusted" style="margin-left:30px; width:100px; text-aligne:center; margin-bottom:25px;">Postuler</button></a> 
+          {{-- </div> --}}
+          {{-- </div> --}}
+    
       </div>
+     
 
-      <div class="card border mb-3 m-5" style="max-width: 50rem;">
+      {{-- <div class="card border mb-3 m-5" style="max-width: 50rem;">
         <div class="card-header"><h1>Competences</h1></div>
         <div style="width: 40%; height: 2px; background-color: red; margin: 20px 0;"></div>
         <div class="card-body m-4 " style="height: 150px;">
@@ -79,11 +89,11 @@
           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
           <div style="position: absolute; bottom: 10px; right: 10px;color: red">durée 6 mois</div>
         </div>
-      </div>
+      </div> --}}
     </div>
 
     <div class="container " style="display: flex; align-items: center;">
-      <div class="card border mb-3 m-5" style="max-width: 50rem;">
+      {{-- <div class="card border mb-3 m-5" style="max-width: 50rem;">
         <div class="card-header"><h1> Formateurs</h1></div>
         <div style="width: 40%; height: 2px; background-color: red; margin: 20px 0;"></div>
         <div class="card-body m-4 " style="height: 150px;">
@@ -91,9 +101,9 @@
           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
           <div style="position: absolute; bottom: 10px; right: 10px;color: red">durée 6 mois</div>
         </div>
-      </div>
+      </div> --}}
 
-      <div class="card border mb-3 m-5" style="max-width: 50rem;">
+      {{-- <div class="card border mb-3 m-5" style="max-width: 50rem;">
         <div class="card-header"><h1>Objectifs</h1></div>
         <div style="width: 40%; height: 2px; background-color: red; margin: 20px 0;"></div>
         <div class="card-body m-4 " style="height: 150px;">
@@ -102,11 +112,11 @@
           <div style="position: absolute; bottom: 10px; right: 10px; color: red">durée 6 mois</div>
 
         </div>
-      </div>
+      </div> --}}
     </div>
 
-    <div class="container " style="display: flex; align-items: center;">
-        <div class="card border mb-3 m-5" style="max-width: 50rem;">
+    {{-- <div class="container " style="display: flex; align-items: center;"> --}}
+        {{-- <div class="card border mb-3 m-5" style="max-width: 50rem;">
           <div class="card-header"><h1>Méthodologie </h1></div>
           <div style="width: 40%; height: 2px; background-color: red; margin: 20px 0;"></div>
           <div class="card-body m-4 " style="height: 150px;">
@@ -114,9 +124,9 @@
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
             <div style="position: absolute; bottom: 10px; right: 10px;color: red">durée 6 mois</div>
           </div>
-        </div>
+        </div> --}}
 
-        <div class="card border mb-3 m-5" style="max-width: 50rem;">
+        {{-- <div class="card border mb-3 m-5" style="max-width: 50rem;">
           <div class="card-header"><h1>debouche</h1></div>
           <div style="width: 40%; height: 2px; background-color: red; margin: 20px 0;"></div>
           <div class="card-body m-4 " style="height: 150px;">
@@ -124,16 +134,11 @@
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
             <div style="position: absolute; bottom: 10px; right: 10px; color: red">durée 6 mois</div>
 
-          </div>
-        </div>
-      </div>
+          </div> --}}
+        {{-- </div> --}}
+      {{-- </div> --}}
 
-      <div class="container">
-      <div class="text-start pr-30px"style="position:start; margin-left:15px;">
-        <a href="{{ url('formulaire_postuler',$formation->id)  }}"><button class="btn btn-danger text-white btn-adjusted" style="margin-left:30px; width:100px; text-aligne:center; margin-bottom:25px;">Postuler</button></a> 
-      </div>
-      </div>
-
+      
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

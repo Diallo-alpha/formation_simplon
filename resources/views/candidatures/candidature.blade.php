@@ -49,7 +49,7 @@
                 <button type="submit" class="btn">Soumettre</button>
             </form>
         @else
-            <p>Vous devez être connecté pour postuler. <a href="{{ route('auth.getLogin') }}">Connexion</a></p>
+            <p>Vous devez être connecté pour postuler. <a href="{{ route('auth.postLogin') }}">Connexion</a></p>
         @endif
     </div>
 

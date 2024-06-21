@@ -20,6 +20,7 @@ Route::post('/login', [AuthController::class, 'postLogin'])->name('auth.postLogi
 Route::get('/register', [AuthController::class, 'getRegister'])->name('auth.getRegister'); // Formulaire d'inscription
 Route::post('/register', [AuthController::class, 'postRegister'])->name('auth.postRegister'); // Traitement de l'inscription
 Route::post('/logout', [AuthController::class, 'logout'])->name('auth.logout');
+Route::get('notif', [FormationController::class, 'notify']);
 
                             ///middleware pour le personnel
 Route::middleware(['auth', 'role:personnel'])->group(function ()
@@ -32,8 +33,7 @@ Route::middleware(['auth', 'role:personnel'])->group(function ()
         Route::get('formationAdsbord', [FormationController::class, 'formation_dashbord'])->name('formation.personnel'); // Afficher le tableau de bord des formations
         Route::delete('/formation/{id}', [FormationController::class, 'supprimmerFormation'])->name('formation.supprimer'); // Supprimer une formation
         Route::get('afficherFOR/{id}', [CandidatureController::class, 'affichercandid'])->name('candidats.formation'); // Afficher les candidats pour une formation
-        // Routes pour l'inscription des candidats
-        Route::delete('/supprimmer_candidat/{id}', [CandidatDuController::class, 'supprimer_candidat'])->name('supprimer.candiate'); // Supprimer un candidat
+
         //candidature
         Route::get('afficherDetailsCandidature/{id}', [CandidatureController::class, 'index'])->name('fichiers.index'); // Afficher les détails d'une candidature
         Route::delete('candidature/{id}', [CandidatureController::class, 'destroy'])->name('candidatures.destroy'); // Supprimer une candidature
@@ -46,12 +46,16 @@ Route::middleware(['auth', 'role:personnel'])->group(function ()
         Route::delete('candidatSup/{id}', [CandidatureController::class, 'supprimercand'])->name('rejettercadidature'); // Rejeter une candidature
         Route::get('cadidate/{id}',[FormationController::class,'candidats'])->name('candidatureFormation');
         Route::get('/fichiers/{path}', [CandidatureController::class, 'afficher'])->where('path', '.*')->name('fichier.cv');
+        Route::get('afficher_candidat',[CandidatDuController::class,'afficher']);
+
 
     });
                                 //mddleware pour les candidats
 Route::middleware(['auth', 'role:candidat'])->group(function ()
     {
         Route::get('/listeFormation', [FormationController::class, 'listeFormation'])->name('formation.liste'); // Liste des formations
+        Route::delete('/supprimmer_candidat/{id}', [CandidatDuController::class, 'supprimer_candidat'])->name('supprimer.candiate'); // Supprimer un candidat
+
         Route::get('candidat_inscription', [CandidatDuController::class, 'inscription']); // Formulaire d'inscription des candidats
         Route::post('sauvegarde_candidat', [CandidatDuController::class, 'sauvegarde']); // Sauvegarder les informations du candidat
         Route::get('/candidat_profil/{id}', [CandidatDuController::class, 'candidat_profil'])->name('candidat_profil'); // Afficher le profil d'un candidat
