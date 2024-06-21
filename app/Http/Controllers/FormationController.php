@@ -27,7 +27,7 @@ class FormationController extends Controller
     {
         $request->validate([
             'titre' => 'required|string|max:255',
-            'description' => 'required|string',
+            'description' => 'required |text',
             'date_expiration' => 'required|date',
             'image' => 'nullable|file|image|mimes:jpeg,png,jpg,gif|max:2048',
             'users_id' => 'nullable|exists:users,id',
