@@ -69,7 +69,113 @@
     </div>
   </div>
   <div><br></div>
-</footer>
+{{-- </footer> --}}
+
+{{-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simplon Footer</title> --}}
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #fff;
+            border-top: 1px solid #ddd;
+        }
+        .footer-logo {
+            display: flex;
+            align-items: center;
+        }
+        .footer-logo img {
+            height: 40px;
+        }
+        .footer-logo span {
+            font-size: 24px;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+        .footer-column {
+            margin: 0 20px;
+        }
+        .footer-column h3 {
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        .footer-column ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .footer-column ul li {
+            margin-bottom: 5px;
+        }
+        .footer-column ul li a {
+            text-decoration: none;
+            color: #000;
+        }
+        .footer-subscribe {
+            display: flex;
+            align-items: center;
+        }
+        .footer-subscribe input[type="email"] {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px 0 0 5px;
+            outline: none;
+        }
+        .footer-subscribe button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #d31c26;
+            color: #fff;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <footer class="footer">
+        <div class="footer-logo">
+            <span>Simplon</span><span>.co</span>
+        </div>
+        <div class="footer-column">
+            <h3>Services</h3>
+            <ul>
+                <li><a href="#">Développement web</a></li>
+                <li><a href="#">Référent digital</a></li>
+                <li><a href="#">SAASS</a></li>
+                <li><a href="#">Développement web</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h3>Ressources</h3>
+            <ul>
+                <li><a href="#">Fabrique</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Themes</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h3>Simplon</h3>
+            <ul>
+                <li><a href="#">À propos de nous</a></li>
+                <li><a href="#">Nous contactez</a></li>
+            </ul>
+        </div>
+        <div class="footer-subscribe">
+            <input type="email" placeholder="Enter votre email">
+            <button>Abonner</button>
+        </div>
+    </footer>
+{{-- </body>
+</html> --}}
+
     </main>
     </body>
     </html>
