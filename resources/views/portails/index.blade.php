@@ -340,12 +340,12 @@ margin-top:270px;
             <img src="{{ asset('images/Rectangle 2.png') }}" alt="Logo">
             <nav>
                 <a href="" class="active">Accueil</a>
-                <a href="">Offres</a>
+                <a href="offre">Offres</a>
             </nav>
             <div class="vertical-line"></div>
             <div class="auth-links">
-                <a href="" ><button class="inscrire">S'inscrire</button></a>
-                <a href=""><button class="connecter">Se connecter</button></a>
+                <a href="register" ><button class="inscrire">S'inscrire</button></a>
+                <a href="login"><button class="connecter">Se connecter</button></a>
             </div>
         </menu>
     </header>

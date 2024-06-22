@@ -7,7 +7,122 @@
     <link rel="stylesheet" href="{{ asset('css/candidat.css') }}">
     {{-- <link rel="stylesheet" href="{{ asset('css/index.css') }}"> --}}
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
+<style>
 
+        
+header {
+            background-color: #f8f9fa;
+            padding: 10px 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            header {
+    background-color: #f8f9fa;
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    height: 88px;
+}
+
+menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+menu img {
+    height: 74px;
+    width: 106px;
+}
+
+nav {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center; /* Centrer les liens horizontalement */
+    gap: 20px;
+    margin-left: 180px; /* Retirer la marge gauche */
+}
+
+nav a {
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+    padding: 8px 12px;
+    font-family: inter;
+    font-weight: bold;
+    text-align: center;
+}
+
+nav a:hover {
+    background-color: #e9ecef;
+    border-radius: 4px;
+}
+
+
+
+.auth-links {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-right: 25px;
+}
+
+.auth-links a {
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+    padding: 8px 12px;
+    font-family: inter;
+    font-weight: bold;
+    justify-content: center;
+}
+
+.auth-links .connecter {
+    background-color: #ce0033;
+    color: white;
+    border: none;
+    justify-content: center;
+    border-radius: 30px;
+    width: 150px;
+    height: 43px;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-size: 16px;
+    position: relative;
+    margin-top: -15px;
+    font-weight: bold;
+}
+
+.auth-links .inscrire {
+    background-color: white;
+    color: #ce0033;
+    border: 1px solid #ce0033;
+    justify-content: center;
+    width: 150px;
+    height: 43px;
+    border-radius: 30px;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-size: 16px;
+    position: relative;
+    margin-top: -15px;
+    font-weight: bold;
+}
+
+.auth-links button:hover {
+    background-color: #0056b3;
+}
+
+.auth-links a:hover {
+    color: #0056b3;
+}
+
+.active {
+    color: #ce0033;
+}
+
+.text-baniere{
+    font-family: inter;
+}
+
+</style>
 
     <link rel="stylesheet" href="{{ asset('css/offre.css') }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -16,17 +131,18 @@
 <body>
 
     <header>
-        <nav>
-            <div class="logo">
-                <img src="{{asset('images/simplon 1.svg')}}" alt="Simplon.co">
+        <menu>
+            <img src="{{ asset('images/Rectangle 2.png') }}" alt="Logo">
+            <nav>
+                <a href="" class="active">Accueil</a>
+                <a href="offre">Offres</a>
+            </nav>
+            <div class="vertical-line"></div>
+            <div class="auth-links">
+                <a href="register" ><button class="inscrire">S'inscrire</button></a>
+                <a href="login"><button class="connecter">Se connecter</button></a>
             </div>
-            <ul>
-                <li><a href="{{route('index')}}">Accueil</a></li>
-                <li><a href="{{route('liste.offre')}}">Offres</a></li>
-            </ul>
-            <div class="auth-buttons">
-          
-        </nav>
+        </menu>
     </header>
     <section class="baniere">
         <div class="box-baniere1">
