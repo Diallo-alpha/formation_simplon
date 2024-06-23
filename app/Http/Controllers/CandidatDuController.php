@@ -52,7 +52,7 @@ class CandidatDuController extends Controller
         return redirect()->back();
     }
 
-    
+
 
     public function candidat_dashbord(){
         $users = User::where('role', 'candidat')->get();
