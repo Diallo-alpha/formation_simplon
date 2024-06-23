@@ -208,7 +208,7 @@ margin-top:270px;
     max-width: 100%;
     height: auto;
    margin-top: 100px;
-   margin-left: 900px;
+   margin-left: 800px;
 
 } 
 
@@ -310,7 +310,7 @@ margin-top:270px;
 /* partenaires  */
 .partenaires {
     display: flex;
-    margin-top: 70px;
+    margin-top: 60px;
 }
 
 .partenaire{
