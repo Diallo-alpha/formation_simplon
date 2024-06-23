@@ -11,4 +11,5 @@ class PortailController extends Controller
         
         return view('portails.index');
     }
+  
 }
