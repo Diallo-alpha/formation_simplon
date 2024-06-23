@@ -3,22 +3,38 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+
+
+
 use App\Models\Formation;
 use App\Mail\Notification;
+
 use App\Models\Candidature;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
+use App\Notifications\candidatureNotification;
+
+
+
+use \Illuminate\Http\RedirectResponse;
+
+
+   
+
+
 
 
 class CandidatureController extends Controller
 {
+
     public function formulaireCand($id) {
         $formation = Formation::find($id);
         return view('candidatures.candidature', compact('formation'));
     }
+
 
     public function offreform()
     {
@@ -32,6 +48,14 @@ class CandidatureController extends Controller
         $formations = Formation::findOrFail($id);
         return view('candidatures.candidature', compact('formations'));
     }
+
+    /**
+     * Soumettre une candidature.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+
 
     public function postuler(Request $request)
     {
@@ -56,9 +80,11 @@ class CandidatureController extends Controller
                                           ->where('formation_id', $formation_id)
                                           ->first();
 
+
         if ($verifierCandidature) {
             return redirect()->back()->withErrors(['error' => 'Vous avez déjà postulé pour cette formation.']);
         }
+
 
         if ($request->hasFile('cv')) {
             $file = $request->file('cv');
@@ -73,10 +99,12 @@ class CandidatureController extends Controller
                 'status' => 'En attente',
             ]);
 
+
             return redirect()->route('mes.candidatures')->with('message', 'Candidature soumise avec succès.');
         } else {
             return redirect()->back()->withErrors(['cv' => 'Le fichier n\'a pas été téléchargé correctement.']);
         }
+
     }
 
     public function accepter($id)
@@ -131,6 +159,7 @@ class CandidatureController extends Controller
         $candidatures = $user->candidatures()->with('formation')->get();
         return view('dashbord.candidature', compact('candidatures'));
     }
+
 
     public function listeCandidatures()
     {
