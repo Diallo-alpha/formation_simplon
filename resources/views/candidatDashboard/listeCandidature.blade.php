@@ -17,6 +17,16 @@
    section{
     margin-top: 100px;
    }
+   #tableaubord{
+    background-color: white;
+    width: 150%;
+    border-radius: 30px 0px 0px 30px ;
+  
+   margin-top: 10%;
+   }
+   #tableaubord a{
+    color: black;
+   }
 </style>
 @extends('layouts.base2')
 @section('contenu')

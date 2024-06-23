@@ -100,6 +100,32 @@
         border-radius: 5px;
         margin-bottom: 20px;
     }
+    .navbar li{
+    margin-left: -30%;
+    display: flex;
+}
+.navbar a{
+    margin-left: 5%;
+    font-size:20px;
+    font-weight: bolder;
+    
+}
+.profil{
+    margin-left: -20%;
+    display: flex; 
+}
+.profil p{
+    margin-left: 10px;
+    
+}
+.infop{
+    font-size:18px;
+    font-weight: bolder;
+}
+.telephone{
+    font-size: 14px;
+    font-weight:5px;
+}
 
 
     </style>
@@ -112,11 +138,16 @@
 <div class="dashbord">
 
  <nav class='navbar'>
+ <div class="profil">
+        <img src="https://cdn.pixabay.com/photo/2016/11/14/17/39/person-1824147_1280.png" alt="" class="info_img">
+        <p><span class="infop">{{Auth::user()->prenom}} {{Auth::user()->nom}}</span> <br><span class="telephone">{{Auth::user()->telephone}}</span></p>
+
+    </div>
                 <ul>
-                    <li class="colonne"><i class="fa-solid fa-bars-progress"></i><a href="{{ route('formation.personnel') }}"><span> </span>TABLEAU DE BORD</a></li>
-                    <li class="colonne"><i class="fa-solid fa-school"></i> <a href="{{ route('formation.personnel') }}"><span> </span>Formation</a></li>
-                    <li class="colonne"><i class="fa-solid fa-people-group"></i><a href="afficher_candidat"><span> </span>Candidats</a></li>
-                    <li class="colonne"><i class="fa-solid fa-sign-out-alt"></i><a href="{{ route('auth.logout') }}"
+                    <li class="colonne" id="tableaubord"><img src="{{asset('img/dashboard.png')}}" alt="" width="24px" height="24px"><a href="{{ route('formulaire.ajout.formation') }}"><span> </span>Dashboard</a></li>
+                    <li class="colonne" id="tableauformation"><img src="{{asset('img/formation.png')}}"  > <a href="{{ route('formation.personnel') }}"><span> </span>Formation</a></li>
+                    <li class="colonne"id="tableaucandidat"><img src="{{asset('img/people.png')}}" width="24px" height="24px"><a href="{{url('afficher_candidat')}}"><span> </span>Candidats</a></li>
+                    <li class="colonne"><img src="{{asset('img/setting.png')}}"width="24px" height="24px"><a href="{{ route('auth.logout') }}"
                         onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                         Déconnexion
                     </a>

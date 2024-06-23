@@ -65,7 +65,14 @@
             margin-left: 20px;
         } 
 
-         
+        #tableauformation{
+            background-color: white;
+    width: 150%;
+    border-radius: 30px 0px 0px 30px ;
+        } 
+        #tableauformation a{
+          color: black;
+        } 
 
 
 

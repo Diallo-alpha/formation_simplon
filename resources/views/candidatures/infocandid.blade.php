@@ -1,15 +1,10 @@
 
-    <!DOCTYPE html>
-<html lang="et" >
-<head>
-  <meta charset="UTF-8">
-  <title>CV Printable A4</title>
-</head>
-<body>
+
+
+
 <!-- partial:index.partial.html -->
-<html lang="et" >
-   <head>
-      <title>Curriculum Vitae</title>
+
+     
       <meta name="viewport" content="width=device-width" />
       <meta name="description" content="Margus Lillemagi - Curriculum Vitae" />
       <meta charset="UTF-8">
@@ -279,6 +274,19 @@
          }
       </style>
    </head>
+   @extends('layouts.base')
+   @section('contenu')
+   <style>
+    #tableauformation{
+        background-color: white;
+    width: 150%;
+    border-radius: 30px 0px 0px 30px ;
+    }
+    #tableauformation a{
+      color: black;
+    }
+</style>
+
    <body id="top">
       <!--Page 1-->
       <page size="A4">
@@ -335,7 +343,8 @@
          </div>
       </page>
    </body>
-<html>  
+   @endsection
+ 
 
 
 

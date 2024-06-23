@@ -1,8 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<style>
+    #tableauformation{
+        background-color: white;
+    width: 150%;
+    border-radius: 30px 0px 0px 30px ;
+    }
+    #tableauformation a{
+      color: black;
+    }
+</style>
 
 
          @extends('layouts.base')
          @section('contenu')
-        
+   
                 <table class="table table-striped"><a href="#"></a>
                     <thead class="thead-dark">
                         <tr>
@@ -39,7 +57,8 @@
         
          @endsection
  
-
+</body>
+</html>
 
 
 

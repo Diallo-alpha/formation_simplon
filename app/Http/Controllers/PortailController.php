@@ -19,7 +19,7 @@ class PortailController extends Controller
         {
             return view('layouts.base');
         }
-        public function candidat_profil(){
+        public function candidat_profil($id){
             $id = Auth::id();
             $users = User::find($id);
             return view('layouts.base', compact('users'));
