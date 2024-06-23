@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        body {
+        /* body {
             font-family: Arial, sans-serif;
             justify-content: center;
             align-items: center;
@@ -88,20 +88,82 @@
         }
         .apply-button:hover {
             background: #ce0033;
+        } */
+
+        .container{
+            display:flex;
+            width: 1057px;
+            height: 260px;
+            border: #Ce0033;
+            border: 1px solid white;
+            margin-top: 30px;
+            box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);
+            border-radius: 12px
+            
+           
+
         }
+        h1{
+            text-align: center;
+            color: #Ce0033;
+            font-family: Montserrat;
+        }
+        .container img{
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            margin-top:25px 
+
+        }
+        .container h2{
+            color: #Ce0033;
+            text-align: center;
+            font-family: Montserrat;
+        }
+        .container p{
+            margin-left: 30px;
+            font-size: 22px;
+            text-align: justify;
+            font-family: Montserrat;
+
+        }
+        .container button{
+            margin-top: 200px
+        }
+        .container .lien{
+            display: flex;
+            margin-right: 20px
+            
+            
+
+        }
+        .lien button{
+            width: 109px;
+            height: 44px;
+            border-radius: 7px;
+            border: 1px solid #Ce0033 ;
+            background:#Ce0033 ; 
+            color: rgb(255, 255, 255);
+            font-family: Inter;
+        }
+        .voir_plus{
+            margin-left: 20px;
+
+        }
+
     </style>
 </head>
 <body>
 <div class="cont_all">
-    <div class="sidebar">
+     <div class="sidebar">
         <div class="profile">
             <img src="{{asset('images/'. $users->profil)}}" alt="Image de Profil">
             <div class="profile-info">
                 <h3>{{$users->nom}}</h3>
                 <p>{{$users->telephone}}</p>
             </div>
-        </div>
-        <ul class="menu">
+        </div> 
+         <ul class="menu">
             <li class="menu-item active">
                 <a href="#"><i class="fa-solid fa-bars-progress"></i> Tableau de Bord</a>
             </li>
@@ -125,8 +187,8 @@
                         @csrf
                     </form>
                 </li>
-         </ul>
-    </div>
+         </ul> 
+    </div> 
     <div class="conteneur_element">
         <h1 class="mb-4">Liste des Formations</h1>
         @if(session('success'))
@@ -136,19 +198,18 @@
         @endif
 
         @foreach($formations as $formation)
-        <div class="card">
-            <div class="card-image">
-                <img src="{{ asset('images/'.$formation->image)}}" alt="Formation Image" onerror="this.onerror=null;this.src='{{ asset('images/default.jpg') }}';">
-            </div>
-            <div class="card-content">
+        <div class="container">
+            <img src="{{ asset('images/'.$formation->image)}}" alt="">
+            <div>
                 <h2>{{ $formation->titre }}</h2>
-                <p>{{ Str::limit($formation->description, 100) }}</p>
-                <div class="date">Date limite: {{ $formation->date_expiration }}</div>
-                <a href="{{ url('formulaire_postuler',$formation->id)  }}"><button class="btn btn-danger text-white btn-adjusted">Postuler</button></a> <br> <br>
-                <a href="{{route('detail.formation', $formation->id)}}" style="text-decoration: none"> <button class="btn btn-danger text-white btn-adjusted">Voir plus</button>
+                <p>{{ Str::limit($formation->description, 200) }}</p>
+                <p>Date limite: {{ $formation->date_expiration }}</p>
             </div>
+            <div class="lien"> <a href=""> <button>postuler</button></a>
+                <a href="" class="voir_plus"> <button>voir plus</button></a>
+               </div> 
         </div>
-        @endforeach
+        @endforeach 
     </div>
 </div>
 </body>

@@ -52,7 +52,7 @@
 <body>
 <div class="container form-container">
     <div class="image-section">
-        <img src="{{ asset('img/simplon 2.png') }}" alt="Simplon Logo">
+        <img src="{{ asset('images/simplon 1.png') }}" alt="Simplon Logo">
     </div>
     <div class="form-section">
         <h1>Inscription</h1>
