@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{{-- <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
@@ -68,10 +68,10 @@
   }
 
   .btn-success:hover {
-      background-color: #218838;
-  }
+      background-color: #218838; --}}
+  {{-- /* } --}}
 
-  .btn-warning {
+  {{-- .btn-warning {
       background-color: #ffc107;
       color: #000;
   }
@@ -96,11 +96,11 @@
       border: 1px solid #c3e6cb;
       border-radius: 5px;
       margin-bottom: 20px;
-  }
+  } */ --}}
 
 
   </style>
-</head>
+{{-- </head>
 <body>
 <div class="cont_all">
 <!-- la dashbord -->
@@ -111,7 +111,7 @@
         <h1>Coach Barro</h1>
         <p>78 225 17 74</p>
     </div>
-</section>
+</section> --}}
 
 {{-- 
 <nav class="navbar">
@@ -138,7 +138,7 @@
 </ul>
 </nav>
 </div> --}}
-<nav class='navbar'>
+{{-- <nav class='navbar'>
   <ul>
       <li class="colonne"><i class="fa-solid fa-bars-progress"></i><a href="#"><span> </span>TABLEAU DE BORD</a></li>
       <li class="colonne"><i class="fa-solid fa-school"></i> <a href="{{ route('formation.personnel') }}"><span> </span>Formation</a></li>
@@ -153,9 +153,9 @@
       </li>
   </ul>
 </nav>
-</div>
+</div> --}}
 <!-- le conteneur des elements -->
-<div class="conteneur_element">
+{{-- <div class="conteneur_element">
 <h1> Liste des candidats</h1>
 <table class="table">
   <thead>
@@ -166,9 +166,9 @@
       <th scope="col">email</th>
       <th scope="col">telephone</th>
       <th scope="col">Adresse</th>
-      <th scope="col">niveau</th>
+      <th scope="col">niveau</th> --}}
       {{-- <th scope="col">Supprimer</th> --}}
-    </tr>
+    {{-- </tr>
   </thead>
   @foreach ($users as $user )
   <tbody>
@@ -180,15 +180,46 @@
       <td>{{ $user->email}}</td>
       <td>{{ $user->telephone}}</td>
       <td>{{ $user->adresse}}</td>
-      <td>{{ $user->niveau}}</td>
+      <td>{{ $user->niveau}}</td> --}}
       {{-- <form action="{{route('supprimer.candiate',$user->id )}}" method="post">
         @csrf
       <td><a href="" class="btn btn-danger"> supprimer</a></td>
       <i class='fas fa-eye' style='font-size:48px;color:red'></i>
     </form> --}}
-      @endforeach
+      {{-- @endforeach
     </tr>
   </tbody>
 </table>
 </body>
-</html>
+</html> --}}
+@extends('layouts.base')
+@section('contenu')
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">id</th>
+        <th scope="col">Prenom</th>
+        <th scope="col">Nom</th>
+        <th scope="col">email</th>
+        <th scope="col">telephone</th>
+        <th scope="col">Adresse</th>
+        <th scope="col">niveau</th>
+        {{-- <th scope="col">Supprimer</th> --}}
+      </tr>
+    </thead>
+    @foreach ($users as $user )
+    <tbody>
+      <tr>
+  
+        <th scope="row">{{ $user->id }}</th>
+        <td>{{ $user->prenom }}</td>
+        <td>{{ $user->nom }}</td>
+        <td>{{ $user->email}}</td>
+        <td>{{ $user->telephone}}</td>
+        <td>{{ $user->adresse}}</td>
+        <td>{{ $user->niveau}}</td>
+        @endforeach
+      </tr>
+    </tbody>
+    @endsection
+

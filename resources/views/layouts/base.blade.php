@@ -113,7 +113,7 @@
 
  <nav class='navbar'>
                 <ul>
-                    <li class="colonne"><i class="fa-solid fa-bars-progress"></i><a href="#"><span> </span>TABLEAU DE BORD</a></li>
+                    <li class="colonne"><i class="fa-solid fa-bars-progress"></i><a href="{{ route('formation.personnel') }}"><span> </span>TABLEAU DE BORD</a></li>
                     <li class="colonne"><i class="fa-solid fa-school"></i> <a href="{{ route('formation.personnel') }}"><span> </span>Formation</a></li>
                     <li class="colonne"><i class="fa-solid fa-people-group"></i><a href="afficher_candidat"><span> </span>Candidats</a></li>
                     <li class="colonne"><i class="fa-solid fa-sign-out-alt"></i><a href="{{ route('auth.logout') }}"
