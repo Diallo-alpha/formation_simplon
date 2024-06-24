@@ -7,6 +7,11 @@
     #tableaucandidat a{
       color: black;
     }
+    table{
+      font-family: inter;
+      font-size: 18px;
+      margin-top: 60px
+    }
 </style>
 
   
@@ -16,7 +21,7 @@
 <table class="table">
     <thead>
       <tr>
-        <th scope="col">id</th>
+       
         <th scope="col">Prenom</th>
         <th scope="col">Nom</th>
         <th scope="col">email</th>
@@ -30,7 +35,6 @@
     <tbody>
       <tr>
   
-        <th scope="row">{{ $user->id }}</th>
         <td>{{ $user->prenom }}</td>
         <td>{{ $user->nom }}</td>
         <td>{{ $user->email}}</td>

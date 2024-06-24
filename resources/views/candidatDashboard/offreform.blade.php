@@ -91,7 +91,7 @@
                 <p>Date limite: {{ $formation->date_expiration }}</p>
     </div>
     <div class="lien">
-         <a href="postuler"> <button>postuler</button></a>
+         <a href="{{ url('formulaire_postuler',$formation->id)  }}"> <button>postuler</button></a>
         <a href="detail/{{ $formation->id }}" class="voir_plus"> <button>voir plus</button></a>
     </div> 
 </div>
